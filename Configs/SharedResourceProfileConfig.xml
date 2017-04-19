@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:SharedResourceProfileConfig xmlns:ns0="http://www.delta.com/amxadmin/schemas/autodeploy/SharedResPro" ServiceName="ECreditSearchDcomSpec">
+    <Environment name="PROD">
+        <Campus name="ADM">
+            <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+        </Campus>
+        <Campus name="RCC">
+            <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+        </Campus>
+    </Environment>
+    <Environment name="SI">
+        <Campus name="ADM">
+            <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+        </Campus>
+        <Campus name="RCC">
+            <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+        </Campus>
+    </Environment>
+    <Environment name="ST">
+        <Campus name="2.3">
+            <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+        </Campus>
+    </Environment>
+    <Environment name="TP">
+      <Campus name="TP1">
+           <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+      </Campus>	
+      <Campus name="TP99">
+           <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+      </Campus>
+      <Campus name="TP2">
+           <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+      </Campus> 
+       <Campus name="TP3">
+           <SharedResourceProfileMappings SharedResourceProfileName="httpEcreditDcomSpec" SharedResourceDefinitionName="ECreditSearchDcomSpecHTTP37521" SharedResourceType="HTTP"/>
+      </Campus>     	
+   </Environment>   
+</ns0:SharedResourceProfileConfig>

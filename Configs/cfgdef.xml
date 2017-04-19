@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE CFGDEF SYSTEM "http://ret.delta.com/XML/cfgdef.dtd">
+<CFGDEF DEPLOY_SCRIPT="E:\tibco\SysTools\ScriptedDeployment\RET_Interface\AMXDeployer.cmd">
+    <DIST_FILE FROM_SPEC="/vobs/webservices/ECreditSearchDcomSpecService/Configs/ServiceConfig.xml" TO_NAME=""/>
+    <DIST_FILE FROM_SPEC="/vobs/webservices/ECreditSearchDcomSpecService/Configs/SharedResourceProfileConfig.xml" TO_NAME=""/>
+    <DIST_FILE FROM_SPEC="/vobs/webservices/ECreditSearchDcomSpecService/Configs/SubstitutionVariableConfig.xml" TO_NAME=""/>
+</CFGDEF>

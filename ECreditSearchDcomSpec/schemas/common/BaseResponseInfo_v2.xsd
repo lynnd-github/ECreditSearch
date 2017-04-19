@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://schemas.delta.com/common/baseresponseinfo/v2" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/baseresponseinfo/v2">
+<element name="BaseResponseInfo" type="tns:BaseResponseInfoType"/>
+<complexType name="BaseResponseInfoType">
+        <annotation>
+        	<documentation>
+        		The BaseResponseInfo returns information entered as part
+        		of BaseRequestInfo and an optional ServiceTrackingId
+        		attribute.
+
+        	</documentation>
+        </annotation>
+        <attribute name="ApplicationName" type="string" use="required">
+			<annotation>
+				<documentation>
+					The name with whihc the application identifies itself.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="TransactionId" type="string" use="optional">
+			<annotation>
+				<documentation>
+					The unique transaction id for this request. This
+					must be created and provided by the client and is
+					used in instrumentation logging and reporting.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="SvcTrackingId" type="string" use="optional">
+			<annotation>
+				<documentation>
+					unique Id which is created and be used by the service to trace the path of the request
+		and sent back to the client. If the client logs this in its log, it can be used during support calls to track the
+		request.
+				</documentation>
+			</annotation>
+		</attribute>				
+	</complexType>
+	
+</schema>

@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soa.delta.com/ecreditsearchdcomspec/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://schemas.delta.com/common/checkhealth/v3" xmlns:ns1="http://schemas.delta.com/ecredit/ecreditsearchrequest" xmlns:ns2="http://schemas.delta.com/ecredit/ecreditsearchresponse" xmlns:ns3="http://schemas.delta.com/common/fault/v4" xmlns:ns4="http://schemas.delta.com/common/requestinfo/v4" xmlns:ns5="http://schemas.delta.com/ecredit/legdetails" xmlns:ns6="http://schemas.delta.com/common/debuginfo/v4" xmlns:ns7="http://schemas.delta.com/misc/ecertificateresponse" xmlns:ns8="http://schemas.delta.com/common/baseresponseinfo/v2" xmlns:ns9="http://schemas.delta.com/ecredit/choicetext" xmlns:ns10="http://schemas.delta.com/ecredit/ecreditidnumbersearch" xmlns:ns11="http://schemas.delta.com/common/responseinfo/v1" xmlns:ns12="http://schemas.delta.com/common/error/v4" xmlns:ns13="http://schemas.delta.com/ecredit/ecreditsearchcriteria" xmlns:ns14="http://schemas.delta.com/ecredit/ecredit" xmlns:ns15="http://schemas.delta.com/ecredit/eticket" xmlns:ns16="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:ns17="http://schemas.delta.com/ecredit/ecreditskymilessearch" name="generatedWSDL" targetNamespace="http://soa.delta.com/ecreditsearchdcomspec/v1">
+    <wsdl:types>
+        <schema xmlns:pref="http://schemas.delta.com/common/debuginfo/v4" xmlns:resp="http://schemas.delta.com/common/responseinfo/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/fault/v4" targetNamespace="http://schemas.delta.com/common/fault/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+            <import namespace="http://schemas.delta.com/common/responseinfo/v1"/>
+            <complexType name="BusinessFaultType">
+                <sequence>
+                    <element ref="tns:FaultDetailedInfo"/>
+                </sequence>
+            </complexType>
+            <complexType name="FaultDetailsType">
+                <sequence>
+                    <element ref="pref:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+                    <element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="AdditionalInfo" type="string">
+                    <annotation>
+                        <documentation>
+					information such as backend request, timings, etc --
+					anything that would be helpful in determining the
+					cause of the error
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ErrorCode" type="string">
+                    <annotation>
+                        <documentation>
+					If there is no error code (from backend or
+					middleware) then leave blank
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ErrorMessage" type="string">
+                    <annotation>
+                        <documentation>
+					Error Message - e.g: invalid arguments
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="StackTraceInfo" type="string">
+                    <annotation>
+                        <documentation>Error StackTrace</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <complexType name="SystemFaultType">
+                <sequence>
+                    <element ref="tns:FaultDetailedInfo"/>
+                </sequence>
+            </complexType>
+            <element name="BusinessFault" type="tns:BusinessFaultType"/>
+            <element name="FaultDetailedInfo" type="tns:FaultDetailsType"/>
+            <element name="SystemFault" type="tns:SystemFaultType"/>
+        </schema>
+        <schema xmlns:tns="http://schemas.delta.com/common/requestinfo/v4" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.delta.com/common/requestinfo/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <complexType name="DBConnectionInfoType">
+                <annotation>
+                    <documentation/>
+                </annotation>
+                <attribute name="BedsDBDnsNameId" type="string">
+                    <annotation>
+                        <documentation>
+    				An id to match the client with a particular dns for
+    				BEDS
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TestBedsDBId" type="string">
+                    <annotation>
+                        <documentation>
+    				A predefined BookingEDS (BEDS) database instance id
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TestFpesDBId" type="string">
+                    <annotation>
+                        <documentation>
+    				A predefined FPES database instance id
+    			</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <complexType name="HostContextParamsType">
+                <attribute name="Airline" type="string">
+                    <annotation>
+                        <documentation>
+					Airline Code
+
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="City" type="string">
+                    <annotation>
+                        <documentation>
+					Specifies the City Code that is to be used; this has
+					implications as to which commands can be executed on
+					specific records.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="DutyCode" type="string"/>
+                <attribute name="LogonId" type="string">
+                    <annotation>
+                        <documentation>
+					If the session is to be created using an
+					individual's logon, this specifies the LogonId to be
+					utilized for this session. This can have various
+					implications including what commands can be
+					executed, etc.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="Password" type="string">
+                    <annotation>
+                        <documentation>
+					Password for the LogonId provided (if any)
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="PoolType" type="string">
+                    <annotation>
+                        <documentation> 
+					Indicates PoolName or a client's logged-in wsine
+					for which session is being 
+					requested. If a client's logged-in wsine is being
+					used, info in the format,  ;wsine=xxxxxx  should
+					be passed in for all operations that create or destroy a session.
+					If a client's logged-in wsine is being used AND this wsine needs
+					to be logged off during destroy, info in the format,  ;wsine=xxxxxx;logoff=Y/N  should
+					be passed in for all operations that create or destroy a session.
+					xxxxx is the wsine and logoff=Y would imply that 
+					during destroy the client's wsine will be logged off.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ResetPassword" type="string">
+                    <annotation>
+                        <documentation>
+					ResetPassword is required if the password is to be
+					changed with this request. If this is present,
+					password for the LogonId should be changed to the
+					password requested. Don't ask why it is even here!
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TimeoutInactivity" type="string">
+                    <annotation>
+                        <documentation>
+					Specify the timeout in seconds for the requested
+					session if the session is inactive for the duration
+					specified. This should be based on the type of
+					transaction the session is about to handle.
+					Inactivity timeout should be less than the
+					TimeoutSession. This should be an int with a range
+					from 0000 - 9998.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TimeoutSession" type="string">
+                    <annotation>
+                        <documentation>
+					Specify the timeout in seconds for the requested
+					session. This should be based on the type of
+					transaction the session is about to handle. The
+					session will be terminated when this is reached even
+					if there is activity against the session. This
+					should be an int with a range from 0000 - 9999.
+				</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <complexType name="RequestInfoType">
+                <sequence>
+                    <element ref="tns:HostContextParams" minOccurs="0"/>
+                    <element ref="tns:DBConnectionInfo" minOccurs="0"/>
+                </sequence>
+                <attribute name="AppChannelName" type="string">
+                    <annotation>
+                        <documentation>
+					The name of the channel from which the request is
+					originating, e.g. kiosk, delta.com, etc.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ApplicationId" type="string">
+                    <annotation>
+                        <documentation>
+					Each client should have a unique identifier. This is
+					defined by Worldspan.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ApplicationVersion" type="string">
+                    <annotation>
+                        <documentation>
+					Logged for debugging and possibly used for routing.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="Company" type="string">
+                    <annotation>
+                        <documentation>
+					Logged for debugging and possibly used for routing.
+					For DT, it would all be Delta.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="DebugOptions" type="string">
+                    <annotation>
+                        <documentation>
+					If not empty, debug information will be included in
+					the response. The debug information will include,
+					among other things, the actual request/response
+					sent/received from the data sources used in the
+					service and the current configuration settings.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="Description" type="string">
+                    <annotation>
+                        <documentation>
+					The description of the transaction or session. This
+					is also provided by the client and is used in
+					instrumentation logging and reporting.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ExternalVendorFlag" type="string">
+                    <annotation>
+                        <documentation>
+					Default is N. This flag needs to be set to 'Y' if
+					the request is for external Vendor.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="Location" type="string">
+                    <annotation>
+                        <documentation>
+					Logged for debugging and possibly used for routing.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="SessionId" type="string">
+                    <annotation>
+                        <documentation>
+					The session cookie that was provided by the
+					Session.Create service.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TestLab" type="string">
+                    <annotation>
+                        <documentation>
+					Use this parameter if the request need to be routed
+					to a particular test lab (TSAJ..TSAT..ETC). This
+					should be used only for debugging puposes while the
+					default lab is not available. This parameter should
+					never be used in Production Environment.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TransactionId" type="string">
+                    <annotation>
+                        <documentation>
+					The unique transaction id for this session. This
+					must be created and provided by the client and is
+					used in instrumentation logging and reporting.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TurnOffResponseInfo" type="string">
+                    <annotation>
+                        <documentation>By default, all operation responses may return ResponseInfo elements. Set this to "Y" to not get back any ResponseInfo elements in the response.		</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <element name="DBConnectionInfo" type="tns:DBConnectionInfoType"/>
+            <element name="HostContextParams" type="tns:HostContextParamsType"/>
+            <element name="RequestInfo" type="tns:RequestInfoType"/>
+        </schema>
+        <xsd:schema xmlns:y="http://schemas.delta.com/common/checkhealth/v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.delta.com/common/checkhealth/v3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xsd:complexType name="CheckHealthGenericRequestType">
+                <xsd:annotation>
+                    <xsd:documentation>
+				RequestType that will accept a string. If the check
+				health function does not require any special inputs, use
+				this request type.
+			</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="AnyString" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CheckHealthResponseType">
+                <xsd:annotation>
+                    <xsd:documentation>
+				ResponseType represents the status of the entire service
+				as well as information on the dependencies of the
+				service. For example, if a service retrieves information
+				from the database, the response will contain an status
+				entry for the service as well as the database.
+			</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="ServiceHealthStatus" type="y:HealthStatusType">
+                        <xsd:annotation>
+                            <xsd:documentation>
+						Health of the entire service; the result value
+						is determined per the need and dependencies of
+						the service. In this scenario, if a critical
+						dependency failed, then the ServiceHealthStatus
+						would be FATAL...if it is a minor piece that is
+						broken/down, then the service is still ok. It is
+						the provider of the service that determines this
+						result; there is no hard rule.
+					</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="HealthMessage" type="y:HealthMessageType" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:documentation>
+                		Health of one or more dependencies.
+                	</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="HealthMessageType">
+                <xsd:annotation>
+                    <xsd:documentation>
+				HealthMessage providing health status information on
+				each of the dependencies of the service. For example, a
+				database, another service, file system, email server,
+				etc.
+			</xsd:documentation>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="SystemName" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation>
+						System or Dependency name- for example,
+						SkyMilesAuthenticationService or CustomerDB,
+						even D007PROD
+					</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Message" type="xsd:string" minOccurs="0">
+                        <xsd:annotation>
+                            <xsd:documentation>
+						Message regarding the problem or the status
+						provided
+					</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                    <xsd:element name="Status" type="y:HealthStatusType">
+                        <xsd:annotation>
+                            <xsd:documentation>
+						Status of the system/dependency
+					</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:simpleType name="HealthStatusType">
+                <xsd:annotation>
+                    <xsd:documentation>
+        		HealthStatus provides an indication as to the health
+        	</xsd:documentation>
+                </xsd:annotation>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="FATAL">
+                        <xsd:annotation>
+                            <xsd:documentation>FATAL : cannot achieve desired goals which are considered critical by the provider</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="WARN">
+                        <xsd:annotation>
+                            <xsd:documentation>WARN : certain pieces of the service may not be functioning properly, but the overall goals of the provider is still achieved</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                    <xsd:enumeration value="OK">
+                        <xsd:annotation>
+                            <xsd:documentation>OK : no problems of any kind were detected</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:enumeration>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:element name="CheckHealthRequest" type="y:CheckHealthGenericRequestType"/>
+            <xsd:element name="CheckHealthResponse" type="y:CheckHealthResponseType"/>
+        </xsd:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchresponse" xmlns:ect="http://schemas.delta.com/misc/ecertificateresponse" xmlns:crit="http://schemas.delta.com/ecredit/ecreditsearchcriteria" xmlns:pref2="http://schemas.delta.com/common/responseinfo/v1" xmlns:dbg="http://schemas.delta.com/common/debuginfo/v4" xmlns:err="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchresponse" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+            <xs:import namespace="http://schemas.delta.com/common/responseinfo/v1"/>
+            <xs:import namespace="http://schemas.delta.com/common/error/v4"/>
+            <xs:import namespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria"/>
+            <xs:import namespace="http://schemas.delta.com/misc/ecertificateresponse"/>
+            <xs:complexType name="ECreditSearchResponseType">
+                <xs:sequence>
+                    <xs:element ref="err:Error" minOccurs="0"/>
+                    <xs:element ref="dbg:DebugInfo"/>
+                    <xs:element ref="pref2:ResponseInfo"/>
+                    <xs:element ref="crit:ECreditSearchCriteria" minOccurs="0"/>
+                    <xs:element ref="ect:RetrieveECertificateResponse" minOccurs="0"/>
+                </xs:sequence>
+                <xs:attribute name="ECertCount" type="xs:string"/>
+                <xs:attribute name="ECreditCount" type="xs:string"/>
+                <xs:attribute name="OpenCertsOrECreditsExist" type="xs:string"/>
+                <xs:attribute name="RecentExpiredECertCount" type="xs:string"/>
+                <xs:attribute name="RecentExpiredECreditCount" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="ECreditSearchResponse" type="tns:ECreditSearchResponseType"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/legdetails" targetNamespace="http://schemas.delta.com/ecredit/legdetails" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="LegDetailsType">
+                <xs:attribute name="Arr" type="xs:string"/>
+                <xs:attribute name="CpnNumber" type="xs:string"/>
+                <xs:attribute name="Dept" type="xs:string"/>
+                <xs:attribute name="DeptDay" type="xs:string"/>
+                <xs:attribute name="DeptMonth" type="xs:string"/>
+                <xs:attribute name="DeptYear" type="xs:string"/>
+                <xs:attribute name="Status" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="LegDetails" type="tns:LegDetailsType"/>
+        </xs:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchrequest" xmlns:sky="http://schemas.delta.com/ecredit/ecreditskymilessearch" xmlns:num="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:crit="http://schemas.delta.com/ecredit/ecreditsearchcriteria" xmlns:pref2="http://schemas.delta.com/common/requestinfo/v4" targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchrequest" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/common/requestinfo/v4"/>
+            <import namespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria"/>
+            <complexType name="ECertificateSearchType">
+                <attribute name="ECertificateNumber" type="string"/>
+            </complexType>
+            <complexType name="ECreditSearchRequestType">
+                <sequence>
+                    <element ref="pref2:RequestInfo" minOccurs="0"/>
+                    <element ref="crit:ECreditSearchCriteria" minOccurs="0"/>
+                    <element ref="tns:ECertificateSearch" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="DocumentSearchType" type="string">
+                    <annotation>
+                        <documentation>Set to "ALL" to retrieve ECERTS and deltamatic documents.</documentation>
+                        <documentation>Set to "EMD" to retrieve only documents from deltmatic database
+		      				which is ECREDITS and ETICKETS. </documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <element name="ECertificateSearch" type="tns:ECertificateSearchType"/>
+            <element name="ECreditSearchCriteria" type="crit:ECreditSearchCriteriaType"/>
+            <element name="ECreditSearchRequest" type="tns:ECreditSearchRequestType"/>
+        </schema>
+        <xs:schema xmlns:pref1="http://schemas.delta.com/common/requestinfo/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/debuginfo/v4" targetNamespace="http://schemas.delta.com/common/debuginfo/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://schemas.delta.com/common/requestinfo/v4"/>
+            <xs:complexType name="DebugInfoType">
+                <xs:sequence>
+                    <xs:element name="ConfigurationSettings" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						Configuration Settings
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DataSourceRequest" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						Actual data sent to Data Source
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DataSourceResponse" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						Actual data received from Data Source
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="DataSourceName" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						Name of the Data Source
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TransportInfo" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						e.g.Transport Wsine
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Timers" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						Execution times at various design layers
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="AdditionalInfo" type="xs:string" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+					any information that would be helpful in understanding the response
+					e.g. the specific step name in a series of steps
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="RequestInfo" type="pref1:RequestInfoType" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>
+						The actual RequestInfo objects sent within the
+						request.
+					</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="DebugInfo" type="tns:DebugInfoType"/>
+        </xs:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/misc/ecertificateresponse" xmlns:brs="http://schemas.delta.com/common/baseresponseinfo/v2" xmlns:ns1="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/misc/ecertificateresponse" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xsd:import namespace="http://schemas.delta.com/common/baseresponseinfo/v2"/>
+            <xsd:import namespace="http://schemas.delta.com/common/error/v4"/>
+            <xsd:complexType name="CertificateUsagesType">
+                <xsd:attribute name="EBusinessFunctionStartLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2005-11-22 12:06:34)					
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ECertificateDocumentIdentifier" type="xsd:string"/>
+                <xsd:attribute name="RecordLocatorIdentifier" type="xsd:string"/>
+                <xsd:attribute name="TicketDocumentNumber" type="xsd:string"/>
+                <xsd:attribute name="WorldPerksNumber" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="CompartmentCodesType">
+                <xsd:attribute name="CarrierCode" type="xsd:string"/>
+                <xsd:attribute name="CompartmentCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="CustomerType">
+                <xsd:attribute name="CreationLocalTimestamp" type="xsd:string"/>
+                <xsd:attribute name="CustomerExternalReferenceNumber" type="xsd:string"/>
+                <xsd:attribute name="CustomerLastName" type="xsd:string"/>
+                <xsd:attribute name="ECertificateCustomerAffiliateIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificateCustomerAffiliateTypeCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificateGroupIdentifier" type="xsd:string"/>
+                <xsd:attribute name="FirstName" type="xsd:string"/>
+                <xsd:attribute name="GlobalCustomerIdentifier" type="xsd:string"/>
+                <xsd:attribute name="MiddleName" type="xsd:string"/>
+                <xsd:attribute name="PostalAreaCode" type="xsd:string"/>
+                <xsd:attribute name="PrefixNameCode" type="xsd:string"/>
+                <xsd:attribute name="SkyMilesNumber" type="xsd:string"/>
+                <xsd:attribute name="SuffixNameCode" type="xsd:string"/>
+                <xsd:attribute name="WorldPerksNumber" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="DaysOfWeekType">
+                <xsd:attribute name="DayOfWeekName" type="xsd:string"/>
+                <xsd:attribute name="DayOfWeekNumber" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="DebitCreditCardTravelType">
+                <xsd:attribute name="DebitCreditCardLevelCode" type="xsd:string"/>
+                <xsd:attribute name="DebitCreditCardTravelTypeCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="DebitCreditCardsType">
+                <xsd:attribute name="ECertificateProgramDebitCreditCardTypeCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="ECertRequestOptionsType">
+                <xsd:attribute name="CustomerAffiliateIdentifier" type="xsd:string"/>
+                <xsd:attribute name="CustomerAffiliateTypeCode" type="xsd:string"/>
+                <xsd:attribute name="DocumentNumber" type="xsd:string"/>
+                <xsd:attribute name="FrequentFlyerNumber" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="ECertificateResponseType">
+                <xsd:sequence>
+                    <xsd:element name="ECertRequestOptions" type="tns:ECertRequestOptionsType"/>
+                    <xsd:element name="EcertDocument" type="tns:EcertDocumentType" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:attribute name="FreeformText" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="EcertDocumentType">
+                <xsd:sequence>
+                    <xsd:element name="Customer" type="tns:CustomerType" minOccurs="0"/>
+                    <xsd:element name="Promotions" type="tns:PromotionsType" minOccurs="0"/>
+                    <xsd:element name="CertificateUsages" type="tns:CertificateUsagesType" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:attribute name="CustomerSupportAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentCreationLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ECertificateDocumentIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentRedemptionLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ECertificateDocumentUpdateLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ECertificateDocumentUsageCount" type="xsd:string"/>
+                <xsd:attribute name="ECertificateGroupIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificateRedemptionCode" type="xsd:string"/>
+                <xsd:attribute name="GlobalCustomerIdentifier" type="xsd:string"/>
+                <xsd:attribute name="LastUpdateLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="WithholdECertificateDocumentIndicator" type="xsd:string"/>
+                <xsd:attribute name="WorldPerksECertificateDocumentIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="PromotionsType">
+                <xsd:sequence>
+                    <xsd:element name="CompartmentCodes" type="tns:CompartmentCodesType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="DaysOfWeek" type="tns:DaysOfWeekType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="DebitCreditCards" type="tns:DebitCreditCardsType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="DebitCreditCardTravel" type="tns:DebitCreditCardTravelType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="TransportationStations" type="tns:TransportationStationsType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="TermsAndConditions" type="tns:TermsAndConditionsType" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:attribute name="AdvancePurchaseRequiredDayCount" type="xsd:string"/>
+                <xsd:attribute name="CreationAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="DistributionAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentActualDistributionLocalDate" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentAgentDistributionLocalDate" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentMaximumUsageCount" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentScheduledDistributionLocalDate" type="xsd:string"/>
+                <xsd:attribute name="ECertificateDocumentTransferIndicator" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionDescription" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionDistributionMethodCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionName" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionStatusCode" type="xsd:string"/>
+                <xsd:attribute name="ExcludeMedallionIndicator" type="xsd:string"/>
+                <xsd:attribute name="FareBasisCode" type="xsd:string"/>
+                <xsd:attribute name="GRSLocatorIdentifier" type="xsd:string"/>
+                <xsd:attribute name="GuestSkymilesMembershipRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="ImplementationAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="LastUpdateAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="MaximumStayDayCount" type="xsd:string"/>
+                <xsd:attribute name="MinimumStayDayCount" type="xsd:string"/>
+                <xsd:attribute name="MultipleFlightLegRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="Non-StopFlightRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="PricingAgentNumber" type="xsd:string"/>
+                <xsd:attribute name="PromotionAwardTypeCode" type="xsd:string"/>
+                <xsd:attribute name="PromotionCertificateTypeCode" type="xsd:string"/>
+                <xsd:attribute name="PromotionCreationLocalTimestamp" type="xsd:string"/>
+                <xsd:attribute name="PromotionDeltaExpressIndicator" type="xsd:string"/>
+                <xsd:attribute name="PromotionDeltaShuttleIndicator" type="xsd:string"/>
+                <xsd:attribute name="PromotionDisableIndicator" type="xsd:string"/>
+                <xsd:attribute name="PromotionDiscountQuantity" type="xsd:string"/>
+                <xsd:attribute name="PromotionEffectiveLocalDate" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="PromotionExpirationLocalDate" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="PromotionGuestAllowedCount" type="xsd:string"/>
+                <xsd:attribute name="PromotionImplementationLocalTimestamp" type="xsd:string"/>
+                <xsd:attribute name="PromotionInternetOnlyIndicator" type="xsd:string"/>
+                <xsd:attribute name="PromotionPartnerCarrierIndicator" type="xsd:string"/>
+                <xsd:attribute name="PromotionPricingApprovedLocalTimestamp" type="xsd:string"/>
+                <xsd:attribute name="PromotionTravelEndLocalDate" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="PromotionTravelStartLocalDate" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="PromotionUpdateLocalTimestamp" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+
+				</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="PromotionUsageCount" type="xsd:string"/>
+                <xsd:attribute name="RecipientSkymilesMembershipRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="RoundTripRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="SaturdayNightRequiredIndicator" type="xsd:string"/>
+                <xsd:attribute name="SecureRateAgreementCode" type="xsd:string"/>
+                <xsd:attribute name="SkymilesMemberOnlyIndicator" type="xsd:string"/>
+                <xsd:attribute name="TicketDesignatorCode" type="xsd:string"/>
+                <xsd:attribute name="TicketRefundableIndicator" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="RetrieveECertificateResponseType">
+                <xsd:sequence>
+                    <xsd:element ref="brs:BaseResponseInfo" minOccurs="0"/>
+                    <xsd:element name="ECertificateResponse" type="tns:ECertificateResponseType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element ref="ns1:Error" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="TermsAndConditionsType">
+                <xsd:sequence>
+                    <xsd:element name="ECertificateTermConditionText" type="xsd:string"/>
+                </xsd:sequence>
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="TransportationStationsType">
+                <xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionMarketTypeCode" type="xsd:string"/>
+                <xsd:attribute name="ECertificatePromotionStationCode" type="xsd:string"/>
+                <xsd:attribute name="OriginDestinationCode" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:element name="RetrieveECertificateResponse" type="tns:RetrieveECertificateResponseType"/>
+        </xsd:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/baseresponseinfo/v2" targetNamespace="http://schemas.delta.com/common/baseresponseinfo/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <complexType name="BaseResponseInfoType">
+                <annotation>
+                    <documentation>
+        		The BaseResponseInfo returns information entered as part
+        		of BaseRequestInfo and an optional ServiceTrackingId
+        		attribute.
+
+        	</documentation>
+                </annotation>
+                <attribute name="ApplicationName" use="required" type="string">
+                    <annotation>
+                        <documentation>
+					The name with whihc the application identifies itself.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="SvcTrackingId" type="string">
+                    <annotation>
+                        <documentation>
+					unique Id which is created and be used by the service to trace the path of the request
+		and sent back to the client. If the client logs this in its log, it can be used during support calls to track the
+		request.
+				</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TransactionId" type="string">
+                    <annotation>
+                        <documentation>
+					The unique transaction id for this request. This
+					must be created and provided by the client and is
+					used in instrumentation logging and reporting.
+				</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <element name="BaseResponseInfo" type="tns:BaseResponseInfoType"/>
+        </schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/choicetext" targetNamespace="http://schemas.delta.com/ecredit/choicetext" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:complexType name="ChoiceTextType">
+                <xs:attribute name="ChoiceData" type="xs:string"/>
+                <xs:attribute name="ChoiceType" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="ChoiceText" type="tns:ChoiceTextType"/>
+        </xs:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditidnumbersearch" xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit" xmlns:err="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/ecredit/ecreditidnumbersearch" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/ecredit/ecredit"/>
+            <import namespace="http://schemas.delta.com/common/error/v4"/>
+            <complexType name="ECreditIDNumberSearchType">
+                <sequence>
+                    <element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+                    <element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="AgencyNumber" type="string"/>
+                <attribute name="CorpID" type="string"/>
+                <attribute name="MaxNumberResults" type="string"/>
+                <attribute name="OtherID" type="string"/>
+                <attribute name="PPRNumber" type="string"/>
+                <attribute name="SkyBonusNumber" type="string"/>
+            </complexType>
+            <element name="ECreditIDNumberSearch" type="tns:ECreditIDNumberSearchType"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/responseinfo/v1" targetNamespace="http://schemas.delta.com/common/responseinfo/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <complexType name="ResponseInfoType">
+                <attribute name="AdditionalInfo" type="string">
+                    <annotation>
+                        <documentation>May contain semi-colon delimited strings</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ServiceTrackingId" type="string">
+                    <annotation>
+                        <documentation>May be provided by service...The concatenated node name, service name, operation name, and a unique randomly generated number.  If client logs this, then we can tie the service log entries to the client log entries (especially if client did not send a TransactionId)</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="TransactionId" type="string">
+                    <annotation>
+                        <documentation>May be provided by client...should be same for each "transaction" on client side</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <element name="ResponseInfo" type="tns:ResponseInfoType"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/common/error/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <complexType name="ErrorType">
+                <attribute name="AdditionalInfo" type="string">
+                    <annotation>
+                        <documentation>
+    				information such as backend request, timings, etc -- anything
+    				that would be helpful in determining the cause of the error
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ErrorCode" type="string">
+                    <annotation>
+                        <documentation>
+    				Each service will add additional error codes as
+    				needed
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ErrorText" type="string">
+                    <annotation>
+                        <documentation>
+    				If the error was due to an exception within the
+    				webservice code, then the contents of the exception
+    				can be put here else a string explaining the error
+    				can be put here, else it can be left blank.
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ReasonCode" type="string">
+                    <annotation>
+                        <documentation>
+    				backend error code if available or blank.
+    			</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="ReasonText" type="string">
+                    <annotation>
+                        <documentation>
+    				backend error reason text or backend exception text
+    				and/or stack trace , if available or blank
+    			</documentation>
+                    </annotation>
+                </attribute>
+            </complexType>
+            <element name="Error" type="tns:ErrorType"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchcriteria" xmlns:sky="http://schemas.delta.com/ecredit/ecreditskymilessearch" xmlns:num="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:id="http://schemas.delta.com/ecredit/ecreditidnumbersearch" targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/ecredit/ecreditskymilessearch"/>
+            <import namespace="http://schemas.delta.com/ecredit/ecreditnumbersearch"/>
+            <import namespace="http://schemas.delta.com/ecredit/ecreditidnumbersearch"/>
+            <complexType name="ECreditSearchCriteriaType">
+                <sequence>
+                    <element ref="sky:ECreditSkyMilesSearch" minOccurs="0"/>
+                    <element ref="num:ECreditNumberSearch" minOccurs="0" maxOccurs="unbounded"/>
+                    <element ref="id:ECreditIDNumberSearch" minOccurs="0"/>
+                </sequence>
+                <attribute name="CurrencyCode" type="string"/>
+                <attribute name="ECertificateNumber" type="string"/>
+                <attribute name="FirstName" type="string"/>
+                <attribute name="IataCode" type="string"/>
+                <attribute name="IncludePayWithMiles" type="string">
+                    <annotation>
+                        <documentation>"Y" or "N"</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="International" type="string">
+                    <annotation>
+                        <documentation>"Y" or "N"</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="LastName" type="string"/>
+                <attribute name="ResultsType" type="string"/>
+                <attribute name="Status" type="string"/>
+                <attribute name="Suffix" type="string"/>
+            </complexType>
+            <element name="ECreditIDNumberSearch" type="id:ECreditIDNumberSearchType"/>
+            <element name="ECreditNumberSearch" type="num:ECreditNumberSearchType"/>
+            <element name="ECreditSearchCriteria" type="tns:ECreditSearchCriteriaType"/>
+            <element name="ECreditSkyMilesSearch" type="sky:ECreditSkyMilesSearchType"/>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecredit" xmlns:etkt="http://schemas.delta.com/ecredit/eticket" xmlns:err="http://schemas.delta.com/common/error/v4" xmlns:chtxt="http://schemas.delta.com/ecredit/choicetext" targetNamespace="http://schemas.delta.com/ecredit/ecredit" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/ecredit/eticket"/>
+            <import namespace="http://schemas.delta.com/ecredit/choicetext"/>
+            <import namespace="http://schemas.delta.com/common/error/v4"/>
+            <complexType name="ECreditType">
+                <sequence>
+                    <element ref="etkt:ETicket" minOccurs="0"/>
+                    <element ref="chtxt:ChoiceText" minOccurs="0" maxOccurs="unbounded"/>
+                    <element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="AgencyID" type="string"/>
+                <attribute name="AltCurrencyCode" type="string"/>
+                <attribute name="AltValue" type="string"/>
+                <attribute name="AmountApplied" type="string"/>
+                <attribute name="AmountAppliedUSD" type="string"/>
+                <attribute name="ApplyToAllPax" type="string"/>
+                <attribute name="CorpID" type="string"/>
+                <attribute name="CurrencyCode" type="string"/>
+                <attribute name="DLRecordLocator" type="string"/>
+                <attribute name="DataIDCode" type="string"/>
+                <attribute name="DataText" type="string"/>
+                <attribute name="DecimalCurrencyInd" type="string">
+                    <annotation>
+                        <documentation>"D" or "N"</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="DocDescription" type="string"/>
+                <attribute name="DocType" type="string"/>
+                <attribute name="EMDText" type="string"/>
+                <attribute name="ETRDocumentNumber" type="string"/>
+                <attribute name="ExchangedToDocNbr" type="string"/>
+                <attribute name="ExchangedToDocType" type="string"/>
+                <attribute name="ExpiryDay" type="string"/>
+                <attribute name="ExpiryMonth" type="string"/>
+                <attribute name="ExpiryYear" type="string"/>
+                <attribute name="FirstName" type="string"/>
+                <attribute name="HighLevelDocType" type="string"/>
+                <attribute name="IssueDay" type="string"/>
+                <attribute name="IssueMonth" type="string"/>
+                <attribute name="IssueYear" type="string"/>
+                <attribute name="LastName" type="string"/>
+                <attribute name="OriginalDocMiles" type="string"/>
+                <attribute name="OriginalDocNumber" type="string"/>
+                <attribute name="OriginalDocValue" type="string"/>
+                <attribute name="OtherRecordLocator" type="string"/>
+                <attribute name="ReasonCode" type="string"/>
+                <attribute name="RedemptionCode" type="string"/>
+                <attribute name="Refundable" type="string">
+                    <annotation>
+                        <documentation>"Y" or "N"</documentation>
+                    </annotation>
+                </attribute>
+                <attribute name="SPID" type="string"/>
+                <attribute name="SkyBonusID" type="string"/>
+                <attribute name="SkyMilesNumber" type="string"/>
+                <attribute name="Source" type="string"/>
+                <attribute name="Status" type="string"/>
+                <attribute name="SubDocType" type="string"/>
+                <attribute name="Suffix" type="string"/>
+                <attribute name="TicketDesignator" type="string"/>
+                <attribute name="UIDocumentNumber" type="string"/>
+                <attribute name="Value" type="string"/>
+            </complexType>
+            <element name="ECredit" type="tns:ECreditType"/>
+        </schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/eticket" xmlns:leg="http://schemas.delta.com/ecredit/legdetails" targetNamespace="http://schemas.delta.com/ecredit/eticket" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://schemas.delta.com/ecredit/legdetails"/>
+            <xs:complexType name="ETicketType">
+                <xs:sequence>
+                    <xs:element ref="leg:LegDetails" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute name="AltCurrencyCode" type="xs:string"/>
+                <xs:attribute name="AltPartialValue" type="xs:string"/>
+                <xs:attribute name="AltPenaltyValue" type="xs:string"/>
+                <xs:attribute name="AltUsableValue" type="xs:string"/>
+                <xs:attribute name="CurrencyCode" type="xs:string"/>
+                <xs:attribute name="LastConjDocNumber" type="xs:string"/>
+                <xs:attribute name="NumConjuctive" type="xs:string"/>
+                <xs:attribute name="PartialUse" type="xs:string"/>
+                <xs:attribute name="Partialvalue" type="xs:string"/>
+                <xs:attribute name="PenaltyValue" type="xs:string"/>
+                <xs:attribute name="UsableValue" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="ETicket" type="tns:ETicketType"/>
+        </xs:schema>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit" xmlns:err="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/ecredit/ecreditnumbersearch" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:import namespace="http://schemas.delta.com/ecredit/ecredit"/>
+            <xs:import namespace="http://schemas.delta.com/common/error/v4"/>
+            <xs:complexType name="ECreditNumberSearchType">
+                <xs:sequence>
+                    <xs:element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+                <xs:attribute name="FirstName" type="xs:string"/>
+                <xs:attribute name="LastName" type="xs:string"/>
+                <xs:attribute name="MaxNumberResults" type="xs:string"/>
+                <xs:attribute name="RedemptionCode" type="xs:string"/>
+                <xs:attribute name="Suffix" type="xs:string"/>
+                <xs:attribute name="UIDocumentNumber" type="xs:string"/>
+                <xs:attribute name="ValidateLevel" type="xs:string"/>
+            </xs:complexType>
+            <xs:element name="ECreditNumberSearch" type="tns:ECreditNumberSearchType"/>
+        </xs:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/ecredit/ecreditskymilessearch" xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit" xmlns:err="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/ecredit/ecreditskymilessearch" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <import namespace="http://schemas.delta.com/ecredit/ecredit"/>
+            <import namespace="http://schemas.delta.com/common/error/v4"/>
+            <complexType name="ECreditSkyMilesSearchType">
+                <sequence>
+                    <element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+                    <element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="FirstName" type="string"/>
+                <attribute name="LastName" type="string"/>
+                <attribute name="MaxNumberResults" type="string"/>
+                <attribute name="SmNumber" type="string"/>
+                <attribute name="Suffix" type="string"/>
+            </complexType>
+            <element name="ECreditSkyMilesSearch" type="tns:ECreditSkyMilesSearchType"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="CheckHealthRequest">
+        <wsdl:part name="params" element="ns0:CheckHealthRequest"/>
+    </wsdl:message>
+    <wsdl:message name="CheckHealthResponse">
+        <wsdl:part name="params" element="ns0:CheckHealthResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RetrieveECreditSearchRequest">
+        <wsdl:part name="params" element="ns1:ECreditSearchRequest"/>
+    </wsdl:message>
+    <wsdl:message name="RetrieveECreditSearchResponse">
+        <wsdl:part name="params" element="ns2:ECreditSearchResponse"/>
+    </wsdl:message>
+    <wsdl:message name="BusinessFault">
+        <wsdl:part name="params" element="ns3:BusinessFault"/>
+    </wsdl:message>
+    <wsdl:message name="SystemFault">
+        <wsdl:part name="params" element="ns3:SystemFault"/>
+    </wsdl:message>
+    <wsdl:portType name="ECreditSearchDcomSpec">
+        <wsdl:operation name="CheckHealth">
+            <wsdl:input message="tns:CheckHealthRequest"/>
+            <wsdl:output message="tns:CheckHealthResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="RetrieveECredits">
+            <wsdl:input message="tns:RetrieveECreditSearchRequest"/>
+            <wsdl:output message="tns:RetrieveECreditSearchResponse"/>
+            <wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+            <wsdl:fault name="systemFault" message="tns:SystemFault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ECreditSearchDcomSpec_EP" type="tns:ECreditSearchDcomSpec">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckHealth">
+            <wsdl:documentation/>
+            <soap:operation style="document" soapAction="CheckHealth"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="params"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="params"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RetrieveECredits">
+            <wsdl:documentation/>
+            <soap:operation style="document" soapAction="RetrieveECredits"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="params"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="params"/>
+            </wsdl:output>
+            <wsdl:fault name="businessFault">
+                <soap:fault use="literal" name="businessFault"/>
+            </wsdl:fault>
+            <wsdl:fault name="systemFault">
+                <soap:fault use="literal" name="systemFault"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ECreditSearchDcomSpec">
+        <wsdl:port name="ECreditSearchDcomSpec_EP" binding="tns:ECreditSearchDcomSpec_EP">
+            <soap:address location="http://localhost:37521/ecreditsearchdcomspec"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

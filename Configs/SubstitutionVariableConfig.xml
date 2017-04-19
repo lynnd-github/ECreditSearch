@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ns0:SubstitutionVariableConfig xmlns:ns0="http://www.delta.com/amxadmin/schemas/autodeploy/SubVar" ServiceName="ECreditSearchDcomSpec">
+    <Environment name="PROD">
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="RES"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.delta.com:37526/ticket/v3"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.delta.com:37531/ticketingprocess/v3"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+    	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Environment>
+    <Environment name="SI">
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TPA"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices-si.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices-si.delta.com:37526/ticket/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices-si.delta.com:37531/ticketingprocess/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices-si.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+ 	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Environment>
+    <Environment name="ST">
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="DEBUG"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TPA"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="http://webservices5-st.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="http://webservices5-st.delta.com:37526/ticket/v3"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="http://webservices5-st.delta.com:37531/ticketingprocess/v3"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="http://webservices5-st.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+    	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Environment>
+     <Environment name="TP">
+      <Campus name="TP1">
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TPA"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.tp01.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.tp01.delta.com:37526/ticket/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.tp01.delta.com:37531/ticketingprocess/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/> 	
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.tp01.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Campus>	
+      <Campus name="TP99">
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TRS"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.tp99.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.tp99.delta.com:37526/ticket/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.tp99.delta.com:37531/ticketingprocess/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/> 	
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.tp99.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Campus>
+      <Campus name="TP2">
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="DEBUG"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TSBB"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="http://webservices.tp02.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="http://webservices.tp02.delta.com:37526/ticket/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="http://webservices.tp02.delta.com:37531/ticketingprocess/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/> 	
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="http://webservices.tp02.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Campus>
+      <Campus name="TP3">
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TPB"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.tp03.delta.com:31063/pnrcommon/v6"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.tp03.delta.com:37526/ticket/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.tp03.delta.com:37531/ticketingprocess/v3"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/> 	
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.tp03.delta.com:37518/miscellaneousdocument/v2"/>
+        <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+      	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="Delta"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="DAL"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="Delta Air Lines"/>
+	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="DL"/>
+</Campus>	       	      
+   </Environment>
+</ns0:SubstitutionVariableConfig>

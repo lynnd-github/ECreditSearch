@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://soa.delta.com/ecreditsearchdcomspec" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ECreditSearchDcomSpec" targetNamespace="http://soa.delta.com/ecreditsearchdcomspec" xmlns:fault="http://schemas.delta.com/common/fault/v4" xmlns:ckht="http://schemas.delta.com/common/checkhealth/v3" xmlns:ecsrchrq="http://schemas.delta.com/ecredit/ecreditsearchrequest" xmlns:ecsrchrs="http://schemas.delta.com/ecredit/ecreditsearchresponse">
+<wsdl:types>
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soa.delta.com/ecreditsearchdcomspec">
+  		    <xsd:import namespace="http://schemas.delta.com/common/fault/v4" schemaLocation="../schemas/common/FaultType_v4.xsd"/>
+		    <xsd:import namespace="http://schemas.delta.com/ecredit/ecreditsearchrequest" schemaLocation="../schemas/ecredit/ECreditSearchRequest.xsd"/>
+		    <xsd:import namespace="http://schemas.delta.com/ecredit/ecreditsearchresponse" schemaLocation="../schemas/ecredit/ECreditSearchResponse.xsd"/>	    
+			<xsd:import	namespace="http://schemas.delta.com/common/checkhealth/v3" schemaLocation="../schemas/common/CheckHealth_v3.xsd"/>
+     </xsd:schema>
+  </wsdl:types>
+	<wsdl:message name="RetrieveECreditSearchRequest">
+		<wsdl:part name="params" element="ecsrchrq:ECreditSearchRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="RetrieveECreditSearchResponse">
+		<wsdl:part name="params" element="ecsrchrs:ECreditSearchResponse"></wsdl:part>
+	</wsdl:message>
+    <wsdl:message name="BusinessFault">
+		<wsdl:part name="params" element="fault:BusinessFault"/>
+	</wsdl:message>
+	<wsdl:message name="SystemFault">
+		<wsdl:part name="params" element="fault:SystemFault"/>
+	</wsdl:message>	
+	<wsdl:message name="CheckHealthRequest">
+		<wsdl:part name="params" element="ckht:CheckHealthRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="CheckHealthResponse">
+		<wsdl:part name="params" element="ckht:CheckHealthResponse"></wsdl:part>
+	</wsdl:message>
+    <wsdl:portType name="ECreditSearchDcomSpec">  				
+        <wsdl:operation name="CheckHealth">
+        	<wsdl:input message="tns:CheckHealthRequest"></wsdl:input>
+        	<wsdl:output message="tns:CheckHealthResponse"></wsdl:output>
+        </wsdl:operation>
+	<wsdl:operation name="RetrieveECredits">
+		<wsdl:input message="tns:RetrieveECreditSearchRequest"/>
+		<wsdl:output message="tns:RetrieveECreditSearchResponse"/>
+		<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+		<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+	</wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
+  

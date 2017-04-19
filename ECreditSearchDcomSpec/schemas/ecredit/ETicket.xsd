@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+targetNamespace="http://schemas.delta.com/ecredit/eticket" 
+xmlns:tns="http://schemas.delta.com/ecredit/eticket"
+xmlns:leg="http://schemas.delta.com/ecredit/legdetails">
+  	<xs:import namespace="http://schemas.delta.com/ecredit/legdetails" schemaLocation="../ecredit/LegDetails.xsd"/>
+  	<xs:element name="ETicket" type="tns:ETicketType"/>
+  	<xs:complexType name="ETicketType" >
+			<xs:sequence>
+			  <xs:element ref="leg:LegDetails" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="UsableValue" type="xs:string"/>
+			<xs:attribute name="PartialUse" type="xs:string"/>
+			<xs:attribute name="NumConjuctive" type="xs:string"/>
+			<xs:attribute name="LastConjDocNumber" type="xs:string"/>
+			<xs:attribute name="Partialvalue" type="xs:string"/>
+			<xs:attribute name="PenaltyValue" type="xs:string"/>
+			<xs:attribute name="CurrencyCode" type="xs:string"/>
+			<xs:attribute name="AltUsableValue" type="xs:string"/>
+			<xs:attribute name="AltPartialValue" type="xs:string"/>
+			<xs:attribute name="AltPenaltyValue" type="xs:string"/>
+			<xs:attribute name="AltCurrencyCode" type="xs:string"/>
+	</xs:complexType>
+
+</xs:schema>

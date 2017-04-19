@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema	
+	targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchrequest" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchrequest" 
+	xmlns:sky="http://schemas.delta.com/ecredit/ecreditskymilessearch" 
+	xmlns:num="http://schemas.delta.com/ecredit/ecreditnumbersearch" 
+	xmlns:crit="http://schemas.delta.com/ecredit/ecreditsearchcriteria" 	
+	xmlns:pref2="http://schemas.delta.com/common/requestinfo/v4">
+	<import namespace="http://schemas.delta.com/common/requestinfo/v4" schemaLocation="../common/RequestInfo_v4.xsd"/>
+	<import namespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria" schemaLocation="../ecredit/ECreditSearchCriteria.xsd"/> 
+	<element name="ECreditSearchCriteria" type="crit:ECreditSearchCriteriaType"/>
+	<element name="ECreditSearchRequest" type="tns:ECreditSearchRequestType"/>
+	<element name="ECertificateSearch" type="tns:ECertificateSearchType"/>
+	<complexType name="ECreditSearchRequestType">
+   		<sequence>
+   		  <element ref="pref2:RequestInfo" maxOccurs="1" minOccurs="0" /> 
+   		  <element ref="crit:ECreditSearchCriteria" minOccurs="0"/> 
+   		  <element ref="tns:ECertificateSearch" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="DocumentSearchType" type="string">
+		   <annotation>
+		      <documentation>Set to "ALL" to retrieve ECERTS and deltamatic documents.</documentation>
+		      <documentation>Set to "EMD" to retrieve only documents from deltmatic database
+		      				which is ECREDITS and ETICKETS. </documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="ECertificateSearchType">
+	  	<attribute name="ECertificateNumber" type="string"/>
+	</complexType>
+</schema>

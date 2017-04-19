@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" 
+targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria" 
+xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchcriteria" 
+xmlns:sky="http://schemas.delta.com/ecredit/ecreditskymilessearch"
+xmlns:num="http://schemas.delta.com/ecredit/ecreditnumbersearch"
+xmlns:id="http://schemas.delta.com/ecredit/ecreditidnumbersearch">
+<import namespace="http://schemas.delta.com/ecredit/ecreditskymilessearch" schemaLocation="../ecredit/ECreditSkyMilesSearch.xsd"/>
+<import namespace="http://schemas.delta.com/ecredit/ecreditnumbersearch" schemaLocation="../ecredit/ECreditNumberSearch.xsd"/>
+<import namespace="http://schemas.delta.com/ecredit/ecreditidnumbersearch" schemaLocation="../ecredit/ECreditIDNumberSearch.xsd"/>
+	<element name="ECreditSkyMilesSearch" type="sky:ECreditSkyMilesSearchType"/>
+	<element name="ECreditNumberSearch" type="num:ECreditNumberSearchType"/>
+	<element name="ECreditIDNumberSearch" type="id:ECreditIDNumberSearchType"/>
+	<element name="ECreditSearchCriteria" type="tns:ECreditSearchCriteriaType"/>
+  	<complexType name="ECreditSearchCriteriaType">
+		<sequence>
+			<element ref="sky:ECreditSkyMilesSearch" minOccurs="0"/>
+			<element ref="num:ECreditNumberSearch" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="id:ECreditIDNumberSearch" minOccurs="0"/>
+		</sequence>
+	  	<attribute name="ECertificateNumber" type="string"/>
+		<attribute name="FirstName" type="string"/>
+		<attribute name="LastName" type="string"/>
+		<attribute name="Suffix" type="string"/>
+		<attribute name="CurrencyCode" type="string"/>
+		<attribute name="ResultsType" type="string"/>
+		<attribute name="IataCode" type="string"/>
+		<attribute name="International" type="string">
+			<annotation>
+				<documentation>"Y" or "N"</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Status" type="string"/>
+		<attribute name="IncludePayWithMiles" type="string">
+			<annotation>
+				<documentation>"Y" or "N"</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+</schema>

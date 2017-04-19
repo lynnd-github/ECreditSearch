@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://schemas.delta.com/common/baserequestinfo/v2" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/baserequestinfo/v2">
+<element name="BaseRequestInfo" type="tns:BaseRequestInfoType"/>
+<complexType name="BaseRequestInfoType">
+        <annotation>
+        	<documentation>
+        		The BaseRequestInfo can be used to identify each
+        		operation invocation by capturing capture information
+        		like the name of the client who is invoking an operation
+        		and an optional transactionid . Operations that use the
+        		TPF backend would use the RequestInfoType.
+        	</documentation>
+        </annotation>
+        <attribute name="ApplicationName" type="string" use="required">
+			<annotation>
+				<documentation>
+					The name with whihc the application identifies itself.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ApplicationVersion" type="string" use="optional">
+			<annotation>
+				<documentation>
+					Logged for debugging.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="TransactionId" type="string" use="optional">
+			<annotation>
+				<documentation>
+					The unique transaction id for this request. This
+					must be created and provided by the client and is
+					used in instrumentation logging and reporting.
+				</documentation>
+			</annotation>
+		</attribute>				
+	</complexType>
+
+</schema>

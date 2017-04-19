@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<httpmodel:HTTPClientConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:httpmodel="http://xsd.tns.tibco.com/corona/models/transport/httpmodel" name="miscDocumentHTTPClient" connectionTimeout="10000" connectToURL="http://webservices5-st.delta.com:37518/miscellaneousdocument/v2">
+  <substitutionBindings template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc%%" propName="connectToURL"/>
+</httpmodel:HTTPClientConfiguration>

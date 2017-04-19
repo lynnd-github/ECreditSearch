@@ -1,0 +1,19 @@
+bin.includes = META-INF/,\
+               .,\
+               lib/TicketingProcess-partner-interface.jar,\
+               lib/TicketingProcess-partner-beans.jar,\
+               lib/PnrCommon-partner-interface.jar,\
+               lib/PnrCommon-partner-beans.jar,\
+               lib/Ticket-partner-interface.jar,\
+               lib/Ticket-partner-beans.jar,\
+               lib/miscDocument-partner-interface.jar,\
+               lib/miscDocument-partner-beans.jar,\
+               lib/csh4j.jar,\
+               lib/jsr173_api.jar,\
+               lib/partnerutils_49.jar,\
+               lib/com.delta.mw.shared.components_2.0.9.jar,\
+               lib/com.delta.soa.ecreditsearchdcomspec.v1.ECreditSearchDcomSpec-service-beans.jar,\
+               lib/com.delta.soa.ecreditsearchdcomspec.v1.ECreditSearchDcomSpec-service-interface.jar,\
+               webservices/ECreditSearchDcomSpecService/ECreditSearchDcomSpecJava/lib/TicketingProcess-partner-interface.jar,\
+               webservices/ECreditSearchDcomSpecService/ECreditSearchDcomSpecJava/lib/TicketingProcess-partner-beans.jar
+source.. = src/

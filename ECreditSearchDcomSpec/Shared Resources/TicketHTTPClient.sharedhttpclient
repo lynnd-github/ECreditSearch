@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<httpmodel:HTTPClientConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:httpmodel="http://xsd.tns.tibco.com/corona/models/transport/httpmodel" name="TicketHTTPClient" connectToURL="webservice5-st.delta.com:37526/ticket/v3">
+  <substitutionBindings template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket%%" propName="connectToURL"/>
+  <substitutionBindings template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut%%" propName="connectionTimeout"/>
+</httpmodel:HTTPClientConfiguration>

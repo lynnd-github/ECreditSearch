@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+targetNamespace="http://schemas.delta.com/ecredit/legdetails" 
+xmlns:tns="http://schemas.delta.com/ecredit/legdetails">
+<xs:element name="LegDetails" type="tns:LegDetailsType"/>
+	<xs:complexType name="LegDetailsType">
+		<xs:attribute name="Dept" type="xs:string"/>
+		<xs:attribute name="Arr" type="xs:string"/>
+		<xs:attribute name="DeptDay" type="xs:string"/>
+		<xs:attribute name="DeptMonth" type="xs:string"/>
+		<xs:attribute name="DeptYear" type="xs:string"/>
+		<xs:attribute name="Status" type="xs:string"/>
+		<xs:attribute name="CpnNumber" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

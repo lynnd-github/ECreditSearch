@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.delta.com/ecredit/choicetext" 
+xmlns:tns="http://schemas.delta.com/ecredit/choicetext"> 
+	<xs:element name="ChoiceText" type="tns:ChoiceTextType"/>
+	<xs:complexType name="ChoiceTextType">
+		<xs:attribute name="ChoiceType" type="xs:string"/>
+		<xs:attribute name="ChoiceData" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,2211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite name="ECreditSearchDcomSpec"
+    targetNamespace="http://soa.delta.com/ecreditsearchdcomspec/v1"
+    xmlns:amx="http://schemas.tibco.com/amx/2.0/composite"
+    xmlns:sca="http://www.osoa.org/xmlns/sca/1.0"
+    xmlns:tibsec="http://xsd.tns.tibco.com/2007/security.model/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <sca:service name="ECreditSearchDcomSpec" promote="ECreditSearchDcomSpecImpl/ECreditSearchDcomSpec">
+        <sca:interface.wsdl
+            amx:wsdlLocation="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl" interface="http://soa.delta.com/ecreditsearchdcomspec/v1#wsdl.interface(ECreditSearchDcomSpec)"/>
+        <amx:binding.tibco-soap name="ECreditSearchDcomSpec_EP">
+            <xmi:XMI xmi:version="2.0"
+                xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel"
+                xmlns:httpmodel="http://xsd.tns.tibco.com/corona/models/transport/httpmodel"
+                xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <bindingsoapmodel:SOAPEndpointConfiguration
+                    endpointName="ECreditSearchDcomSpec_EP"
+                    soapVersion="1.1" transportBindingType="HTTP">
+                    <operationConfiguration action="CheckHealth" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration action="" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.0"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.0/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration action=""
+                            messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.1"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.1/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                        <bindingType encoding="default" style="default"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveECredits" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration action="" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.2"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.2/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration action=""
+                            messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.3"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.3/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration action=""
+                            messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.4"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.4/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration action=""
+                            messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.5"/>
+                            <messagePartConfigurations xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@eMessages.5/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@ePortTypes.0/@eOperations.1"/>
+                        <bindingType encoding="default" style="default"/>
+                    </operationConfiguration>
+                    <portType href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@ePortTypes.0"/>
+                    <transportConfiguration
+                        connectionConfig="@SharedResourceProfile.httpEcreditDcomSpec"
+                        endpointName="default-endpoint-name"
+                        endpointURI="ecreditsearchdcomspec" xsi:type="bindingsoapmodel:HTTPEndpointConfiguration"/>
+                    <defaultBindingType/>
+                </bindingsoapmodel:SOAPEndpointConfiguration>
+                <httpmodel:HTTPConnectionConfigurationProfile
+                    name="httpEcreditDcomSpec" xmlns:xmi="xmi" xmi:id="@SharedResourceProfile.httpEcreditDcomSpec"/>
+            </xmi:XMI>
+        </amx:binding.tibco-soap>
+    </sca:service>
+    <sca:component amx:description="" amx:version="1.0.0" name="ECreditSearchDcomSpecImpl">
+        <sca:implementation.java class="com.delta.soa.ecreditsearchdcomspec.ECreditSearchDcomSpecImpl"/>
+        <sca:reference/>
+        <sca:reference/>
+        <sca:reference/>
+        <sca:reference/>
+        <sca:property name="showTimings" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="tpfRegion" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="initialLogLevel" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="unHookETickets" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="ecreditTimeOut" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="primaryCarrierCode" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="primaryCarrierName" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="primaryCarrierFullName" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="primaryCarrierICAOCode" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+        <sca:property name="realexEnabled" type="xsd:string">
+            <amx:substitutionBinding>
+                <svar:SubstitutionBinding propName="propertyValue"
+                    template="%%/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled%%"
+                    xmi:version="2.0"
+                    xmlns:svar="http://xsd.tns.tibco.com/neo/svar/svarmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+            </amx:substitutionBinding>
+        </sca:property>
+    </sca:component>
+    <sca:reference name="TicketingProcess" promote="ECreditSearchDcomSpecImpl/TicketingProcess">
+        <sca:interface.wsdl
+            amx:wsdlLocation="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl" interface="http://soa.delta.com/ticketingprocess/v3#wsdl.interface(TicketingProcess)"/>
+        <amx:binding.tibco-soap name="TicketingProcess_EP_EP">
+            <bindingsoapmodel:SOAPPartnerConfiguration
+                bindingName="TicketingProcess" xmi:version="2.0"
+                xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel"
+                xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <endpointConfiguration
+                    endpointName="TicketingProcess_EP_EP"
+                    soapVersion="1.1" transportBindingType="HTTP" xsi:type="bindingsoapmodel:SOAPEndpointConfiguration">
+                    <operationConfiguration action="CheckHealth"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.0"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.0/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.1"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.1/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrieveMasterTicket"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.2"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.2/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.3"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.3/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.1"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="PerformAward"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.6"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.6/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.7"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.7/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.2"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Retrieve"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.8"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.8/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.9"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.9/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.3"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveDetails"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.10"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.10/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.11"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.11/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.4"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="ManageDetails"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.12"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.12/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.13"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.13/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.5"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="PerformVoid"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.14"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.14/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.15"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.15/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.6"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="ModifyTicketingTimeLimit"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.16"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.16/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.17"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.17/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.7"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveArchived"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.18"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.18/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.19"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.19/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.8"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="MaintainDTI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.20"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.20/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.21"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.21/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.9"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="PerformRevenue"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.22"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.22/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.23"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.23/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.10"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Retrieve2"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.24"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.24/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.25"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.25/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.11"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Revalidate"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.26"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.26/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.27"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.27/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.12"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="IssueTicket"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.28"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.28/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.29"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.29/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.13"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrieveIssueTicketInfo"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.30"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.30/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.31"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.31/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.14"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Reprice"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.32"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.32/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.33"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.33/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.15"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="PayWithMiles"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.34"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.34/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.35"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.35/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.16"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="EmailReceipt"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.36"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.36/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.37"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.37/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0/@eOperations.17"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <portType href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0"/>
+                    <defaultBindingType/>
+                </endpointConfiguration>
+                <port href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                <transportConfiguration
+                    bindingName="TicketingProcess_EP" xsi:type="bindingsoapmodel:HTTPPartnerConfiguration">
+                    <port href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                    <connectionConfig href="/ECreditSearchDcomSpec/Shared Resources/TicketingProcessHTTPClient.sharedhttpclient#/"/>
+                </transportConfiguration>
+            </bindingsoapmodel:SOAPPartnerConfiguration>
+        </amx:binding.tibco-soap>
+    </sca:reference>
+    <sca:reference name="PnrCommon" promote="ECreditSearchDcomSpecImpl/PnrCommon">
+        <sca:interface.wsdl
+            amx:wsdlLocation="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl" interface="http://soa.delta.com/pnrcommon/v6#wsdl.interface(PnrCommon)"/>
+        <amx:binding.tibco-soap name="PnrCommon_EP_EP">
+            <bindingsoapmodel:SOAPPartnerConfiguration
+                bindingName="PnrCommon" xmi:version="2.0"
+                xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel"
+                xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <endpointConfiguration endpointName="PnrCommon_EP_EP"
+                    soapVersion="1.1" transportBindingType="HTTP" xsi:type="bindingsoapmodel:SOAPEndpointConfiguration">
+                    <operationConfiguration action="CheckHealth"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.0"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.0/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.1"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.1/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="End"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.2"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.2/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.3"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.3/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.1"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="VerifyDTI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.6"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.6/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.7"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.7/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.2"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Retrieve"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.8"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.8/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.9"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.9/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.3"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Refresh"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.10"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.10/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.11"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.11/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.4"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="SetupContext"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.12"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.12/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.13"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.13/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.5"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Copy"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.14"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.14/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.15"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.15/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.6"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Decode"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.16"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.16/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.17"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.17/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.7"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Create"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.18"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.18/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.19"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.19/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.8"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="DeleteDTI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.20"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.20/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.21"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.21/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.9"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="VerifyTKI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.22"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.22/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.23"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.23/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.10"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="DeleteTKI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.24"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.24/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.25"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.25/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.11"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Divide"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.26"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.26/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.27"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.27/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.12"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Ignore"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.28"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.28/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.29"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.29/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.13"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="TeardownContext"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.30"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.30/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.31"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.31/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0/@eOperations.14"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <portType href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0"/>
+                    <defaultBindingType/>
+                </endpointConfiguration>
+                <port href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                <transportConfiguration bindingName="PnrCommon_EP" xsi:type="bindingsoapmodel:HTTPPartnerConfiguration">
+                    <port href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                    <connectionConfig href="/ECreditSearchDcomSpec/Shared Resources/PnrCommonHTTPClient.sharedhttpclient#/"/>
+                </transportConfiguration>
+            </bindingsoapmodel:SOAPPartnerConfiguration>
+        </amx:binding.tibco-soap>
+    </sca:reference>
+    <sca:reference name="Ticket" promote="ECreditSearchDcomSpecImpl/Ticket">
+        <sca:interface.wsdl
+            amx:wsdlLocation="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl" interface="http://soa.delta.com/ticket/v3#wsdl.interface(Ticket)"/>
+        <amx:binding.tibco-soap name="Ticket_EP_EP">
+            <bindingsoapmodel:SOAPPartnerConfiguration
+                bindingName="Ticket" xmi:version="2.0"
+                xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel"
+                xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <endpointConfiguration endpointName="Ticket_EP_EP"
+                    soapVersion="1.1" transportBindingType="HTTP" xsi:type="bindingsoapmodel:SOAPEndpointConfiguration">
+                    <operationConfiguration action="CheckHealth"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.0"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.0/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.1"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.1/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveTaxes"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.2"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.2/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.3"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.3/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.1"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="AutoIssueShuttleTicket"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.6"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.6/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.7"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.7/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.2"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="AutoRehook"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.8"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.8/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.9"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.9/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.3"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Hook"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.10"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.10/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.11"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.11/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.4"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="MaintainAddress"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.12"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.12/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.13"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.13/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.5"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="ManageDetails"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.14"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.14/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.15"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.15/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.6"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Issue"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.16"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.16/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.17"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.17/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.7"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Revalidate"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.18"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.18/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.19"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.19/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.8"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RequestRefund"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.20"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.20/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.21"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.21/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.9"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveManifest"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.22"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.22/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.23"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.23/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.10"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RePrint"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.24"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.24/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.25"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.25/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.11"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="AutoInvoluntaryReissue"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.26"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.26/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.27"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.27/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.12"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RefundVoid"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.28"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.28/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.29"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.29/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.13"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Retrieve"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.30"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.30/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.31"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.31/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.14"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveArchived"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.32"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.32/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.33"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.33/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.15"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="MaintainRemarks"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.34"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.34/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.35"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.35/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.16"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrieveInterlineETRules"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.36"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.36/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.37"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.37/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.17"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="DoVoid"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.38"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.38/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.39"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.39/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.18"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Print"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.40"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.40/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.41"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.41/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.19"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="VoidRiskFree"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.42"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.42/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.43"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.43/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.20"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RefundTravel"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.44"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.44/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.45"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.45/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.21"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrievePaxFacilityChrg"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.46"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.46/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.47"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.47/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.22"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrieveCouponStatus"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.48"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.48/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.49"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.49/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.23"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Refund"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.50"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.50/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.51"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.51/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.24"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Reprice"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.52"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.52/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.53"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.53/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.25"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="PayWithMiles"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.54"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.54/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.55"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.55/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.26"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="UnHook"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.56"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.56/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.57"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.57/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.27"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="Refund2"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.58"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.58/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.59"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.59/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.28"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="EmailReceipt"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.60"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.60/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.61"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eMessages.61/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0/@eOperations.29"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <portType href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0"/>
+                    <defaultBindingType/>
+                </endpointConfiguration>
+                <port href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                <transportConfiguration bindingName="Ticket_EP" xsi:type="bindingsoapmodel:HTTPPartnerConfiguration">
+                    <port href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                    <connectionConfig href="/ECreditSearchDcomSpec/Shared Resources/TicketHTTPClient.sharedhttpclient#/"/>
+                </transportConfiguration>
+            </bindingsoapmodel:SOAPPartnerConfiguration>
+        </amx:binding.tibco-soap>
+    </sca:reference>
+    <sca:reference name="MiscellaneousDocument" promote="ECreditSearchDcomSpecImpl/miscDocument">
+        <sca:interface.wsdl
+            amx:wsdlLocation="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl" interface="http://soa.delta.com/miscellaneousdocument/v2#wsdl.interface(MiscellaneousDocument)"/>
+        <amx:binding.tibco-soap name="MiscellaneousDocument_EP_EP">
+            <bindingsoapmodel:SOAPPartnerConfiguration
+                bindingName="MiscellaneousDocument" xmi:version="2.0"
+                xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel"
+                xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <endpointConfiguration
+                    endpointName="MiscellaneousDocument_EP_EP"
+                    soapVersion="1.1" transportBindingType="HTTP" xsi:type="bindingsoapmodel:SOAPEndpointConfiguration">
+                    <operationConfiguration action="CheckHealth"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.0"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.0/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.1"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.1/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.0"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveVouchers"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.2"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.2/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.3"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.3/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.1"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="CreateENCI"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.6"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.6/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.7"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.7/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.2"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="MaintainDocs"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.8"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.8/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.9"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.9/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.3"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="IssueAndPrintGatePass"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.10"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.10/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.11"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.11/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.4"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveETCV"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.12"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.12/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.13"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.13/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.5"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="IssueEmd"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.14"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.14/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.15"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.15/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.6"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RedeemEcert"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.16"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.16/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.17"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.17/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.7"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="IssueSpecialServiceTicket"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.18"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.18/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.19"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.19/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.8"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="CreateETCV"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.20"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.20/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.21"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.21/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.9"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="AddUnaccompaniedMinor"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.22"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.22/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.23"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.23/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.10"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveVouchers2"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.24"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.24/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.25"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.25/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.11"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="RetrieveECredits"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.26"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.26/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.27"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.27/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.12"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="IssueLawEnforcementGatePass"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.28"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.28/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.29"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.29/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.13"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration action="UpdateStatus"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.30"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.30/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.31"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.31/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.14"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="PrintInflightVoucher"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.32"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.32/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.33"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.33/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.15"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="AutoIssueSpecialServiceTicket"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.34"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.34/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.35"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.35/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.16"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="RetrieveECertificate"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.36"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.36/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.37"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.37/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.17"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <operationConfiguration
+                        action="IssueAndPrintDeniedBoardingCompensation"
+                        actionNeeded="true" xsi:type="bindingsoapmodel:SOAPOperationConfiguration">
+                        <messageConfiguration xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.38"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.38/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="OUTPUT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.39"/>
+                            <messagePartConfigurations
+                                encoding="literal" xsi:type="bindingsoapmodel:BodyPartConfiguration">
+                                <messagePart href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.39/@eParts.0"/>
+                            </messagePartConfigurations>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.4"/>
+                        </messageConfiguration>
+                        <messageConfiguration messageDirection="FAULT" xsi:type="bindingsoapmodel:SOAPMessageConfiguration">
+                            <message href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eMessages.5"/>
+                        </messageConfiguration>
+                        <operation href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0/@eOperations.18"/>
+                        <bindingType style="document"/>
+                    </operationConfiguration>
+                    <portType href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0"/>
+                    <defaultBindingType/>
+                </endpointConfiguration>
+                <port href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                <transportConfiguration
+                    bindingName="MiscellaneousDocument_EP" xsi:type="bindingsoapmodel:HTTPPartnerConfiguration">
+                    <port href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@eServices.0/@ePorts.0"/>
+                    <connectionConfig href="/ECreditSearchDcomSpec/Shared Resources/miscDocumentHTTPClient.sharedhttpclient#/"/>
+                </transportConfiguration>
+            </bindingsoapmodel:SOAPPartnerConfiguration>
+        </amx:binding.tibco-soap>
+    </sca:reference>
+    <amx:sharedResourceProfile>
+        <httpmodel:HTTPConnectionConfigurationProfile
+            name="httpEcreditDcomSpec" xmi:version="2.0"
+            xmlns:httpmodel="http://xsd.tns.tibco.com/corona/models/transport/httpmodel" xmlns:xmi="http://www.omg.org/XMI"/>
+    </amx:sharedResourceProfile>
+    <amx:sharedResourceValue>
+        <sharedresourcemodel:SharedResourceBinding
+            profileName="httpEcreditDcomSpec" xmi:version="2.0"
+            xmlns:sharedresourcemodel="http://xsd.tns.tibco.com/corona/models/sharedresourcemodel" xmlns:xmi="http://www.omg.org/XMI">
+            <sharedResourceConfiguration href="/ECreditSearchDcomSpec/Shared Resources/HTTPEcreditSearch.sharedhttp#/"/>
+        </sharedresourcemodel:SharedResourceBinding>
+    </amx:sharedResourceValue>
+</sca:composite>

@@ -1,0 +1,3068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Delta Air Lines, Inc. (Delta Air Lines, Inc.) -->
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soa.delta.com/pnrcommon/v6" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://schemas.delta.com/common/checkhealth/v3" xmlns:ns1="http://schemas.delta.com/common/pnrcommontypes/v3" xmlns:ns2="http://schemas.delta.com/common/fault/v4" xmlns:ns3="http://schemas.delta.com/common/passengerinfo/v2" xmlns:ns4="http://schemas.delta.com/common/pnrrequestparams" xmlns:ns5="http://schemas.delta.com/common/requestinfo/v4" xmlns:ns6="http://schemas.delta.com/common/ptrauthdata/v2" xmlns:ns7="http://schemas.delta.com/common/debuginfo/v4" xmlns:ns8="http://schemas.delta.com/common/segmentinfo/v4" xmlns:ns9="http://schemas.delta.com/common/passengertypecode" xmlns:ns10="http://schemas.delta.com/common/userauthdata/v2" xmlns:ns11="http://schemas.delta.com/common/hostcontext/v1" xmlns:ns12="http://schemas.delta.com/common/requestoption/v1" xmlns:ns13="http://schemas.delta.com/common/pnr/v5" xmlns:ns14="http://schemas.delta.com/common/pnroptions" xmlns:ns15="http://schemas.delta.com/common/responseinfo/v1" xmlns:ns16="http://schemas.delta.com/common/error/v4" xmlns:ns17="http://schemas.delta.com/common/advisorymessage/v2" xmlns:ns18="http://schemas.delta.com/common/stamping/v2" xmlns:ns19="http://schemas.delta.com/common/auditflag/v2" name="generatedWSDL" targetNamespace="http://soa.delta.com/pnrcommon/v6">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/passengerinfo/v2" targetNamespace="http://schemas.delta.com/common/passengerinfo/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="PassengerInfoType">
+				<xs:attribute name="FirstName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[1..?] - Currently using Demand Codes, so it depends on the length of the demand code</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="FirstNameNumber" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>#[1..2]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="LastName" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[1..?] - Currently using Demand Codes, so it depends on the length of the demand code</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="LastNameNumber" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>#[1..2]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="NameRemarks" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[0..?] - Currently using Demand Codes, so it depends on the length of the demand code</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="NameSuffix" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[0..?] - Currently using Demand Codes, so it depends on the length of the demand code</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="NameTitle" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[1..?] - Currently using Demand Codes, so it depends on the length of the demand code</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PassengerTypeCode" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>A[1] or A[3]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PnrAddress" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>X[8]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="RecordLocator" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>X[6]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="RestrictedViewAllowedFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Y/N</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="SkyMilesNumber" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>#[10]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="TKIZOption" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Y/N</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="WaiveDTCCharge" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Y/N</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:element name="PassengerInfo" type="y:PassengerInfoType"/>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/pnrrequestparams" targetNamespace="http://schemas.delta.com/common/pnrrequestparams" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="PnrRequestParamsType">
+				<xs:attribute name="DtiOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="FareOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="FopOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="HistoryOnFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="NameOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PhoneOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PtcOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="RecordLocatorOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="RemarksOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="SegmentOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="SsrOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="TicketOffFlag" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>"Y" or "N"</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:element name="PnrRequestParams" type="y:PnrRequestParamsType"/>
+		</xs:schema>
+		<schema xmlns:pref="http://schemas.delta.com/common/debuginfo/v4" xmlns:resp="http://schemas.delta.com/common/responseinfo/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/fault/v4" targetNamespace="http://schemas.delta.com/common/fault/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+			<import namespace="http://schemas.delta.com/common/responseinfo/v1"/>
+			<complexType name="BusinessFaultType">
+				<sequence>
+					<element ref="tns:FaultDetailedInfo"/>
+				</sequence>
+			</complexType>
+			<complexType name="FaultDetailsType">
+				<sequence>
+					<element ref="pref:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+				<attribute name="AdditionalInfo" type="string">
+					<annotation>
+						<documentation>
+					information such as backend request, timings, etc --
+					anything that would be helpful in determining the
+					cause of the error
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ErrorCode" type="string">
+					<annotation>
+						<documentation>
+					If there is no error code (from backend or
+					middleware) then leave blank
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ErrorMessage" type="string">
+					<annotation>
+						<documentation>
+					Error Message - e.g: invalid arguments
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="StackTraceInfo" type="string">
+					<annotation>
+						<documentation>Error StackTrace</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<complexType name="SystemFaultType">
+				<sequence>
+					<element ref="tns:FaultDetailedInfo"/>
+				</sequence>
+			</complexType>
+			<element name="BusinessFault" type="tns:BusinessFaultType"/>
+			<element name="FaultDetailedInfo" type="tns:FaultDetailsType"/>
+			<element name="SystemFault" type="tns:SystemFaultType"/>
+		</schema>
+		<schema xmlns:tns="http://schemas.delta.com/common/requestinfo/v4" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.delta.com/common/requestinfo/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<complexType name="DBConnectionInfoType">
+				<annotation>
+					<documentation/>
+				</annotation>
+				<attribute name="BedsDBDnsNameId" type="string">
+					<annotation>
+						<documentation>
+    				An id to match the client with a particular dns for
+    				BEDS
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TestBedsDBId" type="string">
+					<annotation>
+						<documentation>
+    				A predefined BookingEDS (BEDS) database instance id
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TestFpesDBId" type="string">
+					<annotation>
+						<documentation>
+    				A predefined FPES database instance id
+    			</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<complexType name="HostContextParamsType">
+				<attribute name="Airline" type="string">
+					<annotation>
+						<documentation>
+					Airline Code
+
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="City" type="string">
+					<annotation>
+						<documentation>
+					Specifies the City Code that is to be used; this has
+					implications as to which commands can be executed on
+					specific records.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="DutyCode" type="string"/>
+				<attribute name="LogonId" type="string">
+					<annotation>
+						<documentation>
+					If the session is to be created using an
+					individual's logon, this specifies the LogonId to be
+					utilized for this session. This can have various
+					implications including what commands can be
+					executed, etc.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="Password" type="string">
+					<annotation>
+						<documentation>
+					Password for the LogonId provided (if any)
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="PoolType" type="string">
+					<annotation>
+						<documentation> 
+					Indicates PoolName or a client's logged-in wsine
+					for which session is being 
+					requested. If a client's logged-in wsine is being
+					used, info in the format,  ;wsine=xxxxxx  should
+					be passed in for all operations that create or destroy a session.
+					If a client's logged-in wsine is being used AND this wsine needs
+					to be logged off during destroy, info in the format,  ;wsine=xxxxxx;logoff=Y/N  should
+					be passed in for all operations that create or destroy a session.
+					xxxxx is the wsine and logoff=Y would imply that 
+					during destroy the client's wsine will be logged off.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ResetPassword" type="string">
+					<annotation>
+						<documentation>
+					ResetPassword is required if the password is to be
+					changed with this request. If this is present,
+					password for the LogonId should be changed to the
+					password requested. Don't ask why it is even here!
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TimeoutInactivity" type="string">
+					<annotation>
+						<documentation>
+					Specify the timeout in seconds for the requested
+					session if the session is inactive for the duration
+					specified. This should be based on the type of
+					transaction the session is about to handle.
+					Inactivity timeout should be less than the
+					TimeoutSession. This should be an int with a range
+					from 0000 - 9998.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TimeoutSession" type="string">
+					<annotation>
+						<documentation>
+					Specify the timeout in seconds for the requested
+					session. This should be based on the type of
+					transaction the session is about to handle. The
+					session will be terminated when this is reached even
+					if there is activity against the session. This
+					should be an int with a range from 0000 - 9999.
+				</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<complexType name="RequestInfoType">
+				<sequence>
+					<element ref="tns:HostContextParams" minOccurs="0"/>
+					<element ref="tns:DBConnectionInfo" minOccurs="0"/>
+				</sequence>
+				<attribute name="AppChannelName" type="string">
+					<annotation>
+						<documentation>
+					The name of the channel from which the request is
+					originating, e.g. kiosk, delta.com, etc.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ApplicationId" type="string">
+					<annotation>
+						<documentation>
+					Each client should have a unique identifier. This is
+					defined by Worldspan.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ApplicationVersion" type="string">
+					<annotation>
+						<documentation>
+					Logged for debugging and possibly used for routing.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="Company" type="string">
+					<annotation>
+						<documentation>
+					Logged for debugging and possibly used for routing.
+					For DT, it would all be Delta.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="DebugOptions" type="string">
+					<annotation>
+						<documentation>
+					If not empty, debug information will be included in
+					the response. The debug information will include,
+					among other things, the actual request/response
+					sent/received from the data sources used in the
+					service and the current configuration settings.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="Description" type="string">
+					<annotation>
+						<documentation>
+					The description of the transaction or session. This
+					is also provided by the client and is used in
+					instrumentation logging and reporting.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ExternalVendorFlag" type="string">
+					<annotation>
+						<documentation>
+					Default is N. This flag needs to be set to 'Y' if
+					the request is for external Vendor.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="Location" type="string">
+					<annotation>
+						<documentation>
+					Logged for debugging and possibly used for routing.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="SessionId" type="string">
+					<annotation>
+						<documentation>
+					The session cookie that was provided by the
+					Session.Create service.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TestLab" type="string">
+					<annotation>
+						<documentation>
+					Use this parameter if the request need to be routed
+					to a particular test lab (TSAJ..TSAT..ETC). This
+					should be used only for debugging puposes while the
+					default lab is not available. This parameter should
+					never be used in Production Environment.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TransactionId" type="string">
+					<annotation>
+						<documentation>
+					The unique transaction id for this session. This
+					must be created and provided by the client and is
+					used in instrumentation logging and reporting.
+				</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TurnOffResponseInfo" type="string">
+					<annotation>
+						<documentation>By default, all operation responses may return ResponseInfo elements. Set this to "Y" to not get back any ResponseInfo elements in the response.		</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<element name="DBConnectionInfo" type="tns:DBConnectionInfoType"/>
+			<element name="HostContextParams" type="tns:HostContextParamsType"/>
+			<element name="RequestInfo" type="tns:RequestInfoType"/>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/ptrauthdata/v2" targetNamespace="http://schemas.delta.com/common/ptrauthdata/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<complexType name="PrinterAuthorizationDataType">
+				<attribute name="ATBPrinterAddress" type="string">
+					<annotation>
+						<documentation>an6</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="AdminPrinterAddress" type="string">
+					<annotation>
+						<documentation>an6</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="BagPrinterAddress" type="string">
+					<annotation>
+						<documentation>an6</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="BoardingCardPrinterAddress" type="string">
+					<annotation>
+						<documentation>an6 
+					ET-6000 can be used for 2D boarding cards
+				        IER-567 if specified used for everything 
+				        ATB can be used for 1D boarding cards
+ 				</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<element name="PrinterAuthorizationData" type="tns:PrinterAuthorizationDataType"/>
+		</schema>
+		<xsd:schema xmlns:y="http://schemas.delta.com/common/checkhealth/v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.delta.com/common/checkhealth/v3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xsd:complexType name="CheckHealthGenericRequestType">
+				<xsd:annotation>
+					<xsd:documentation>
+				RequestType that will accept a string. If the check
+				health function does not require any special inputs, use
+				this request type.
+			</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="AnyString" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="CheckHealthResponseType">
+				<xsd:annotation>
+					<xsd:documentation>
+				ResponseType represents the status of the entire service
+				as well as information on the dependencies of the
+				service. For example, if a service retrieves information
+				from the database, the response will contain an status
+				entry for the service as well as the database.
+			</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="ServiceHealthStatus" type="y:HealthStatusType">
+						<xsd:annotation>
+							<xsd:documentation>
+						Health of the entire service; the result value
+						is determined per the need and dependencies of
+						the service. In this scenario, if a critical
+						dependency failed, then the ServiceHealthStatus
+						would be FATAL...if it is a minor piece that is
+						broken/down, then the service is still ok. It is
+						the provider of the service that determines this
+						result; there is no hard rule.
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="HealthMessage" type="y:HealthMessageType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>
+                		Health of one or more dependencies.
+                	</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="HealthMessageType">
+				<xsd:annotation>
+					<xsd:documentation>
+				HealthMessage providing health status information on
+				each of the dependencies of the service. For example, a
+				database, another service, file system, email server,
+				etc.
+			</xsd:documentation>
+				</xsd:annotation>
+				<xsd:sequence>
+					<xsd:element name="SystemName" type="xsd:string">
+						<xsd:annotation>
+							<xsd:documentation>
+						System or Dependency name- for example,
+						SkyMilesAuthenticationService or CustomerDB,
+						even D007PROD
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Message" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+						Message regarding the problem or the status
+						provided
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="Status" type="y:HealthStatusType">
+						<xsd:annotation>
+							<xsd:documentation>
+						Status of the system/dependency
+					</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:simpleType name="HealthStatusType">
+				<xsd:annotation>
+					<xsd:documentation>
+        		HealthStatus provides an indication as to the health
+        	</xsd:documentation>
+				</xsd:annotation>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="FATAL">
+						<xsd:annotation>
+							<xsd:documentation>FATAL : cannot achieve desired goals which are considered critical by the provider</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="WARN">
+						<xsd:annotation>
+							<xsd:documentation>WARN : certain pieces of the service may not be functioning properly, but the overall goals of the provider is still achieved</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="OK">
+						<xsd:annotation>
+							<xsd:documentation>OK : no problems of any kind were detected</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:element name="CheckHealthRequest" type="y:CheckHealthGenericRequestType"/>
+			<xsd:element name="CheckHealthResponse" type="y:CheckHealthResponseType"/>
+		</xsd:schema>
+		<xs:schema xmlns:pref1="http://schemas.delta.com/common/requestinfo/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/debuginfo/v4" targetNamespace="http://schemas.delta.com/common/debuginfo/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:import namespace="http://schemas.delta.com/common/requestinfo/v4"/>
+			<xs:complexType name="DebugInfoType">
+				<xs:sequence>
+					<xs:element name="ConfigurationSettings" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						Configuration Settings
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DataSourceRequest" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						Actual data sent to Data Source
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DataSourceResponse" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						Actual data received from Data Source
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="DataSourceName" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						Name of the Data Source
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="TransportInfo" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						e.g.Transport Wsine
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Timers" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						Execution times at various design layers
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="AdditionalInfo" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+					any information that would be helpful in understanding the response
+					e.g. the specific step name in a series of steps
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="RequestInfo" type="pref1:RequestInfoType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+						The actual RequestInfo objects sent within the
+						request.
+					</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="DebugInfo" type="tns:DebugInfoType"/>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/segmentinfo/v4" targetNamespace="http://schemas.delta.com/common/segmentinfo/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="SegmentInfoType">
+				<xs:attribute name="AirlineCode" type="xs:string"/>
+				<xs:attribute name="ArnkFlag" type="xs:string"/>
+				<xs:attribute name="ArrivalCity" type="xs:string"/>
+				<xs:attribute name="ArrivalTime" type="xs:string"/>
+				<xs:attribute name="ClassOfService" type="xs:string"/>
+				<xs:attribute name="ConnectingSegmentIndicator" type="xs:string"/>
+				<xs:attribute name="ConnectionCity" type="xs:string"/>
+				<xs:attribute name="Date" type="xs:string"/>
+				<xs:attribute name="DepartureCity" type="xs:string"/>
+				<xs:attribute name="DepartureTime" type="xs:string"/>
+				<xs:attribute name="FlightNumber" type="xs:string"/>
+				<xs:attribute name="IropFlag" type="xs:string"/>
+				<xs:attribute name="NumberInParty" type="xs:string"/>
+				<xs:attribute name="OpenFlag" type="xs:string"/>
+				<xs:attribute name="PreviousStatus" type="xs:string"/>
+				<xs:attribute name="SeatId" type="xs:string"/>
+				<xs:attribute name="SeatStatus" type="xs:string"/>
+				<xs:attribute name="SeatType" type="xs:string"/>
+				<xs:attribute name="SegmentNumber" type="xs:string"/>
+				<xs:attribute name="SequenceNumber" type="xs:string"/>
+				<xs:attribute name="StandbyFlag" type="xs:string"/>
+				<xs:attribute name="Status" type="xs:string"/>
+			</xs:complexType>
+			<xs:element name="SegmentInfo" type="y:SegmentInfoType"/>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/passengertypecode" targetNamespace="http://schemas.delta.com/common/passengertypecode" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="PassengerTypeCodeType">
+				<xs:attribute name="ApplyToAllFlag" type="xs:string"/>
+				<xs:attribute name="PassengerTypeCode" type="xs:string"/>
+			</xs:complexType>
+			<xs:element name="PassengerTypeCode" type="y:PassengerTypeCodeType"/>
+		</xs:schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/userauthdata/v2" targetNamespace="http://schemas.delta.com/common/userauthdata/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<complexType name="UserAuthorizationDataType">
+				<attribute name="AgentCityCode" type="string">
+					<annotation>
+						<documentation>a3</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="RoleIndicator" type="string">
+					<annotation>
+						<documentation>Not avail at this time</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="SecurityId" type="string">
+					<annotation>
+						<documentation>an1..10 User Login Id </documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<element name="UserAuthorizationData" type="tns:UserAuthorizationDataType"/>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/hostcontext/v1" xmlns:rqInfo="http://schemas.delta.com/common/requestinfo/v4" xmlns:respInfo="http://schemas.delta.com/common/responseinfo/v1" xmlns:dbgInfo="http://schemas.delta.com/common/debuginfo/v4" xmlns:fault="http://schemas.delta.com/common/fault/v4" xmlns:rqopt="http://schemas.delta.com/common/requestoption/v1" xmlns:err="http://schemas.delta.com/common/error/v4" xmlns:adv="http://schemas.delta.com/common/advisorymessage/v2" targetNamespace="http://schemas.delta.com/common/hostcontext/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<import namespace="http://schemas.delta.com/common/requestinfo/v4"/>
+			<import namespace="http://schemas.delta.com/common/responseinfo/v1"/>
+			<import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+			<import namespace="http://schemas.delta.com/common/fault/v4"/>
+			<import namespace="http://schemas.delta.com/common/requestoption/v1"/>
+			<import namespace="http://schemas.delta.com/common/error/v4"/>
+			<import namespace="http://schemas.delta.com/common/advisorymessage/v2"/>
+			<complexType name="ChangePasswordRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+				</sequence>
+				<attribute name="NewPassword" type="string"/>
+			</complexType>
+			<complexType name="ChangePasswordResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+					<element name="ChangedPassword" type="boolean" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="CreateAndSwingRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="CreateAndSwingResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+					<element name="SwingSuccess" type="boolean" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="CreateRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="CreateResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="DestroyRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="DestroyResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="RetrieveRFRRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+					<element ref="rqopt:RequestOption" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>REQOPT , Version 1.4</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</complexType>
+			<complexType name="RetrieveRFRResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+					<element ref="rqopt:RequestOption" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>REQOPT , Version 1.4</documentation>
+						</annotation>
+					</element>
+					<element ref="adv:AdvisoryMessage" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</complexType>
+			<complexType name="SwingCityDutyCodeRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo"/>
+				</sequence>
+			</complexType>
+			<complexType name="SwingCityDutyCodeResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+					<element name="SwingSuccess" type="boolean" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<complexType name="ValidateLogonRequestType">
+				<sequence>
+					<element ref="rqInfo:RequestInfo" minOccurs="0"/>
+				</sequence>
+				<attribute name="NewPassword" type="string"/>
+			</complexType>
+			<complexType name="ValidateLogonResponseType">
+				<sequence>
+					<element ref="respInfo:ResponseInfo" minOccurs="0"/>
+					<element ref="dbgInfo:DebugInfo" minOccurs="0"/>
+					<element name="ValidLogon" type="boolean" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<element name="ChangePasswordRequest" type="tns:ChangePasswordRequestType"/>
+			<element name="ChangePasswordResponse" type="tns:ChangePasswordResponseType"/>
+			<element name="CreateAndSwingRequest" type="tns:CreateAndSwingRequestType"/>
+			<element name="CreateAndSwingResponse" type="tns:CreateAndSwingResponseType"/>
+			<element name="CreateRequest" type="tns:CreateRequestType"/>
+			<element name="CreateResponse" type="tns:CreateResponseType"/>
+			<element name="DestroyRequest" type="tns:DestroyRequestType"/>
+			<element name="DestroyResponse" type="tns:DestroyResponseType"/>
+			<element name="RetrieveRFRRequest" type="tns:RetrieveRFRRequestType"/>
+			<element name="RetrieveRFRResponse" type="tns:RetrieveRFRResponseType"/>
+			<element name="SwingCityDutyCodeRequest" type="tns:SwingCityDutyCodeRequestType"/>
+			<element name="SwingCityDutyCodeResponse" type="tns:SwingCityDutyCodeResponseType"/>
+			<element name="ValidateLogonRequest" type="tns:ValidateLogonRequestType"/>
+			<element name="ValidateLogonResponse" type="tns:ValidateLogonResponseType"/>
+		</schema>
+		<xsd:schema xmlns:y="http://schemas.delta.com/common/pnrcommontypes/v3" xmlns:stp="http://schemas.delta.com/common/stamping/v2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:hct="http://schemas.delta.com/common/hostcontext/v1" xmlns:ri="http://schemas.delta.com/common/requestinfo/v4" xmlns:resp="http://schemas.delta.com/common/responseinfo/v1" xmlns:pnr="http://schemas.delta.com/common/pnr/v5" xmlns:prp="http://schemas.delta.com/common/pnrrequestparams" xmlns:pi="http://schemas.delta.com/common/passengerinfo/v2" xmlns:ptct="http://schemas.delta.com/common/passengertypecode" xmlns:af="http://schemas.delta.com/common/auditflag/v2" xmlns:di4="http://schemas.delta.com/common/debuginfo/v4" xmlns:po="http://schemas.delta.com/common/pnroptions" xmlns:si="http://schemas.delta.com/common/segmentinfo/v4" xmlns:reqopt="http://schemas.delta.com/common/requestoption/v1" targetNamespace="http://schemas.delta.com/common/pnrcommontypes/v3" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xsd:import namespace="http://schemas.delta.com/common/pnrrequestparams"/>
+			<xsd:import namespace="http://schemas.delta.com/common/passengerinfo/v2"/>
+			<xsd:import namespace="http://schemas.delta.com/common/requestinfo/v4"/>
+			<xsd:import namespace="http://schemas.delta.com/common/passengertypecode"/>
+			<xsd:import namespace="http://schemas.delta.com/common/pnroptions"/>
+			<xsd:import namespace="http://schemas.delta.com/common/auditflag/v2"/>
+			<xsd:import namespace="http://schemas.delta.com/common/pnr/v5"/>
+			<xsd:import namespace="http://schemas.delta.com/common/segmentinfo/v4"/>
+			<xsd:import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+			<xsd:import namespace="http://schemas.delta.com/common/responseinfo/v1"/>
+			<xsd:import namespace="http://schemas.delta.com/common/stamping/v2"/>
+			<xsd:import namespace="http://schemas.delta.com/common/hostcontext/v1"/>
+			<xsd:import namespace="http://schemas.delta.com/common/requestoption/v1"/>
+			<xsd:complexType name="CopyInfoType">
+				<xsd:attribute name="CopyType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>A - segment data
+M - passenger data
+B - both</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerLoyaltyDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Loyalty data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerNameDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Name data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerPhoneDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Phone data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerRemarkDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Remark data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerTicketDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Ticket data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="PassengerTypeCodeDataFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Y = copy passenger Type Code data</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="SegmentClassOfService" type="xsd:string"/>
+				<xsd:attribute name="SegmentDateAdjustmentType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>M - minus
+P - plus</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="SegmentNumberInPartyAdjustment" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>1-99 permitted</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="SegmentNumberOfDaysAdjustment" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>1-331 permitted</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:complexType>
+			<xsd:complexType name="CopyRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="CopyInfo" type="y:CopyInfoType" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="CopyResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="CreateRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element name="FlightInfo" type="y:FlightInfoType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="Phone" type="y:PhoneType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="PnrNameDataType" type="y:PnrNameDataType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="RemarkType" type="y:RemarkType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TicketingTimeLimitType" type="y:TicketingTimeLimitType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="CreateResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DecodeRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="ReverseFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>="Y" to Reverse Decode</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:complexType>
+			<xsd:complexType name="DecodeResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DeleteDTIRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element ref="ptct:PassengerTypeCode" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DeleteDTIResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DeleteTKIRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DeleteTKIResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DivideRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="pi:PassengerInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DivideResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="EndRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element ref="po:PnrOptions" minOccurs="0"/>
+					<xsd:element ref="af:AuditFlag" minOccurs="0"/>
+					<xsd:element name="RedisplayFlag" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="EndResponseType">
+				<xsd:sequence>
+					<xsd:element ref="pnr:Pnr" minOccurs="0"/>
+					<xsd:element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="FlightInfoType">
+				<xsd:attribute name="AirlineCode" type="xsd:string"/>
+				<xsd:attribute name="ArrivalPoint" type="xsd:string"/>
+				<xsd:attribute name="ArrivalTime" type="xsd:string"/>
+				<xsd:attribute name="AwardFlag" type="xsd:string"/>
+				<xsd:attribute name="ClassOfService" type="xsd:string"/>
+				<xsd:attribute name="ConnectionPoint" type="xsd:string"/>
+				<xsd:attribute name="Date" type="xsd:string"/>
+				<xsd:attribute name="DeparturePoint" type="xsd:string"/>
+				<xsd:attribute name="DepartureTime" type="xsd:string"/>
+				<xsd:attribute name="FlightNumber" type="xsd:string"/>
+				<xsd:attribute name="ItineraryStatus" type="xsd:string"/>
+				<xsd:attribute name="NumberInParty" type="xsd:string"/>
+				<xsd:attribute name="PreviousItineraryStatus" type="xsd:string"/>
+				<xsd:attribute name="SeatId" type="xsd:string"/>
+				<xsd:attribute name="SeatStatus" type="xsd:string"/>
+				<xsd:attribute name="SeatType" type="xsd:string"/>
+				<xsd:attribute name="SecondRequestedClassOfService" type="xsd:string"/>
+				<xsd:attribute name="SecondRequestedConnectionCity" type="xsd:string"/>
+				<xsd:attribute name="SegmentNumber" type="xsd:string"/>
+				<xsd:attribute name="StandbyIndicator" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="IgnoreRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="RedisplayFlag" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="IgnoreResponseType">
+				<xsd:sequence>
+					<xsd:element ref="pnr:Pnr" minOccurs="0"/>
+					<xsd:element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="PhoneType">
+				<xsd:attribute name="AreaCode" type="xsd:string"/>
+				<xsd:attribute name="CityCode" type="xsd:string"/>
+				<xsd:attribute name="CountryCode" type="xsd:string"/>
+				<xsd:attribute name="Extension" type="xsd:string"/>
+				<xsd:attribute name="FirstNameNumber" type="xsd:string"/>
+				<xsd:attribute name="FreeformText" type="xsd:string"/>
+				<xsd:attribute name="LastNameNumber" type="xsd:string"/>
+				<xsd:attribute name="MarkedForDeletionFlag" type="xsd:string"/>
+				<xsd:attribute name="Number" type="xsd:string"/>
+				<xsd:attribute name="PhoneFieldNumber" type="xsd:string"/>
+				<xsd:attribute name="RecordName" type="xsd:string"/>
+				<xsd:attribute name="SegmentNumber" type="xsd:string"/>
+				<xsd:attribute name="Type" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="PnrNameDataType">
+				<xsd:attribute name="CustomerID" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>NonRevenueStandbyFlag must=Y if this is a PPR Number.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="FirstName" type="xsd:string"/>
+				<xsd:attribute name="FirstNameNumber" type="xsd:string"/>
+				<xsd:attribute name="LastName" type="xsd:string"/>
+				<xsd:attribute name="LastNameNumber" type="xsd:string"/>
+				<xsd:attribute name="NonRevenueStandbyFlag" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>If this is = Y then CustomerID must be a PPR number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="RecordName" type="xsd:string"/>
+				<xsd:attribute name="Remarks" type="xsd:string"/>
+				<xsd:attribute name="RevenueStandbyFlag" type="xsd:string"/>
+				<xsd:attribute name="SegmentNumber" type="xsd:string"/>
+				<xsd:attribute name="Suffix" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Sr., etc.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="Title" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Mr., Mrs., etc.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:complexType>
+			<xsd:complexType name="RefreshRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="RefreshResponseType">
+				<xsd:sequence>
+					<xsd:element ref="pnr:Pnr" minOccurs="0"/>
+					<xsd:element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="RemarkType">
+				<xsd:attribute name="FreeformText" type="xsd:string"/>
+				<xsd:attribute name="GivenNameNumber" type="xsd:string"/>
+				<xsd:attribute name="LastNameNumber" type="xsd:string"/>
+				<xsd:attribute name="MarkedForDeletionFlag" type="xsd:string"/>
+				<xsd:attribute name="RecordName" type="xsd:string"/>
+				<xsd:attribute name="RemarkNumber" type="xsd:string"/>
+				<xsd:attribute name="RemarkType" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>RRMK, SPCL, ADDR.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+				<xsd:attribute name="SegmentNumber" type="xsd:string"/>
+				<xsd:attribute name="UrgentRofMessageFlag" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="RetrieveInfoType">
+				<xsd:sequence>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element ref="pi:PassengerInfo" minOccurs="0"/>
+					<xsd:element ref="si:SegmentInfo" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="isSessionNeeded" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>=N to retrieve PNR without any session (passed in or created by operation)</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:complexType>
+			<xsd:complexType name="RetrieveRequestType">
+				<xsd:sequence>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="RetrieveResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="SetupContextRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="RetrieveInfo" type="y:RetrieveInfoType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="SetupContextResponseType">
+				<xsd:sequence>
+					<xsd:element ref="pnr:Pnr" minOccurs="0"/>
+					<xsd:element ref="di4:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:attribute name="SessionId" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="TeardownContextRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element ref="y:EndRequest" minOccurs="0"/>
+					<xsd:element ref="y:IgnoreRequest" minOccurs="0"/>
+					<xsd:element ref="y:RefreshRequest" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="DoNotDestroySessionFlag" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="TeardownContextResponseType">
+				<xsd:sequence>
+					<xsd:element ref="pnr:Pnr" minOccurs="0"/>
+					<xsd:element ref="di4:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="TicketingTimeLimitType">
+				<xsd:attribute name="FirstNameNumber" type="xsd:string"/>
+				<xsd:attribute name="FreeformText" type="xsd:string"/>
+				<xsd:attribute name="LastNameNumber" type="xsd:string"/>
+				<xsd:attribute name="RecordName" type="xsd:string"/>
+				<xsd:attribute name="SegmentNumber" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="VerifyDTIRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="VerifyDTIResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="VerifyTKIRequestType">
+				<xsd:sequence>
+					<xsd:element ref="ri:RequestInfo" minOccurs="0"/>
+					<xsd:element ref="stp:StampingInfo" minOccurs="0"/>
+					<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType" minOccurs="0"/>
+					<xsd:element ref="prp:PnrRequestParams" minOccurs="0"/>
+					<xsd:element name="RequestOptions" type="reqopt:RequestOptionType" minOccurs="0"/>
+					<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="VerifyEndorsement" type="xsd:string"/>
+				<xsd:attribute name="VerifySegmentSelect" type="xsd:string"/>
+			</xsd:complexType>
+			<xsd:complexType name="VerifyTKIResponseType">
+				<xsd:sequence>
+					<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="CopyRequest" type="y:CopyRequestType"/>
+			<xsd:element name="CopyResponse" type="y:CopyResponseType"/>
+			<xsd:element name="CreateRequest" type="y:CreateRequestType">
+				<xsd:annotation>
+					<xsd:documentation>Auto Sessioning Operation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CreateResponse" type="y:CreateResponseType"/>
+			<xsd:element name="DecodeRequest" type="y:DecodeRequestType">
+				<xsd:annotation>
+					<xsd:documentation>Auto Sessioning Operation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DecodeResponse" type="y:DecodeResponseType"/>
+			<xsd:element name="DeleteDTIRequest" type="y:DeleteDTIRequestType"/>
+			<xsd:element name="DeleteDTIResponse" type="y:DeleteDTIResponseType"/>
+			<xsd:element name="DeleteTKIRequest" type="y:DeleteTKIRequestType"/>
+			<xsd:element name="DeleteTKIResponse" type="y:DeleteTKIResponseType"/>
+			<xsd:element name="DivideRequest" type="y:DivideRequestType">
+				<xsd:annotation>
+					<xsd:documentation>Auto Sessioning Operation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DivideResponse" type="y:DivideResponseType"/>
+			<xsd:element name="EndRequest" type="y:EndRequestType"/>
+			<xsd:element name="EndResponse" type="y:EndResponseType"/>
+			<xsd:element name="IgnoreRequest" type="y:IgnoreRequestType"/>
+			<xsd:element name="IgnoreResponse" type="y:IgnoreResponseType"/>
+			<xsd:element name="RefreshRequest" type="y:RefreshRequestType"/>
+			<xsd:element name="RefreshResponse" type="y:RefreshResponseType"/>
+			<xsd:element name="RetrieveRequest" type="y:RetrieveRequestType">
+				<xsd:annotation>
+					<xsd:documentation>Auto Sessioning Operation</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RetrieveResponse" type="y:RetrieveResponseType"/>
+			<xsd:element name="SetupContextRequest" type="y:SetupContextRequestType"/>
+			<xsd:element name="SetupContextResponse" type="y:SetupContextResponseType"/>
+			<xsd:element name="TeardownContextRequest" type="y:TeardownContextRequestType"/>
+			<xsd:element name="TeardownContextResponse" type="y:TeardownContextResponseType"/>
+			<xsd:element name="VerifyDTIRequest" type="y:VerifyDTIRequestType"/>
+			<xsd:element name="VerifyDTIResponse" type="y:VerifyDTIResponseType"/>
+			<xsd:element name="VerifyTKIRequest" type="y:VerifyTKIRequestType"/>
+			<xsd:element name="VerifyTKIResponse" type="y:VerifyTKIResponseType"/>
+		</xsd:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/requestoption/v1" targetNamespace="http://schemas.delta.com/common/requestoption/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="RequestOptionType">
+				<xs:attribute name="RequestOption1" type="xs:string"/>
+				<xs:attribute name="RequestOption2" type="xs:string"/>
+				<xs:attribute name="RequestOption3" type="xs:string"/>
+				<xs:attribute name="RequestOption4" type="xs:string"/>
+				<xs:attribute name="RequestOption5" type="xs:string"/>
+				<xs:attribute name="RequestOption6" type="xs:string"/>
+				<xs:attribute name="RequestOption7" type="xs:string"/>
+				<xs:attribute name="RequestOption8" type="xs:string"/>
+			</xs:complexType>
+			<xs:element name="RequestOption" type="tns:RequestOptionType">
+				<xs:annotation>
+					<xs:documentation>REQOPT , Version 1.4</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:schema>
+		<xs:schema xmlns:y="http://schemas.delta.com/common/pnr/v5" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:di="http://schemas.delta.com/common/debuginfo/v4" xmlns:am="http://schemas.delta.com/common/advisorymessage/v2" targetNamespace="http://schemas.delta.com/common/pnr/v5" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:import namespace="http://schemas.delta.com/common/debuginfo/v4"/>
+			<xs:import namespace="http://schemas.delta.com/common/advisorymessage/v2"/>
+			<xs:complexType name="PnrType">
+				<xs:sequence>
+					<xs:element ref="am:AdvisoryMessage" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="di:DebugInfo" minOccurs="0"/>
+					<xs:element ref="y:ApprovalCode" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: AP V1.1 Approval Code Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:Dti" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: DTI V1.4 DATAS Ticket Image Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:DtiSegmentInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: DTISEG V1.3 Ticket Image Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:DtiTerminatingCity" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: DTITER V1.2 Ticket Image Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:ElectronicTicketingData" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: ETKELG V1.0 Elec. Tkt Eligibility Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:FareCalc" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: FCC V1.1 Fare Calc Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:FormOfPayment" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: FOP V1.0 Fare Calc Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:FrequentFlyer" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: FREQ V1.0 FF Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:HistoryActionItem" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: HSTITM V1.0 Action Item History</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:HistoryCreditOrSignature" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: HSTSGN V1.0 PNR History Credit Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:HistoryPnrCreation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: HSTCRE V1.0 PNR Create History Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:OtherServiceInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: OSI V1.0 OSI Other Supp. Info Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:Passenger" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: NME V1.1 PNR Name Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:PassengerSpecial" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: NMESPL V1.0 PNR Name Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:Phone" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: PHN V1.1 Phone Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:Ptc" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: PTC V1.0 Psgr. Type Code Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:RecordLocator" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: RLC V1.5 Record Locator Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:Remark" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: RMK V1.2 Remark Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SeatDl" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: BASSED V1.4 DL Seat Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SeatOa" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: BASSEO V1.5 OA Seat Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SegmentAdditionalInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: DAI V1.3 Additional Itin Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SegmentDl" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: BASDL V2.6 DL Itinerary Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SegmentOa" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: BASOA V1.6 OA Itin Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:SpecialServiceRequest" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: SSR V1.3 Special Service Rqst Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:StandbyListItin" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: SBYITN V1.1  ASL Itinerary</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:StoredFareData" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: FQC V1.2 $D Stored Fare Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketCouponInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: TICOU V1.1 Ticket Display Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketData" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: D5CB V1.2 Ticket Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: TITDI V1.0 Ticket Display Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketingField" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: TKT V1.0 Ticketing Field Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketingInstruction" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: TKI V1.1 Ticketing Instruction Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketingTimeLimit" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: LMT V1.0 Tktg Time Limit Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketNumberData1" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: D5E001 V1.1 Ticket Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketNumberData2" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: D5E002 V1.0 Ticket Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketNumberData3" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: D5E003 V1.1 Ticket Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="y:TicketPassengerInfo" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Phat-R Workbook: TIPNI V1.0 Ticket Display Data</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ApprovalCode">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: AP V1.1 Approval Code Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AmericanExpressFlag" type="xs:string"/>
+					<xs:attribute name="ApUsedFlag" type="xs:string"/>
+					<xs:attribute name="CreditCardApprovalCode" type="xs:string"/>
+					<xs:attribute name="CreditCardExpDate" type="xs:string"/>
+					<xs:attribute name="CreditCardNumber" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="RemarkNumber" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Dti">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: DTI V1.4 DATAS Ticket Image Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AdvisoryMessage" type="xs:string"/>
+					<xs:attribute name="BaseAmount" type="xs:string"/>
+					<xs:attribute name="BaseCurrency" type="xs:string"/>
+					<xs:attribute name="BooksCount" type="xs:string"/>
+					<xs:attribute name="DTIType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A=Awards, R=Revenue</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="DtiCount" type="xs:string"/>
+					<xs:attribute name="EquivalentFarePaidAmount" type="xs:string"/>
+					<xs:attribute name="EquivalentFarePaidCurrency" type="xs:string"/>
+					<xs:attribute name="EquivalentFarePaidMinimumFlag" type="xs:string"/>
+					<xs:attribute name="ExpandedPassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="FarecalcType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>F, W, or blank.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="InternationalFlag" type="xs:string"/>
+					<xs:attribute name="InternationalSalesCode" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="OverallMileageTableValue" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Award Travel Mileage Table (0, 1, 2, 3) for Itin</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="PassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="Tax1Amount" type="xs:string"/>
+					<xs:attribute name="Tax1Type" type="xs:string"/>
+					<xs:attribute name="Tax2Amount" type="xs:string"/>
+					<xs:attribute name="Tax2Type" type="xs:string"/>
+					<xs:attribute name="Tax3Amount" type="xs:string"/>
+					<xs:attribute name="Tax3Type" type="xs:string"/>
+					<xs:attribute name="TaxItemCount" type="xs:string"/>
+					<xs:attribute name="TotalFareAmount" type="xs:string"/>
+					<xs:attribute name="TotalFareCurrency" type="xs:string"/>
+					<xs:attribute name="TotalFareType" type="xs:string"/>
+					<xs:attribute name="TotalTax" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DtiSegmentInfo">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: DTISEG V1.3 Ticket Image Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="BookNumber" type="xs:string"/>
+					<xs:attribute name="Carrier" type="xs:string"/>
+					<xs:attribute name="ClassOfService" type="xs:string"/>
+					<xs:attribute name="DTIType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A=Awards, R=Revenue</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="DepartureDate" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureTime" type="xs:string"/>
+					<xs:attribute name="ExpandedPassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="FarebasisFareclassCode" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="ItinerarySegmentNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="NotValidAfterDate" type="xs:string"/>
+					<xs:attribute name="NotValidBeforeDate" type="xs:string"/>
+					<xs:attribute name="OpenFlag" type="xs:string"/>
+					<xs:attribute name="PassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentAmount" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SegmentStatus" type="xs:string"/>
+					<xs:attribute name="StopFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>O=Stop, X=Connection.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SurchargeAmount" type="xs:string"/>
+					<xs:attribute name="SurchargeIdentifier" type="xs:string"/>
+					<xs:attribute name="VoidFlag" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DtiTerminatingCity">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: DTITER V1.2 Ticket Image Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="BookNumber" type="xs:string"/>
+					<xs:attribute name="DTIType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A=Awards, R=Revenue</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="PassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="StopIndicator" type="xs:string"/>
+					<xs:attribute name="TerminatingCity" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ElectronicTicketingData">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: ETKELG V1.0 Elec. Tkt Eligibility Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="TicketStatus" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>N=Itinerary is not eligible for ET, E=is eligible for ET, Y=Pnr is ET'ed.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FareCalc">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: FCC V1.1 Fare Calc Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="DTIType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A=Awards, R=Revenue</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FormOfPayment">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: FOP V1.0 Fare Calc Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AdditionalCollectionFlag" type="xs:string"/>
+					<xs:attribute name="AmericanExpressPaymentFlag" type="xs:string"/>
+					<xs:attribute name="CardHolderNameOrOther" type="xs:string"/>
+					<xs:attribute name="CreditCardApprovalCode" type="xs:string"/>
+					<xs:attribute name="CreditCardExpiration" type="xs:string"/>
+					<xs:attribute name="CreditCardNumber" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FormOfPayment" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="NonRefundableFlag" type="xs:string"/>
+					<xs:attribute name="PaymentDueFlag" type="xs:string"/>
+					<xs:attribute name="PrepaidTicketAdviceFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="RefundFlag" type="xs:string"/>
+					<xs:attribute name="RemarkNumber" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrequentFlyer">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: FREQ V1.0 FF Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AccountNumber" type="xs:string"/>
+					<xs:attribute name="AccountTypeCode" type="xs:string"/>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="FirstName" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastName" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="OsiNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="Status" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HistoryActionItem">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: HSTITM V1.0 Action Item History</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActionCode" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="HavData" type="xs:string"/>
+					<xs:attribute name="OrdinalNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HistoryCreditOrSignature">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: HSTSGN V1.0 PNR History Credit Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActionReceivedFromInfo" type="xs:string"/>
+					<xs:attribute name="CreditText" type="xs:string"/>
+					<xs:attribute name="OrdinalNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HistoryPnrCreation">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: HSTCRE V1.0 PNR Create History Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="CreditText" type="xs:string"/>
+					<xs:attribute name="OrdinalNumber" type="xs:string"/>
+					<xs:attribute name="ReceivedFromInfo" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="OtherServiceInformation">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: OSI V1.0 OSI Other Supp. Info Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="OaCarrierCodeRequestFlag" type="xs:string"/>
+					<xs:attribute name="OsiNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Passenger">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: NME V1.1 PNR Name Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="CustomerId" type="xs:string"/>
+					<xs:attribute name="FirstName" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastName" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="NonRevenueStandbyFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="Remarks" type="xs:string"/>
+					<xs:attribute name="RevenueStandbyFlag" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="Suffix" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Sr., etc.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="Title" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Mr., Mrs., etc.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PassengerSpecial">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: NMESPL V1.0 PNR Name Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="GroupId" type="xs:string"/>
+					<xs:attribute name="GroupName" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="NonRevenueStandbyFlag" type="xs:string"/>
+					<xs:attribute name="NumberInGroup" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="RevenueStandbyFlag" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Phone">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: PHN V1.1 Phone Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AreaCode" type="xs:string"/>
+					<xs:attribute name="CityCode" type="xs:string"/>
+					<xs:attribute name="CountryCode" type="xs:string"/>
+					<xs:attribute name="Extension" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="MarkedForDeletionFlag" type="xs:string"/>
+					<xs:attribute name="Number" type="xs:string"/>
+					<xs:attribute name="PhoneFieldNumber" type="xs:string"/>
+					<xs:attribute name="PhoneRecordNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="Type" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Pnr" type="y:PnrType"/>
+			<xs:element name="Ptc">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: PTC V1.0 Psgr. Type Code Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ApplyToAllFlag" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="PassengerTypeCode" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RecordLocator">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: RLC V1.5 Record Locator Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActiveLevel" type="xs:string"/>
+					<xs:attribute name="AnyActionBitFlag" type="xs:string"/>
+					<xs:attribute name="AwardPricingPerformedFlag" type="xs:string"/>
+					<xs:attribute name="DTIType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A=Awards, R=Revenue</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FilePendingModeFlag" type="xs:string"/>
+					<xs:attribute name="NewBagDataPresent" type="xs:string"/>
+					<xs:attribute name="NewLevelIdForDividedPnr" type="xs:string"/>
+					<xs:attribute name="OutsideSystemRecordLocator" type="xs:string"/>
+					<xs:attribute name="PnrCreationDate" type="xs:string"/>
+					<xs:attribute name="PnrCreationDateWithYear" type="xs:string"/>
+					<xs:attribute name="RecordLocator" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Remark">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: RMK V1.2 Remark Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="GivenNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="MarkedForDeletionFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="RemarkNumber" type="xs:string"/>
+					<xs:attribute name="RemarkType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>RRMK, SPCL, ADDR.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="UrgentRofMessageFlag" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SeatDl">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: BASSED V1.4 DL Seat Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActiveSegmentFlag" type="xs:string"/>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="ChangeStatusFlag" type="xs:string"/>
+					<xs:attribute name="CompartmentNumber" type="xs:string"/>
+					<xs:attribute name="CompositeFlag" type="xs:string"/>
+					<xs:attribute name="CurrentSeatAssignment" type="xs:string"/>
+					<xs:attribute name="CurrentStatus" type="xs:string"/>
+					<xs:attribute name="DeleteNameFlag" type="xs:string"/>
+					<xs:attribute name="DeletedDueToNameChangeFlag" type="xs:string"/>
+					<xs:attribute name="DeltaIssueBoardingPassOnlyFlag" type="xs:string"/>
+					<xs:attribute name="DepartureDate" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureYear" type="xs:string"/>
+					<xs:attribute name="DeplanedShortFlag" type="xs:string"/>
+					<xs:attribute name="Description" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="HistoryOnlyFlag" type="xs:string"/>
+					<xs:attribute name="InternalFlagForCassReaccomodation" type="xs:string"/>
+					<xs:attribute name="ItineraryCanceledFlag" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="LegNumber" type="xs:string"/>
+					<xs:attribute name="NewSegmentFlag" type="xs:string"/>
+					<xs:attribute name="NumberInParty" type="xs:string"/>
+					<xs:attribute name="OaOrdinalNumber" type="xs:string"/>
+					<xs:attribute name="OaSeatEndTransactionFlag" type="xs:string"/>
+					<xs:attribute name="PartialSmokingFlag" type="xs:string"/>
+					<xs:attribute name="PassengerName" type="xs:string"/>
+					<xs:attribute name="PassengerRequestedFlag" type="xs:string"/>
+					<xs:attribute name="PassengerTicketingStatus" type="xs:string"/>
+					<xs:attribute name="PreviousStatus" type="xs:string"/>
+					<xs:attribute name="PreviouslyCanceledFlag" type="xs:string"/>
+					<xs:attribute name="ReaccomodationFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SaleOfDxaSpaceFlag" type="xs:string"/>
+					<xs:attribute name="SeatDeparturePoint" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SegmentType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>This will always be 9 for DL seat.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="StandByFlag" type="xs:string"/>
+					<xs:attribute name="UnaccomodatedOrChangedFlag" type="xs:string"/>
+					<xs:attribute name="UnclaimedFlag" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SeatOa">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: BASSEO V1.5 OA Seat Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActiveFlag" type="xs:string"/>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="ChangeStatusFlag" type="xs:string"/>
+					<xs:attribute name="CompartmentNumber" type="xs:string"/>
+					<xs:attribute name="CurrentAssignment" type="xs:string"/>
+					<xs:attribute name="CurrentStatus" type="xs:string"/>
+					<xs:attribute name="DeleteNameFlag" type="xs:string"/>
+					<xs:attribute name="DeletedDueToNameChangeFlag" type="xs:string"/>
+					<xs:attribute name="DepartureDate" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureYear" type="xs:string"/>
+					<xs:attribute name="DeplanedShortFlag" type="xs:string"/>
+					<xs:attribute name="Description" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="HistoryOnlyFlag" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="LegNumber" type="xs:string"/>
+					<xs:attribute name="NewFlag" type="xs:string"/>
+					<xs:attribute name="NumberInParty" type="xs:string"/>
+					<xs:attribute name="PartialSmokingFlag" type="xs:string"/>
+					<xs:attribute name="PassengerName" type="xs:string"/>
+					<xs:attribute name="PassengerRequestedFlag" type="xs:string"/>
+					<xs:attribute name="PassengerTicketingStatus" type="xs:string"/>
+					<xs:attribute name="PreferredFlag" type="xs:string"/>
+					<xs:attribute name="PreviousAssignment" type="xs:string"/>
+					<xs:attribute name="PreviousStatus" type="xs:string"/>
+					<xs:attribute name="ReaccomodationFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SaleOfDxaSpaceFlag" type="xs:string"/>
+					<xs:attribute name="SeatDeparturePoint" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SegmentType" type="xs:string"/>
+					<xs:attribute name="StandbyFlag" type="xs:string"/>
+					<xs:attribute name="ThroughCheckinFlag" type="xs:string"/>
+					<xs:attribute name="TypeOfRequestFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Specific or Generic.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="UnclaimedFlag" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SegmentAdditionalInfo">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: DAI V1.3 Additional Itin Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AccumulatedTime" type="xs:string"/>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="ArrivalTime" type="xs:string"/>
+					<xs:attribute name="CassEquipment" type="xs:string"/>
+					<xs:attribute name="ConnectionCarrierType" type="xs:string"/>
+					<xs:attribute name="DeltaFlightType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>C=DL Connection Carrier, D=Delta mainline, L=Song, X=Delta Express,T=Test.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="DepartureDayOfWeekNumber" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureTime" type="xs:string"/>
+					<xs:attribute name="ElapsedTime" type="xs:string"/>
+					<xs:attribute name="FirstLegDepartureCity" type="xs:string"/>
+					<xs:attribute name="FirstLegDepartureDate" type="xs:string"/>
+					<xs:attribute name="FirstLegDepartureTime" type="xs:string"/>
+					<xs:attribute name="FirstLegDepartureYear" type="xs:string"/>
+					<xs:attribute name="FlightAdvisoryText" type="xs:string"/>
+					<xs:attribute name="FlightDepartureDate" type="xs:string"/>
+					<xs:attribute name="FlightLegDepartureYear" type="xs:string"/>
+					<xs:attribute name="FlightMileage" type="xs:string"/>
+					<xs:attribute name="InventoryEquipment" type="xs:string"/>
+					<xs:attribute name="LegArrivalDate" type="xs:string"/>
+					<xs:attribute name="LegNumber" type="xs:string"/>
+					<xs:attribute name="MealServiceCode" type="xs:string"/>
+					<xs:attribute name="NoCommsLinkFlag" type="xs:string"/>
+					<xs:attribute name="OfficialAirlineGuideEquipmentCode" type="xs:string"/>
+					<xs:attribute name="OperatingCarrierCode" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SecureFlightFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y/N</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SegmentDl">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: BASDL V2.6 DL Itinerary Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActiveFlag" type="xs:string"/>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="ArrivalTime" type="xs:string"/>
+					<xs:attribute name="AscMessageFlag" type="xs:string"/>
+					<xs:attribute name="AtlanticExcellenceRevenueValue" type="xs:string"/>
+					<xs:attribute name="BackupCheckinSystemActiveThisFlightFlag" type="xs:string"/>
+					<xs:attribute name="BinaryFareTypeCode" type="xs:string"/>
+					<xs:attribute name="BlockSpaceControlFlag" type="xs:string"/>
+					<xs:attribute name="CancelFlag" type="xs:string"/>
+					<xs:attribute name="ChangeStatusFlag" type="xs:string"/>
+					<xs:attribute name="ClassOfService" type="xs:string"/>
+					<xs:attribute name="ClassOfService2" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Two Character Class Of Service</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ClassOfServiceOverBookedFlag" type="xs:string"/>
+					<xs:attribute name="CodeShareClassOfService" type="xs:string"/>
+					<xs:attribute name="CodeShareParticipantFlag" type="xs:string"/>
+					<xs:attribute name="CompartmentNumber" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>1=First, 2=Business, 3=Coach, 5=Codeshare operated premium (W) class.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="CompartmentOverBookedFlag" type="xs:string"/>
+					<xs:attribute name="ConditionalCancelAndSellFlag" type="xs:string"/>
+					<xs:attribute name="ConsideredForMscSelectTicketFlag" type="xs:string"/>
+					<xs:attribute name="ContinuingFlag" type="xs:string"/>
+					<xs:attribute name="CurrentActionCode" type="xs:string"/>
+					<xs:attribute name="DeltaConnectionCarrierFlag" type="xs:string"/>
+					<xs:attribute name="DepartureDate" type="xs:string"/>
+					<xs:attribute name="DepartureDateAdjustment" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Absolute value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="DepartureDateAdjustmentNegativeFlag" type="xs:string"/>
+					<xs:attribute name="DepartureDayOfWeekNumber" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureTime" type="xs:string"/>
+					<xs:attribute name="DirectConnectReconcilePseudoAaaFlag" type="xs:string"/>
+					<xs:attribute name="DlPassengerOnDlMarketedCodeshareFlag" type="xs:string"/>
+					<xs:attribute name="DynamicAdlInEffectFlag" type="xs:string"/>
+					<xs:attribute name="ElectronicTicketChangedToPaFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=ET changed action code to PA</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ElectronicTicketChangedToPbFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=ET changed action code to PB</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ElectronicTicketChangedToPcFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=ET changed action code to PC</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ElectronicTicketEligibleFlag" type="xs:string"/>
+					<xs:attribute name="EquipmentChangeFlag" type="xs:string"/>
+					<xs:attribute name="ErrorWithDateConversionFlag" type="xs:string"/>
+					<xs:attribute name="FFlyerLevelAtBookingTimeFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>M=FO, G=GM, P=PM</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstIndexableFlag" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="GrossInventoryFlag" type="xs:string"/>
+					<xs:attribute name="InFlightDateAdjustment" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Absolute value.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="InboundConnectionFlag" type="xs:string"/>
+					<xs:attribute name="InboundOutboundChangeFlag" type="xs:string"/>
+					<xs:attribute name="InflightDateAdjustmentNegativeFlag" type="xs:string"/>
+					<xs:attribute name="IprsBit1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>1=IROP.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="IprsBit2" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>1=IROP protection segment.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="IprsBit3" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="LegNumber" type="xs:string"/>
+					<xs:attribute name="MarriedControl" type="xs:string"/>
+					<xs:attribute name="MarriedControlAvilBucket" type="xs:string"/>
+					<xs:attribute name="MileageTableValue" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Award Travel Mileage Table (0, 1, 2, 3)</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="MoreThanOneLegFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=More than one leg.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NWMigrationFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y = it was booked for NW PNR migration.
+					                  N = it was NOT booked for migration.
+                                                          NOTE: this indicator is temporary and will be given back in Jan 2011.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NewFlag" type="xs:string"/>
+					<xs:attribute name="NewIropFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Not related to IPRS.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NoSmokingFlag" type="xs:string"/>
+					<xs:attribute name="NonDemandFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=Non-demand, N=demand.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NonInventoryFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=non-inventory</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NonRevenueFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=NonRevenue, N=Revenue.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="NumberInParty" type="xs:string"/>
+					<xs:attribute name="OaPassengerOnDlOperatedCodeshareByDlAgentFlag" type="xs:string"/>
+					<xs:attribute name="OaPassengerOnDlOperatedCodeshareFlag" type="xs:string"/>
+					<xs:attribute name="OandDTripNumber" type="xs:string"/>
+					<xs:attribute name="OutboundConnectionFlag" type="xs:string"/>
+					<xs:attribute name="PartOfWorldspanTripFlag" type="xs:string"/>
+					<xs:attribute name="PartialSmokingFlag" type="xs:string"/>
+					<xs:attribute name="PnrNeedsQueuingFlag" type="xs:string"/>
+					<xs:attribute name="PoolAllocationFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y = it has been booked from pool allocation. 
+                                                          N = segment was NOT booked from pool allocation.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="PreviousActionCode" type="xs:string"/>
+					<xs:attribute name="PseudoTripNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="ReduceNumberInPartyFlag" type="xs:string"/>
+					<xs:attribute name="RmsFareValue" type="xs:string"/>
+					<xs:attribute name="ScheduleChangeFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y = it has been affected by schedule change.
+                                                          N = NOT affected by schedule change.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="ScheduleChangeRestartFlag" type="xs:string"/>
+					<xs:attribute name="SegmentDepartureYear" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SegmentType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>0 for DL.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SpaceSoldFromInventoryThisTransaction" type="xs:string"/>
+					<xs:attribute name="StandbyListFlag" type="xs:string"/>
+					<xs:attribute name="UniqueBasId" type="xs:string"/>
+					<xs:attribute name="VitualInvBuckets" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SegmentOa">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: BASOA V1.6 OA Itin Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ActiveFlag" type="xs:string"/>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="ArrivalTime" type="xs:string"/>
+					<xs:attribute name="CancelFlag" type="xs:string"/>
+					<xs:attribute name="ChangeStatusFlag" type="xs:string"/>
+					<xs:attribute name="ClassOfService" type="xs:string"/>
+					<xs:attribute name="CodeshareParticipantFlag" type="xs:string"/>
+					<xs:attribute name="ContinuingItineraryFlag" type="xs:string"/>
+					<xs:attribute name="CurrentActionCode" type="xs:string"/>
+					<xs:attribute name="DepartureDate" type="xs:string"/>
+					<xs:attribute name="DepartureDateAdjustment" type="xs:string"/>
+					<xs:attribute name="DepartureDayOfTheWeekNumber" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="DepartureTime" type="xs:string"/>
+					<xs:attribute name="ElectronicTicketEligibleFlag" type="xs:string"/>
+					<xs:attribute name="ErrorWithDateConversionFlag" type="xs:string"/>
+					<xs:attribute name="FirstIndexableFlag" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="InFlightDateAdjustment" type="xs:string"/>
+					<xs:attribute name="InflightDateAdjustmentNegativeFlag" type="xs:string"/>
+					<xs:attribute name="IprsBit1" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>1=IROP segment.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="IprsBit2" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>1=IROP protection segment.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="IprsBit3" type="xs:string"/>
+					<xs:attribute name="IprsBit4" type="xs:string"/>
+					<xs:attribute name="ItinOAndDTripNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="LegNumber" type="xs:string"/>
+					<xs:attribute name="NegativeDepartureDateAdjustmentFlag" type="xs:string"/>
+					<xs:attribute name="NewFlag" type="xs:string"/>
+					<xs:attribute name="NoSmokingFlag" type="xs:string"/>
+					<xs:attribute name="NumberInParty" type="xs:string"/>
+					<xs:attribute name="OaAgentSine" type="xs:string"/>
+					<xs:attribute name="OaConfirmationFlag" type="xs:string"/>
+					<xs:attribute name="OaInboundConnectionFlag" type="xs:string"/>
+					<xs:attribute name="OaInboundOutboundChangeFlag" type="xs:string"/>
+					<xs:attribute name="OaOutboundConnectionFlag" type="xs:string"/>
+					<xs:attribute name="OaPniFlag" type="xs:string"/>
+					<xs:attribute name="OaSharedFlag" type="xs:string"/>
+					<xs:attribute name="OnRequestDueToNoAvailability" type="xs:string"/>
+					<xs:attribute name="PartialSmokingFlag" type="xs:string"/>
+					<xs:attribute name="PreviousActionCode" type="xs:string"/>
+					<xs:attribute name="PseudoTripNumSetByTripAnalyzer" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="ReduceNumberInPartyFlag" type="xs:string"/>
+					<xs:attribute name="SegmentDepartureYear" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SegmentType" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>2=DL</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="SoldFromOaDirectAccessDisplayFlag" type="xs:string"/>
+					<xs:attribute name="ThirdAirlineRequest" type="xs:string"/>
+					<xs:attribute name="WorldspanPartnerPriorityWaitlist" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SpecialServiceRequest">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: SSR V1.3 Special Service Rqst Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AirlineCode" type="xs:string"/>
+					<xs:attribute name="AllPassengersFlag" type="xs:string"/>
+					<xs:attribute name="AllSegmentsFlag" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FlightDate" type="xs:string"/>
+					<xs:attribute name="FlightNumber" type="xs:string"/>
+					<xs:attribute name="IsHAFACT" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="NumberOfSsrsRequestedFor" type="xs:string"/>
+					<xs:attribute name="OaSpecialServiceRequestFlag" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="Remarks" type="xs:string"/>
+					<xs:attribute name="RequestCode" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="SsrNumber" type="xs:string"/>
+					<xs:attribute name="StatusCode" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="StandbyListItin">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: SBYITN V1.1  ASL Itinerary</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ClassOfService" type="xs:string"/>
+					<xs:attribute name="CustomerId" type="xs:string"/>
+					<xs:attribute name="FirstName" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastName" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="StandbyGroupCode" type="xs:string"/>
+					<xs:attribute name="StandbyPriorityCode" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="StoredFareData">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: FQC V1.2 $D Stored Fare Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FareQuoteTypeCode" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>A - Award DTI
+R - Revenue DTI</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FareRemarks" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>specifically for CMS</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketCouponInfo">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: TICOU V1.1 Ticket Display Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ArrivalPoint" type="xs:string"/>
+					<xs:attribute name="CheckDigit" type="xs:string"/>
+					<xs:attribute name="ConnectionTicketNumber" type="xs:string"/>
+					<xs:attribute name="CouponNumber" type="xs:string"/>
+					<xs:attribute name="CouponStatus" type="xs:string"/>
+					<xs:attribute name="DeparturePoint" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="TicketNumber" type="xs:string"/>
+					<xs:attribute name="TravelDate" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketData">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: D5CB V1.2 Ticket Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AccountControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="AutoReissueFlag" type="xs:string"/>
+					<xs:attribute name="BoardingPassControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="CityCodeForAccountingPrinter" type="xs:string"/>
+					<xs:attribute name="CityCodeForTicketPrinter" type="xs:string"/>
+					<xs:attribute name="ConnTicketNumber" type="xs:string"/>
+					<xs:attribute name="ControlNumberExhausedFlag2" type="xs:string"/>
+					<xs:attribute name="ControlNumberExhaustedFlag" type="xs:string"/>
+					<xs:attribute name="DateOfBoardingPassIssue" type="xs:string"/>
+					<xs:attribute name="DateOfInvoice" type="xs:string"/>
+					<xs:attribute name="DeleteItemFlag" type="xs:string"/>
+					<xs:attribute name="DigitCheck" type="xs:string"/>
+					<xs:attribute name="ElectronicTicketNumberFlag" type="xs:string"/>
+					<xs:attribute name="ExchangedTicketFlag" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FirstScnAcctDocRangeA" type="xs:string"/>
+					<xs:attribute name="FirstScnAcctDocRangeB" type="xs:string"/>
+					<xs:attribute name="FirstScnBoardRangeA" type="xs:string"/>
+					<xs:attribute name="FirstScnBoardRangeB" type="xs:string"/>
+					<xs:attribute name="FirstScnTicketRangeA" type="xs:string"/>
+					<xs:attribute name="FirstScnTicketRangeB" type="xs:string"/>
+					<xs:attribute name="InvoiceNumber" type="xs:string"/>
+					<xs:attribute name="InvoiceNumberFlag" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="LastScnAcctDocRangeA" type="xs:string"/>
+					<xs:attribute name="LastScnAcctDocRangeB" type="xs:string"/>
+					<xs:attribute name="LastScnBoardRangeA" type="xs:string"/>
+					<xs:attribute name="LastScnBoardRangeB" type="xs:string"/>
+					<xs:attribute name="LastScnTicketRangeA" type="xs:string"/>
+					<xs:attribute name="LastScnTicketRangeB" type="xs:string"/>
+					<xs:attribute name="ManualAccountControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="ManualBoardingPassControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="ManualReissueFlag" type="xs:string"/>
+					<xs:attribute name="ManualTicketControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="ManualTicketFlag" type="xs:string"/>
+					<xs:attribute name="NoBoardingPassFlag" type="xs:string"/>
+					<xs:attribute name="PassengerName" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="TicketControlNumberFlag" type="xs:string"/>
+					<xs:attribute name="TicketIssueDate" type="xs:string"/>
+					<xs:attribute name="TicketMessage" type="xs:string"/>
+					<xs:attribute name="TicketNumber" type="xs:string"/>
+					<xs:attribute name="TicketNumberFlag" type="xs:string"/>
+					<xs:attribute name="TicketType" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketInformation">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: TITDI V1.0 Ticket Display Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ConnectionTicketNumber" type="xs:string"/>
+					<xs:attribute name="DigitCheck" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="IssueDate" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="TicketName" type="xs:string"/>
+					<xs:attribute name="TicketNumber" type="xs:string"/>
+					<xs:attribute name="TicketStatus" type="xs:string"/>
+					<xs:attribute name="TicketType1" type="xs:string"/>
+					<xs:attribute name="TicketType2" type="xs:string"/>
+					<xs:attribute name="TypeDescription" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketNumberData1">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: D5E001 V1.1 Ticket Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="AdditionalCollectionAmount" type="xs:string"/>
+					<xs:attribute name="AdditionalCollectionDataFlag" type="xs:string"/>
+					<xs:attribute name="AutoReissueForFormOfPaymentFlag" type="xs:string"/>
+					<xs:attribute name="CommissionRate" type="xs:string"/>
+					<xs:attribute name="CurrencyCode" type="xs:string"/>
+					<xs:attribute name="ExchangedCurrencyAmount" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FirstTimeIssueForFormOfPaymentFlag" type="xs:string"/>
+					<xs:attribute name="IataNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="ManualTicketValue" type="xs:string"/>
+					<xs:attribute name="OriginalFormOfPayment" type="xs:string"/>
+					<xs:attribute name="OriginalSalesLocation" type="xs:string"/>
+					<xs:attribute name="OriginalTicketAgent" type="xs:string"/>
+					<xs:attribute name="OriginalTicketCity" type="xs:string"/>
+					<xs:attribute name="OriginalTicketDate" type="xs:string"/>
+					<xs:attribute name="OriginalTicketNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="RefundDataFlag" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="TotalExchangedAmount" type="xs:string"/>
+					<xs:attribute name="UsedYTicketRedemptionFlag" type="xs:string"/>
+					<xs:attribute name="VoluntaryFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>0=Voluntary, 1=Involuntary.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketNumberData2">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: D5E002 V1.0 Ticket Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ExchangeCouponNumber" type="xs:string"/>
+					<xs:attribute name="ExchangeDocumentNumber" type="xs:string"/>
+					<xs:attribute name="ExchangeTicketAmount" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketNumberData3">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: D5E003 V1.1 Ticket Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="ApprovalCode" type="xs:string"/>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FormOfPayment" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="Tariff" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketPassengerInfo">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: TIPNI V1.0 Ticket Display Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="PassengerName" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="TicketMessage" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketingField">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: TKT V1.0 Ticketing Field Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+					<xs:attribute name="TicketingTypeCode" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>TA=Tkt Appt, TM=TBM.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketingInstruction">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: TKI V1.1 Ticketing Instruction Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FarefaxGeneratedFlag" type="xs:string">
+						<xs:annotation>
+							<xs:documentation>Y=This TKI would be displayed in response to a *TKE input when an 'ADDL' TKI is present in the Pnr.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TicketingTimeLimit">
+				<xs:annotation>
+					<xs:documentation>Phat-R Workbook: LMT V1.0 Tktg Time Limit Data</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="FirstNameNumber" type="xs:string"/>
+					<xs:attribute name="FreeformText" type="xs:string"/>
+					<xs:attribute name="LastNameNumber" type="xs:string"/>
+					<xs:attribute name="RecordName" type="xs:string"/>
+					<xs:attribute name="SegmentNumber" type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/pnroptions" targetNamespace="http://schemas.delta.com/common/pnroptions" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="PnrOptionsType">
+				<xs:attribute name="FreeFormText" type="xs:string"/>
+				<xs:attribute name="IgnoreAuditsFlag" type="xs:string"/>
+			</xs:complexType>
+			<xs:element name="PnrOptions" type="y:PnrOptionsType"/>
+		</xs:schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/responseinfo/v1" targetNamespace="http://schemas.delta.com/common/responseinfo/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<complexType name="ResponseInfoType">
+				<attribute name="AdditionalInfo" type="string">
+					<annotation>
+						<documentation>May contain semi-colon delimited strings</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ServiceTrackingId" type="string">
+					<annotation>
+						<documentation>May be provided by service...The concatenated node name, service name, operation name, and a unique randomly generated number.  If client logs this, then we can tie the service log entries to the client log entries (especially if client did not send a TransactionId)</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="TransactionId" type="string">
+					<annotation>
+						<documentation>May be provided by client...should be same for each "transaction" on client side</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<element name="ResponseInfo" type="tns:ResponseInfoType"/>
+		</schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/error/v4" targetNamespace="http://schemas.delta.com/common/error/v4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<complexType name="ErrorType">
+				<attribute name="AdditionalInfo" type="string">
+					<annotation>
+						<documentation>
+    				information such as backend request, timings, etc -- anything
+    				that would be helpful in determining the cause of the error
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ErrorCode" type="string">
+					<annotation>
+						<documentation>
+    				Each service will add additional error codes as
+    				needed
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ErrorText" type="string">
+					<annotation>
+						<documentation>
+    				If the error was due to an exception within the
+    				webservice code, then the contents of the exception
+    				can be put here else a string explaining the error
+    				can be put here, else it can be left blank.
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ReasonCode" type="string">
+					<annotation>
+						<documentation>
+    				backend error code if available or blank.
+    			</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="ReasonText" type="string">
+					<annotation>
+						<documentation>
+    				backend error reason text or backend exception text
+    				and/or stack trace , if available or blank
+    			</documentation>
+					</annotation>
+				</attribute>
+			</complexType>
+			<element name="Error" type="tns:ErrorType"/>
+		</schema>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:y="http://schemas.delta.com/common/advisorymessage/v2" targetNamespace="http://schemas.delta.com/common/advisorymessage/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="AdvisoryMessageType">
+				<xs:attribute name="FreeformText" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>X[1..64]</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="MessageNumber" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+						X[1..5] (not used)
+					</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Process" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+						X[1..6] (not used) process where message
+						generated
+					</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="Spare" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+						[1..6] (not used) Spares for TPF use
+					</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="SscRequest" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>X[6] (not used)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:element name="AdvisoryMessage" type="y:AdvisoryMessageType"/>
+		</xs:schema>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/stamping/v2" xmlns:usr="http://schemas.delta.com/common/userauthdata/v2" xmlns:ptr="http://schemas.delta.com/common/ptrauthdata/v2" targetNamespace="http://schemas.delta.com/common/stamping/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<import namespace="http://schemas.delta.com/common/userauthdata/v2"/>
+			<import namespace="http://schemas.delta.com/common/ptrauthdata/v2"/>
+			<complexType name="StampingInfoType">
+				<sequence>
+					<element ref="usr:UserAuthorizationData" minOccurs="0"/>
+					<element ref="ptr:PrinterAuthorizationData" minOccurs="0"/>
+				</sequence>
+			</complexType>
+			<element name="StampingInfo" type="tns:StampingInfoType"/>
+		</schema>
+		<xs:schema xmlns:y="http://schemas.delta.com/common/auditflag/v2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.delta.com/common/auditflag/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+			<xs:complexType name="AuditFlagType">
+				<xs:attribute name="DeleteDTI" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>To Delete DTI.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="DeleteDTIForAll" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>To Delete DTI for both VERIFYDTI and NDSEGMENTSELECT audits</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="DeleteTKI" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>To Delete TKI.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="QFail" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+					QFAIL indicator allows "continuity audit errors" to
+					be overridden by the QFAIL demand code.
+				</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="VerifyDTI" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>To Verify DTI.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="VerifyTKI" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>To Verify TKI.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:complexType>
+			<xs:element name="AuditFlag" type="y:AuditFlagType"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="CheckHealthRequest">
+		<wsdl:part name="params" element="ns0:CheckHealthRequest"/>
+	</wsdl:message>
+	<wsdl:message name="CheckHealthResponse">
+		<wsdl:part name="params" element="ns0:CheckHealthResponse"/>
+	</wsdl:message>
+	<wsdl:message name="EndRequest">
+		<wsdl:part name="params" element="ns1:EndRequest"/>
+	</wsdl:message>
+	<wsdl:message name="EndResponse">
+		<wsdl:part name="params" element="ns1:EndResponse"/>
+	</wsdl:message>
+	<wsdl:message name="BusinessFault">
+		<wsdl:part name="params" element="ns2:BusinessFault"/>
+	</wsdl:message>
+	<wsdl:message name="SystemFault">
+		<wsdl:part name="params" element="ns2:SystemFault"/>
+	</wsdl:message>
+	<wsdl:message name="VerifyDTIRequest">
+		<wsdl:part name="params" element="ns1:VerifyDTIRequest"/>
+	</wsdl:message>
+	<wsdl:message name="VerifyDTIResponse">
+		<wsdl:part name="params" element="ns1:VerifyDTIResponse"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveRequest">
+		<wsdl:part name="params" element="ns1:RetrieveRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveResponse">
+		<wsdl:part name="params" element="ns1:RetrieveResponse"/>
+	</wsdl:message>
+	<wsdl:message name="RefreshRequest">
+		<wsdl:part name="params" element="ns1:RefreshRequest"/>
+	</wsdl:message>
+	<wsdl:message name="RefreshResponse">
+		<wsdl:part name="params" element="ns1:RefreshResponse"/>
+	</wsdl:message>
+	<wsdl:message name="SetupContextRequest">
+		<wsdl:part name="params" element="ns1:SetupContextRequest"/>
+	</wsdl:message>
+	<wsdl:message name="SetupContextResponse">
+		<wsdl:part name="params" element="ns1:SetupContextResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CopyRequest">
+		<wsdl:part name="params" element="ns1:CopyRequest"/>
+	</wsdl:message>
+	<wsdl:message name="CopyResponse">
+		<wsdl:part name="params" element="ns1:CopyResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DecodeRequest">
+		<wsdl:part name="params" element="ns1:DecodeRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DecodeResponse">
+		<wsdl:part name="params" element="ns1:DecodeResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CreateRequest">
+		<wsdl:part name="params" element="ns1:CreateRequest"/>
+	</wsdl:message>
+	<wsdl:message name="CreateResponse">
+		<wsdl:part name="params" element="ns1:CreateResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteDTIRequest">
+		<wsdl:part name="params" element="ns1:DeleteDTIRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteDTIResponse">
+		<wsdl:part name="params" element="ns1:DeleteDTIResponse"/>
+	</wsdl:message>
+	<wsdl:message name="VerifyTKIRequest">
+		<wsdl:part name="params" element="ns1:VerifyTKIRequest"/>
+	</wsdl:message>
+	<wsdl:message name="VerifyTKIResponse">
+		<wsdl:part name="params" element="ns1:VerifyTKIResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteTKIRequest">
+		<wsdl:part name="params" element="ns1:DeleteTKIRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DeleteTKIResponse">
+		<wsdl:part name="params" element="ns1:DeleteTKIResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DivideRequest">
+		<wsdl:part name="params" element="ns1:DivideRequest"/>
+	</wsdl:message>
+	<wsdl:message name="DivideResponse">
+		<wsdl:part name="params" element="ns1:DivideResponse"/>
+	</wsdl:message>
+	<wsdl:message name="IgnoreRequest">
+		<wsdl:part name="params" element="ns1:IgnoreRequest"/>
+	</wsdl:message>
+	<wsdl:message name="IgnoreResponse">
+		<wsdl:part name="params" element="ns1:IgnoreResponse"/>
+	</wsdl:message>
+	<wsdl:message name="TeardownContextRequest">
+		<wsdl:part name="params" element="ns1:TeardownContextRequest"/>
+	</wsdl:message>
+	<wsdl:message name="TeardownContextResponse">
+		<wsdl:part name="params" element="ns1:TeardownContextResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="PnrCommon">
+		<wsdl:operation name="CheckHealth">
+			<wsdl:input message="tns:CheckHealthRequest"/>
+			<wsdl:output message="tns:CheckHealthResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="End">
+			<wsdl:input message="tns:EndRequest"/>
+			<wsdl:output message="tns:EndResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="VerifyDTI">
+			<wsdl:input message="tns:VerifyDTIRequest"/>
+			<wsdl:output message="tns:VerifyDTIResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Retrieve">
+			<wsdl:input message="tns:RetrieveRequest"/>
+			<wsdl:output message="tns:RetrieveResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Refresh">
+			<wsdl:input message="tns:RefreshRequest"/>
+			<wsdl:output message="tns:RefreshResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="SetupContext">
+			<wsdl:input message="tns:SetupContextRequest"/>
+			<wsdl:output message="tns:SetupContextResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Copy">
+			<wsdl:input message="tns:CopyRequest"/>
+			<wsdl:output message="tns:CopyResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Decode">
+			<wsdl:input message="tns:DecodeRequest"/>
+			<wsdl:output message="tns:DecodeResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Create">
+			<wsdl:input message="tns:CreateRequest"/>
+			<wsdl:output message="tns:CreateResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDTI">
+			<wsdl:input message="tns:DeleteDTIRequest"/>
+			<wsdl:output message="tns:DeleteDTIResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="VerifyTKI">
+			<wsdl:input message="tns:VerifyTKIRequest"/>
+			<wsdl:output message="tns:VerifyTKIResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteTKI">
+			<wsdl:input message="tns:DeleteTKIRequest"/>
+			<wsdl:output message="tns:DeleteTKIResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Divide">
+			<wsdl:input message="tns:DivideRequest"/>
+			<wsdl:output message="tns:DivideResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="Ignore">
+			<wsdl:input message="tns:IgnoreRequest"/>
+			<wsdl:output message="tns:IgnoreResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="TeardownContext">
+			<wsdl:input message="tns:TeardownContextRequest"/>
+			<wsdl:output message="tns:TeardownContextResponse"/>
+			<wsdl:fault name="businessFault" message="tns:BusinessFault"/>
+			<wsdl:fault name="systemFault" message="tns:SystemFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PnrCommon_EP" type="tns:PnrCommon">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CheckHealth">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="CheckHealth"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="End">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="End"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="VerifyDTI">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="VerifyDTI"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Retrieve">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Retrieve"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Refresh">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Refresh"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="SetupContext">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="SetupContext"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Copy">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Copy"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Decode">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Decode"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Create">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Create"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteDTI">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="DeleteDTI"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="VerifyTKI">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="VerifyTKI"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="DeleteTKI">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="DeleteTKI"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Divide">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Divide"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="Ignore">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="Ignore"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="TeardownContext">
+			<wsdl:documentation/>
+			<soap:operation style="document" soapAction="TeardownContext"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="params"/>
+			</wsdl:output>
+			<wsdl:fault name="businessFault">
+				<soap:fault use="literal" name="businessFault"/>
+			</wsdl:fault>
+			<wsdl:fault name="systemFault">
+				<soap:fault use="literal" name="systemFault"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="PnrCommon">
+		<wsdl:port name="PnrCommon_EP" binding="tns:PnrCommon_EP">
+			<soap:address location="http://localhost:31063/pnrcommon/v6"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

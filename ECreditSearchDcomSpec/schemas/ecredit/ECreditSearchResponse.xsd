@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="http://schemas.delta.com/ecredit/ecreditsearchresponse" xmlns:tns="http://schemas.delta.com/ecredit/ecreditsearchresponse" xmlns:ect="http://schemas.delta.com/misc/ecertificateresponse" xmlns:crit="http://schemas.delta.com/ecredit/ecreditsearchcriteria"
+	xmlns:pref2="http://schemas.delta.com/common/responseinfo/v1" xmlns:dbg="http://schemas.delta.com/common/debuginfo/v4" xmlns:err="http://schemas.delta.com/common/error/v4">
+	<xs:import namespace="http://schemas.delta.com/common/debuginfo/v4" schemaLocation="../common/DebugInfo_v4.xsd"/>
+	<xs:import namespace="http://schemas.delta.com/common/responseinfo/v1" schemaLocation="../common/ResponseInfo.xsd"/>
+	<xs:import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+	<xs:import namespace="http://schemas.delta.com/ecredit/ecreditsearchcriteria" schemaLocation="../ecredit/ECreditSearchCriteria.xsd"/> 
+	<xs:import namespace="http://schemas.delta.com/misc/ecertificateresponse" schemaLocation="../misc/ECertificateResponse.xsd"/> 
+	<xs:element name="ECreditSearchResponse" type="tns:ECreditSearchResponseType"/>
+	<xs:complexType name="ECreditSearchResponseType">
+		<xs:sequence>
+			<xs:element ref="err:Error" maxOccurs="1" minOccurs="0"/>
+			<xs:element ref="dbg:DebugInfo"/>
+			<xs:element ref="pref2:ResponseInfo"/>
+			<xs:element ref="crit:ECreditSearchCriteria" minOccurs="0" maxOccurs="1"/>
+			<xs:element ref="ect:RetrieveECertificateResponse" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="ECreditCount" type="xs:string"/>
+		<xs:attribute name="ECertCount" type="xs:string"/>
+		<xs:attribute name="RecentExpiredECreditCount" type="xs:string"/>
+		<xs:attribute name="RecentExpiredECertCount" type="xs:string"/>
+		<xs:attribute name="OpenCertsOrECreditsExist" type="xs:string"/>		
+	</xs:complexType>
+</xs:schema>

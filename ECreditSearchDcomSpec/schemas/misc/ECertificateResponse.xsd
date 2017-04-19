@@ -1,0 +1,236 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+targetNamespace="http://schemas.delta.com/misc/ecertificateresponse" 
+xmlns:tns="http://schemas.delta.com/misc/ecertificateresponse"
+xmlns:brs="http://schemas.delta.com/common/baseresponseinfo/v2"
+xmlns:ns1="http://schemas.delta.com/common/error/v4" >
+	<xsd:import namespace="http://schemas.delta.com/common/baseresponseinfo/v2" schemaLocation="../common/BaseResponseInfo_v2.xsd"/>
+	<xsd:import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+
+	<xsd:element name="RetrieveECertificateResponse" type="tns:RetrieveECertificateResponseType"/>	
+	
+	<xsd:complexType name="RetrieveECertificateResponseType">
+		<xsd:sequence>
+			<xsd:element ref="brs:BaseResponseInfo" minOccurs="0" />
+			<xsd:element name="ECertificateResponse" type="tns:ECertificateResponseType" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element ref="ns1:Error" minOccurs="0" />
+		</xsd:sequence>			
+	</xsd:complexType>
+			
+	<xsd:complexType name="ECertificateResponseType">
+		<xsd:sequence>
+			<xsd:element name="ECertRequestOptions" type="tns:ECertRequestOptionsType" minOccurs="1" maxOccurs="1"/>					
+			<xsd:element name="EcertDocument" type="tns:EcertDocumentType" minOccurs="0" maxOccurs="unbounded" /> 					
+		</xsd:sequence>
+		<xsd:attribute name="FreeformText" type="xsd:string" />
+	</xsd:complexType>
+			
+	<xsd:complexType name="ECertRequestOptionsType">
+		<xsd:attribute name="DocumentNumber" type="xsd:string" />
+		<xsd:attribute name="FrequentFlyerNumber" type="xsd:string" />
+		<xsd:attribute name="CustomerAffiliateIdentifier" type="xsd:string"/>
+		<xsd:attribute name="CustomerAffiliateTypeCode" type="xsd:string" />		
+	</xsd:complexType>
+									
+	<xsd:complexType name="CustomerType">
+		<xsd:attribute name="GlobalCustomerIdentifier" type="xsd:string" />
+		<xsd:attribute name="ECertificateGroupIdentifier" type="xsd:string" />
+		<xsd:attribute name="CreationLocalTimestamp" type="xsd:string" />
+		<xsd:attribute name="SkyMilesNumber" type="xsd:string" />
+		<xsd:attribute name="FirstName" type="xsd:string" />
+		<xsd:attribute name="MiddleName" type="xsd:string" />
+		<xsd:attribute name="SuffixNameCode" type="xsd:string" />
+		<xsd:attribute name="PrefixNameCode" type="xsd:string" />
+		<xsd:attribute name="ECertificateCustomerAffiliateIdentifier" type="xsd:string" />				
+		<xsd:attribute name="ECertificateCustomerAffiliateTypeCode" type="xsd:string" />		
+		<xsd:attribute name="WorldPerksNumber" type="xsd:string" />
+		<xsd:attribute name="CustomerLastName" type="xsd:string" />
+		<xsd:attribute name="PostalAreaCode" type="xsd:string" />
+		<xsd:attribute name="CustomerExternalReferenceNumber" type="xsd:string" />
+	</xsd:complexType>
+			
+	<xsd:complexType name="EcertDocumentType">
+		<xsd:sequence>
+			<xsd:element name="Customer" type="tns:CustomerType" minOccurs="0" />
+			<xsd:element name="Promotions" type="tns:PromotionsType" minOccurs="0" /> 
+			<xsd:element name="CertificateUsages" type="tns:CertificateUsagesType" minOccurs="0" maxOccurs="unbounded" /> 									
+		</xsd:sequence>				
+		<xsd:attribute name="ECertificateDocumentIdentifier"  type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string" />
+		<xsd:attribute name="GlobalCustomerIdentifier" type="xsd:string" />				
+		<xsd:attribute name="WithholdECertificateDocumentIndicator" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentUsageCount" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentRedemptionLocalTimestamp" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CustomerSupportAgentNumber" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentCreationLocalTimestamp" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ECertificateGroupIdentifier" type="xsd:string" />
+		<xsd:attribute name="LastUpdateLocalTimestamp" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ECertificateDocumentUpdateLocalTimestamp"  type="xsd:string">				
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="WorldPerksECertificateDocumentIdentifier"  type="xsd:string" />
+		<xsd:attribute name="ECertificateRedemptionCode"  type="xsd:string" />
+	</xsd:complexType>
+	
+	<xsd:complexType name="PromotionsType">
+		<xsd:sequence>
+			<xsd:element name="CompartmentCodes" type="tns:CompartmentCodesType" minOccurs="0" maxOccurs="unbounded" /> 
+			<xsd:element name="DaysOfWeek" type="tns:DaysOfWeekType" minOccurs="0" maxOccurs="unbounded" /> 
+			<xsd:element name="DebitCreditCards" type="tns:DebitCreditCardsType" minOccurs="0" maxOccurs="unbounded" /> 
+			<xsd:element name="DebitCreditCardTravel" type="tns:DebitCreditCardTravelType" minOccurs="0" maxOccurs="unbounded" /> 										
+			<xsd:element name="TransportationStations" type="tns:TransportationStationsType" minOccurs="0" maxOccurs="unbounded" /> 				
+			<xsd:element name="TermsAndConditions" type="tns:TermsAndConditionsType" minOccurs="0" maxOccurs="unbounded" /> 					
+		</xsd:sequence>
+		<xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string" />
+		<xsd:attribute name="FareBasisCode" type="xsd:string" />
+		<xsd:attribute name="TicketDesignatorCode" type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionDistributionMethodCode" type="xsd:string" />
+		<xsd:attribute name="PromotionAwardTypeCode" type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionStatusCode" type="xsd:string" />
+		<xsd:attribute name="PricingAgentNumber" type="xsd:string" />				
+		<xsd:attribute name="ImplementationAgentNumber" type="xsd:string" />
+		<xsd:attribute name="CreationAgentNumber" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentActualDistributionLocalDate" type="xsd:string" />
+		<xsd:attribute name="GRSLocatorIdentifier" type="xsd:string" />				
+		<xsd:attribute name="PromotionCreationLocalTimestamp" type="xsd:string" />
+		<xsd:attribute name="PromotionImplementationLocalTimestamp" type="xsd:string" />
+		<xsd:attribute name="PromotionUpdateLocalTimestamp" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PromotionPricingApprovedLocalTimestamp" type="xsd:string" />
+		<xsd:attribute name="PromotionDisableIndicator" type="xsd:string" />
+		<xsd:attribute name="PromotionUsageCount" type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionName" type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionDescription" type="xsd:string" />
+		<xsd:attribute name="ExcludeMedallionIndicator" type="xsd:string" />
+		<xsd:attribute name="MultipleFlightLegRequiredIndicator" type="xsd:string" />				
+		<xsd:attribute name="Non-StopFlightRequiredIndicator" type="xsd:string" />
+		<xsd:attribute name="PromotionEffectiveLocalDate" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PromotionExpirationLocalDate" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PromotionTravelStartLocalDate" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)							
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="PromotionTravelEndLocalDate" type="xsd:string" >
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2002-10-31 10:13:30)
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="RoundTripRequiredIndicator" type="xsd:string" />
+		<xsd:attribute name="MinimumStayDayCount" type="xsd:string" />
+		<xsd:attribute name="MaximumStayDayCount" type="xsd:string" />
+		<xsd:attribute name="SaturdayNightRequiredIndicator" type="xsd:string" />
+		<xsd:attribute name="TicketRefundableIndicator" type="xsd:string" />				
+		<xsd:attribute name="AdvancePurchaseRequiredDayCount" type="xsd:string" />
+		<xsd:attribute name="PromotionDeltaExpressIndicator" type="xsd:string" />
+		<xsd:attribute name="PromotionDeltaShuttleIndicator" type="xsd:string" />
+		<xsd:attribute name="PromotionPartnerCarrierIndicator" type="xsd:string" />
+		<xsd:attribute name="PromotionGuestAllowedCount" type="xsd:string" />
+		<xsd:attribute name="SkymilesMemberOnlyIndicator" type="xsd:string" />
+		<xsd:attribute name="RecipientSkymilesMembershipRequiredIndicator" type="xsd:string" />
+		<xsd:attribute name="GuestSkymilesMembershipRequiredIndicator" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentMaximumUsageCount" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentTransferIndicator" type="xsd:string" />				
+		<xsd:attribute name="PromotionDiscountQuantity" type="xsd:string" />
+		<xsd:attribute name="PromotionInternetOnlyIndicator" type="xsd:string" />
+		<xsd:attribute name="LastUpdateAgentNumber" type="xsd:string" />
+		<xsd:attribute name="DistributionAgentNumber" type="xsd:string" />
+		<xsd:attribute name="ECertificateDocumentAgentDistributionLocalDate" type="xsd:string" />		
+		<xsd:attribute name="ECertificateDocumentScheduledDistributionLocalDate" type="xsd:string" />
+		<xsd:attribute name="SecureRateAgreementCode" type="xsd:string" />
+		<xsd:attribute name="PromotionCertificateTypeCode" type="xsd:string" />				
+	</xsd:complexType>
+			
+	<xsd:complexType name="CompartmentCodesType">
+		<xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string" />
+		<xsd:attribute name="CarrierCode" type="xsd:string" />
+		<xsd:attribute name="CompartmentCode" type="xsd:string" />				
+	</xsd:complexType>
+			
+	<xsd:complexType name="DaysOfWeekType">
+		<xsd:attribute name="ECertificatePromotionIdentifier" type="xsd:string" />
+		<xsd:attribute name="DayOfWeekNumber" type="xsd:string" />
+		<xsd:attribute name="DayOfWeekName" type="xsd:string" />				
+	</xsd:complexType>
+	
+	<xsd:complexType name="DebitCreditCardsType">
+		<xsd:attribute name="ECertificatePromotionIdentifier"  type="xsd:string" />
+		<xsd:attribute name="ECertificateProgramDebitCreditCardTypeCode"  type="xsd:string" />		
+	</xsd:complexType>
+	
+	<xsd:complexType name="DebitCreditCardTravelType">
+		<xsd:attribute name="ECertificatePromotionIdentifier"  type="xsd:string" />
+		<xsd:attribute name="DebitCreditCardTravelTypeCode"  type="xsd:string" />
+		<xsd:attribute name="DebitCreditCardLevelCode"  type="xsd:string" />			
+	</xsd:complexType>
+			
+	<xsd:complexType name="TransportationStationsType">
+		<xsd:attribute name="ECertificatePromotionIdentifier"  type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionStationCode"  type="xsd:string" />
+		<xsd:attribute name="OriginDestinationCode"  type="xsd:string" />
+		<xsd:attribute name="ECertificatePromotionMarketTypeCode"  type="xsd:string" />		
+	</xsd:complexType>				
+			
+	<xsd:complexType name="TermsAndConditionsType">				
+		<xsd:sequence>
+			<xsd:element name="ECertificateTermConditionText" type="xsd:string" />
+		</xsd:sequence>
+		<xsd:attribute name="ECertificatePromotionIdentifier"  type="xsd:string" />
+	</xsd:complexType>			
+	
+	<xsd:complexType name="CertificateUsagesType">
+		<xsd:attribute name="ECertificateDocumentIdentifier"  type="xsd:string" />
+		<xsd:attribute name="EBusinessFunctionStartLocalTimestamp"  type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					format : yyyy-mm-dd HH:MM:SS (2005-11-22 12:06:34)					
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="RecordLocatorIdentifier"  type="xsd:string" />
+		<xsd:attribute name="TicketDocumentNumber"  type="xsd:string" />
+		<xsd:attribute name="WorldPerksNumber"  type="xsd:string" />				
+	</xsd:complexType>		
+</xsd:schema>

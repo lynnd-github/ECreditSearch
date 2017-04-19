@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Delta Air Lines, Inc. (Delta Air Lines, Inc.) -->
+<xsd:schema targetNamespace="http://schemas.delta.com/common/checkhealth/v3" xmlns:y="http://schemas.delta.com/common/checkhealth/v3" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:element name="CheckHealthRequest" type="y:CheckHealthGenericRequestType"/>
+	<xsd:complexType name="CheckHealthGenericRequestType">
+		<xsd:annotation>
+			<xsd:documentation>
+				RequestType that will accept a string. If the check
+				health function does not require any special inputs, use
+				this request type.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AnyString" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CheckHealthResponse" type="y:CheckHealthResponseType"/>
+	<xsd:complexType name="CheckHealthResponseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				ResponseType represents the status of the entire service
+				as well as information on the dependencies of the
+				service. For example, if a service retrieves information
+				from the database, the response will contain an status
+				entry for the service as well as the database.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ServiceHealthStatus" type="y:HealthStatusType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Health of the entire service; the result value
+						is determined per the need and dependencies of
+						the service. In this scenario, if a critical
+						dependency failed, then the ServiceHealthStatus
+						would be FATAL...if it is a minor piece that is
+						broken/down, then the service is still ok. It is
+						the provider of the service that determines this
+						result; there is no hard rule.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="HealthMessage" type="y:HealthMessageType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+                		Health of one or more dependencies.
+                	</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HealthMessageType">
+		<xsd:annotation>
+			<xsd:documentation>
+				HealthMessage providing health status information on
+				each of the dependencies of the service. For example, a
+				database, another service, file system, email server,
+				etc.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SystemName" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						System or Dependency name- for example,
+						SkyMilesAuthenticationService or CustomerDB,
+						even D007PROD
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Message" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Message regarding the problem or the status
+						provided
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="y:HealthStatusType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Status of the system/dependency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="HealthStatusType">
+		<xsd:annotation>
+			<xsd:documentation>
+        		HealthStatus provides an indication as to the health
+        	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FATAL">
+				<xsd:annotation>
+					<xsd:documentation>FATAL : cannot achieve desired goals which are considered critical by the provider</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="WARN">
+				<xsd:annotation>
+					<xsd:documentation>WARN : certain pieces of the service may not be functioning properly, but the overall goals of the provider is still achieved</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+			<xsd:enumeration value="OK">
+				<xsd:annotation>
+					<xsd:documentation>OK : no problems of any kind were detected</xsd:documentation>
+				</xsd:annotation>
+			</xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

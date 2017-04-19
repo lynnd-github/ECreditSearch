@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bindingsoapmodel="http://xsd.tns.tibco.com/corona/models/bindingsoapmodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:servicemodel="http://xsd.tns.tibco.com/corona/models/servicemodel" xmi:id="_GdkykJtuEeSQ4umsx5fcBw" type="Servicemodel" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_RQneYJtuEeSQ4umsx5fcBw" type="5002">
+    <children xmi:type="notation:Node" xmi:id="_RQneZ5tuEeSQ4umsx5fcBw" type="4003"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_RQneYZtuEeSQ4umsx5fcBw" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_RQneYptuEeSQ4umsx5fcBw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_RQneY5tuEeSQ4umsx5fcBw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_RQneZJtuEeSQ4umsx5fcBw"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_RQneZZtuEeSQ4umsx5fcBw"/>
+    <element xmi:type="servicemodel:ProviderBindingDefinition" href="ECreditSearchDcomSpec.composite#//@providerBindingDefinitions.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RQneZptuEeSQ4umsx5fcBw" x="28" y="24" width="62" height="52"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_wbsHQK4aEeSJvrUbfp-iEg" type="5001">
+    <children xmi:type="notation:Node" xmi:id="_wbsHR64aEeSJvrUbfp-iEg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_wbsHSK4aEeSJvrUbfp-iEg" type="7001"/>
+    <children xmi:type="notation:Node" xmi:id="_wbsHSa4aEeSJvrUbfp-iEg" type="7002"/>
+    <children xmi:type="notation:Node" xmi:id="_n7mGcMftEeSPjbEr9Hh5mQ" type="5004" element="//@serviceInterfaces.0">
+      <styles xmi:type="notation:FontStyle" xmi:id="_n7mGccftEeSPjbEr9Hh5mQ" fontHeight="8"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_n7mGcsftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_n7mGc8ftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_n7mGdMftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_n7mGdcftEeSPjbEr9Hh5mQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7mGdsftEeSPjbEr9Hh5mQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_n7mGd8ftEeSPjbEr9Hh5mQ" type="5005" element="//@interfaceReferences.0">
+      <styles xmi:type="notation:FontStyle" xmi:id="_n7mGeMftEeSPjbEr9Hh5mQ" fontHeight="8"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_n7mGecftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_n7mGesftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_n7mGe8ftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_n7mGfMftEeSPjbEr9Hh5mQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7mGfcftEeSPjbEr9Hh5mQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_n7mGfsftEeSPjbEr9Hh5mQ" type="5005" element="//@interfaceReferences.1">
+      <styles xmi:type="notation:FontStyle" xmi:id="_n7mGf8ftEeSPjbEr9Hh5mQ" fontHeight="8"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_n7mGgMftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_n7mGgcftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_n7mGgsftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_n7mGg8ftEeSPjbEr9Hh5mQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7mGhMftEeSPjbEr9Hh5mQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_n7mGhcftEeSPjbEr9Hh5mQ" type="5005" element="//@interfaceReferences.2">
+      <styles xmi:type="notation:FontStyle" xmi:id="_n7mGhsftEeSPjbEr9Hh5mQ" fontHeight="8"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_n7mGh8ftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_n7mGiMftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_n7mGicftEeSPjbEr9Hh5mQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_n7mGisftEeSPjbEr9Hh5mQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7mGi8ftEeSPjbEr9Hh5mQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_sHX30BSlEeeimr2o5bc7OA" type="5005" element="//@interfaceReferences.3">
+      <styles xmi:type="notation:FontStyle" xmi:id="_sHX30RSlEeeimr2o5bc7OA" fontHeight="8"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_sHX30hSlEeeimr2o5bc7OA"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_sHX30xSlEeeimr2o5bc7OA"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_sHX31BSlEeeimr2o5bc7OA"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_sHX31RSlEeeimr2o5bc7OA"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sHX31hSlEeeimr2o5bc7OA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wbsHQa4aEeSJvrUbfp-iEg" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_wbsHQq4aEeSJvrUbfp-iEg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_wbsHQ64aEeSJvrUbfp-iEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_wbsHRK4aEeSJvrUbfp-iEg"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_wbsHRa4aEeSJvrUbfp-iEg"/>
+    <element xmi:type="servicemodel:ServiceDefinition" href="ECreditSearchDcomSpec.composite#//@serviceDefinitions.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wbsHRq4aEeSJvrUbfp-iEg" x="45" y="30" width="126"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_MnRngLBxEeShmrDAmVXvLQ" type="5003">
+    <children xmi:type="notation:Node" xmi:id="_MnRnh7BxEeShmrDAmVXvLQ" type="4004"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_MnRngbBxEeShmrDAmVXvLQ" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_MnRngrBxEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_MnRng7BxEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_MnRnhLBxEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_MnRnhbBxEeShmrDAmVXvLQ"/>
+    <element xmi:type="bindingsoapmodel:SOAPPartnerConfiguration" href="ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MnRnhrBxEeShmrDAmVXvLQ" x="28" y="306" width="62" height="52"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_FIVlMLB7EeShmrDAmVXvLQ" type="5003">
+    <children xmi:type="notation:Node" xmi:id="_FIVlN7B7EeShmrDAmVXvLQ" type="4004"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_FIVlMbB7EeShmrDAmVXvLQ" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_FIVlMrB7EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_FIVlM7B7EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_FIVlNLB7EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_FIVlNbB7EeShmrDAmVXvLQ"/>
+    <element xmi:type="bindingsoapmodel:SOAPPartnerConfiguration" href="ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FIVlNrB7EeShmrDAmVXvLQ" x="28" y="78" width="62" height="52"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_7AG0ILB-EeShmrDAmVXvLQ" type="5003">
+    <children xmi:type="notation:Node" xmi:id="_7AG0J7B-EeShmrDAmVXvLQ" type="4004"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7AG0IbB-EeShmrDAmVXvLQ" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_7AG0IrB-EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_7AG0I7B-EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_7AG0JLB-EeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_7AG0JbB-EeShmrDAmVXvLQ"/>
+    <element xmi:type="bindingsoapmodel:SOAPPartnerConfiguration" href="ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7AG0JrB-EeShmrDAmVXvLQ" x="28" y="162" width="62" height="52"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_wSH8kLCAEeShmrDAmVXvLQ" type="5003">
+    <children xmi:type="notation:Node" xmi:id="_wSH8l7CAEeShmrDAmVXvLQ" type="4004"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wSH8kbCAEeShmrDAmVXvLQ" fontHeight="8"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_wSH8krCAEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_wSH8k7CAEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_wSH8lLCAEeShmrDAmVXvLQ"/>
+    <styles xmi:type="notation:CanonicalStyle" xmi:id="_wSH8lbCAEeShmrDAmVXvLQ"/>
+    <element xmi:type="bindingsoapmodel:SOAPPartnerConfiguration" href="ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wSH8lrCAEeShmrDAmVXvLQ" x="28" y="222" width="62" height="52"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_GdkykZtuEeSQ4umsx5fcBw"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_GdkykptuEeSQ4umsx5fcBw"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_Gdkyk5tuEeSQ4umsx5fcBw"/>
+  <element xmi:type="servicemodel:Composite" href="ECreditSearchDcomSpec.composite#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_plYHsMftEeSPjbEr9Hh5mQ" type="6001" source="_n7mGfsftEeSPjbEr9Hh5mQ" target="_7AG0ILB-EeShmrDAmVXvLQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_plYHscftEeSPjbEr9Hh5mQ" routing="Rectilinear" avoidObstructions="true"/>
+    <element xmi:type="servicemodel:ServicePartnerBinding" href="ECreditSearchDcomSpec.composite#//@serviceDefinitions.0/@partnerBindings.1"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_plYHssftEeSPjbEr9Hh5mQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_rSl3cMftEeSPjbEr9Hh5mQ" type="6001" source="_n7mGd8ftEeSPjbEr9Hh5mQ" target="_FIVlMLB7EeShmrDAmVXvLQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_rSl3ccftEeSPjbEr9Hh5mQ" routing="Rectilinear" avoidObstructions="true"/>
+    <element xmi:type="servicemodel:ServicePartnerBinding" href="ECreditSearchDcomSpec.composite#//@serviceDefinitions.0/@partnerBindings.0"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rSl3csftEeSPjbEr9Hh5mQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_uz2-wMftEeSPjbEr9Hh5mQ" type="6001" source="_n7mGhcftEeSPjbEr9Hh5mQ" target="_wSH8kLCAEeShmrDAmVXvLQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_uz2-wcftEeSPjbEr9Hh5mQ" routing="Rectilinear" avoidObstructions="true"/>
+    <element xmi:type="servicemodel:ServicePartnerBinding" href="ECreditSearchDcomSpec.composite#//@serviceDefinitions.0/@partnerBindings.2"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uz2-wsftEeSPjbEr9Hh5mQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_VW-HUMgyEeSPjbEr9Hh5mQ" type="6001" source="_RQneYJtuEeSQ4umsx5fcBw" target="_n7mGcMftEeSPjbEr9Hh5mQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_VW-HUcgyEeSPjbEr9Hh5mQ" routing="Rectilinear" avoidObstructions="true"/>
+    <element xmi:type="servicemodel:ServicePartnerBinding" href="ECreditSearchDcomSpec.composite#//@providerBindingDefinitions.0/@partnerBinding"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VW-HUsgyEeSPjbEr9Hh5mQ" points="[31, 5, -77, -11]$[97, 14, -11, -2]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_9ItR4BSlEeeimr2o5bc7OA" type="6001" source="_sHX30BSlEeeimr2o5bc7OA" target="_MnRngLBxEeShmrDAmVXvLQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_9ItR4RSlEeeimr2o5bc7OA" routing="Rectilinear" avoidObstructions="true"/>
+    <element xmi:type="servicemodel:ServicePartnerBinding" href="ECreditSearchDcomSpec.composite#//@serviceDefinitions.0/@partnerBindings.3"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9ItR4hSlEeeimr2o5bc7OA" points="[11, 3, -746, -170]$[726, 166, -31, -7]"/>
+  </edges>
+</notation:Diagram>

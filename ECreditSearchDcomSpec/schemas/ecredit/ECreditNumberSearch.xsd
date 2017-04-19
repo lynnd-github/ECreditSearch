@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:tns="http://schemas.delta.com/ecredit/ecreditnumbersearch" xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit" xmlns:err="http://schemas.delta.com/common/error/v4">
+<xs:import namespace="http://schemas.delta.com/ecredit/ecredit" schemaLocation="../ecredit/ECredit.xsd"/>
+<xs:import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+<xs:element name="ECreditNumberSearch" type="tns:ECreditNumberSearchType"/>
+	 <xs:complexType name="ECreditNumberSearchType">
+		<xs:sequence>
+			<xs:element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="FirstName" type="xs:string"/>
+		<xs:attribute name="LastName" type="xs:string"/>
+		<xs:attribute name="Suffix" type="xs:string"/>
+		<xs:attribute name="ValidateLevel" type="xs:string"/>
+		<xs:attribute name="UIDocumentNumber" type="xs:string"/>
+		<xs:attribute name="MaxNumberResults" type="xs:string"/>
+		<xs:attribute name="RedemptionCode" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

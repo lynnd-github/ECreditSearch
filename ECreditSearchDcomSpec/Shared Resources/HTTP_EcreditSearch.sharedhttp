@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<httpmodel:HTTPConnectionConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:httpmodel="http://xsd.tns.tibco.com/corona/models/transport/httpmodel" name="HTTP_ECreditSearch" host="localhost" port="9095"/>

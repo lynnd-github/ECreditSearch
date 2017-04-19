@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+targetNamespace="http://schemas.delta.com/ecredit/ecreditidnumbersearch" 
+xmlns:tns="http://schemas.delta.com/ecredit/ecreditidnumbersearch"
+xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit"
+xmlns:err="http://schemas.delta.com/common/error/v4">
+  	<import namespace="http://schemas.delta.com/ecredit/ecredit" schemaLocation="../ecredit/ECredit.xsd"/>
+  	<import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+  	<element name="ECreditIDNumberSearch" type="tns:ECreditIDNumberSearchType"/>
+	<complexType name="ECreditIDNumberSearchType">
+		<sequence>
+			<element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="SkyBonusNumber" type="string"/>
+		<attribute name="CorpID" type="string"/>
+		<attribute name="AgencyNumber" type="string"/>
+		<attribute name="PPRNumber" type="string"/>
+		<attribute name="OtherID" type="string"/>
+		<attribute name="MaxNumberResults" type="string"/>
+	</complexType>
+</schema>

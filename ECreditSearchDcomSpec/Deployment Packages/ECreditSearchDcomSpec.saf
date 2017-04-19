@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceassemblymodel:ServiceAssembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:serviceassemblymodel="http://xsd.tns.tibco.com/matrix/serviceassembly/serviceassemblymodel" author="D9908460" dateCreated="2015-01-13T16:49:06.125-0500" archiveURL="/ECreditSearchDcomSpec/Deployment Packages/ECreditSearchDcomSpec.zip">
+  <identification name="ECreditSearchDcomSpec" version="1.0.0"/>
+  <composite href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#/"/>
+  <serviceunits xsi:type="serviceassemblymodel:BindingServiceUnit" componentName="com.tibco.matrix.container.soapbinding.runtime" minComponentVersion="2.0.0.0" maxComponentVersion="3.0.0.0">
+    <identification name="SOAP" version="1.0.0"/>
+    <consumerBindingDefinitions href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.0"/>
+    <consumerBindingDefinitions href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.1"/>
+    <consumerBindingDefinitions href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.2"/>
+    <consumerBindingDefinitions href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@consumerBindingDefinitions.3"/>
+    <providerBindingDefinitions href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@providerBindingDefinitions.0"/>
+  </serviceunits>
+  <serviceunits xsi:type="serviceassemblymodel:EngineServiceUnit" componentName="com.tibco.matrix.container.javase.runtime" minComponentVersion="2.0.0.0" maxComponentVersion="3.0.0.0">
+    <identification name="Java" version="1.0.0"/>
+    <packagedServiceDefinitions>
+      <serviceDefinition href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec.composite#//@serviceDefinitions.0"/>
+      <serviceType>
+        <interfaceReferences description="Partner port type" name="PnrCommon">
+          <portType href="/ECreditSearchDcomSpec/Composites/PnrCommonV6_concrete.wsdl#//@ePortTypes.0"/>
+        </interfaceReferences>
+        <interfaceReferences description="Partner port type" name="Ticket">
+          <portType href="/ECreditSearchDcomSpec/Composites/TicketV3_concrete.wsdl#//@ePortTypes.0"/>
+        </interfaceReferences>
+        <interfaceReferences description="Partner port type" name="miscDocument">
+          <portType href="/ECreditSearchDcomSpec/Composites/MiscellaneousDocumentV2_concrete.wsdl#//@ePortTypes.0"/>
+        </interfaceReferences>
+        <interfaceReferences description="Partner port type" name="TicketingProcess">
+          <portType href="/ECreditSearchDcomSpec/Composites/TicketingProcessv3_concrete.wsdl#//@ePortTypes.0"/>
+        </interfaceReferences>
+        <serviceInterfaces name="ECreditSearchDcomSpec">
+          <portType href="/ECreditSearchDcomSpec/Composites/ECreditSearchDcomSpec_concrete.wsdl#//@ePortTypes.0"/>
+        </serviceInterfaces>
+        <properties name="showTimings" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="tpfRegion" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="initialLogLevel" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="unHookETickets" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="ecreditTimeOut" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="primaryCarrierCode" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="primaryCarrierName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="primaryCarrierFullName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="primaryCarrierICAOCode" type="{http://www.w3.org/2001/XMLSchema}string"/>
+        <properties name="realexEnabled" type="{http://www.w3.org/2001/XMLSchema}string"/>
+      </serviceType>
+    </packagedServiceDefinitions>
+  </serviceunits>
+</serviceassemblymodel:ServiceAssembly>

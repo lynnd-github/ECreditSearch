@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:ServiceConfig xmlns:ns0="http://www.delta.com/amxadmin/schemas/autodeploy/ServiceConf" ServiceName="ECreditSearchDcomSpec" ServiceAssemblyFileName="ECreditSearchDcomSpec.zip" RET_ServiceAssemblyComponentName="amx_ecreditsearchdcomspec_w2k3">
+    <ServiceUnit>
+        <Name>Java</Name>
+        <Name>SOAP</Name>
+    </ServiceUnit>
+</ns0:ServiceConfig>

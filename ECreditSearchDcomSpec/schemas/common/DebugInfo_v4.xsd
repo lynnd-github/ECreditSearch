@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Delta Air Lines, Inc. (Delta Air Lines, Inc.) -->
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.delta.com/common/debuginfo/v4" xmlns:pref1="http://schemas.delta.com/common/requestinfo/v4" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/debuginfo/v4">
+
+	<xs:import namespace="http://schemas.delta.com/common/requestinfo/v4" schemaLocation="RequestInfo_v4.xsd"/>
+	
+	<xs:element name="DebugInfo" type="tns:DebugInfoType"/>
+	
+	<xs:complexType name="DebugInfoType">
+
+		<xs:sequence>
+			<xs:element name="ConfigurationSettings" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Configuration Settings
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSourceRequest" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Actual data sent to Data Source
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSourceResponse" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Actual data received from Data Source
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DataSourceName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Name of the Data Source
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TransportInfo" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						e.g.Transport Wsine
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="Timers" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						Execution times at various design layers
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AdditionalInfo" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+					any information that would be helpful in understanding the response
+					e.g. the specific step name in a series of steps
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="RequestInfo" type="pref1:RequestInfoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>
+						The actual RequestInfo objects sent within the
+						request.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

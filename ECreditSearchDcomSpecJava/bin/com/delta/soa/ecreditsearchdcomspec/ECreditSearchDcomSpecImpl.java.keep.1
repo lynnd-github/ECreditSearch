@@ -1,0 +1,508 @@
+/**
+ * ECreditSearchDcomSpecImpl.java
+ *
+ * This file was auto-generated from WSDL
+ * Implement the service by modifying the generated methods
+ */
+
+package com.delta.soa.ecreditsearchdcomspec;
+
+import java.util.Date;
+import java.util.Properties;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
+import com.delta.schemas.common.checkhealth.v3.CheckHealthGenericRequestType;
+import com.delta.schemas.common.checkhealth.v3.CheckHealthRequestDocument;
+import com.delta.schemas.common.checkhealth.v3.CheckHealthResponseDocument;
+import com.delta.schemas.common.checkhealth.v3.CheckHealthResponseType;
+import com.delta.schemas.common.checkhealth.v3.HealthMessageType;
+import com.delta.schemas.common.checkhealth.v3.HealthStatusType;
+import com.delta.schemas.common.error.v4.ErrorType;
+import com.delta.schemas.common.requestinfo.v4.HostContextParamsType;
+import com.delta.schemas.ecredit.ecreditsearchrequest.ECreditSearchRequestDocument;
+import com.delta.schemas.ecredit.ecreditsearchrequest.ECreditSearchRequestType;
+import com.delta.schemas.ecredit.ecreditsearchresponse.ECreditSearchResponseDocument;
+import com.delta.schemas.ecredit.ecreditsearchresponse.ECreditSearchResponseType;
+import com.delta.soa.common.BaseImplUtil;
+import com.delta.soa.common.CheckHealthUtil;
+import com.delta.soa.ecreditsearchdcomspec.v1.BusinessFaultException;
+import com.delta.soa.ecreditsearchdcomspec.v1.ECreditSearchDcomSpec;
+import com.delta.soa.ecreditsearchdcomspec.v1.SystemFaultException;
+import com.delta.soa.ecreditsearchdcomspec.tpf.RetrieveECredits;
+import com.delta.soa.ecreditsearchdcomspec.util.Timer;
+import com.delta.soa.ticketingprocess.v3.TicketingProcess;
+import org.osoa.sca.annotations.Reference;
+
+import com.delta.soa.pnrcommon.v6.PnrCommon;
+import com.delta.soa.ticket.v3.Ticket;
+import com.delta.soa.miscellaneousdocument.v2.MiscellaneousDocument;
+//import com.delta.webservices.toolkit.common.StringUtilities;
+import com.tibco.matrix.java.annotations.Start;
+
+import java.lang.String;
+import org.osoa.sca.annotations.Property;
+
+
+public class ECreditSearchDcomSpecImpl implements ECreditSearchDcomSpec {
+
+	public Logger m_log = null;
+	private final String SERVICE_NAME = "ECreditSearchDcomSpec";
+    public Properties m_props=null;
+    private final String DEFAULT_TPF_REGION="TPA";
+    @Start
+	public void start() throws Exception {
+		try {
+			
+//			 initialize the base functionality
+
+			System.setProperty("ServiceName", SERVICE_NAME);
+
+			BaseImplUtil baseUtil = new BaseImplUtil(this.getClass(), SERVICE_NAME);
+			baseUtil.setInitialLogLevel(initialLogLevel);
+			baseUtil.start();
+			Date date = new Date();
+			m_log = baseUtil.getLogger();
+			m_log.setLevel(Level.toLevel(initialLogLevel));
+//			 Set up this properties info so we can pass it along to
+			// several other classes more easily.
+            m_props = new Properties();
+            m_props.put("showTimings",this.getShowTimings());
+            m_props.put("ecreditsTimeOut", this.getEcreditTimeOut());
+            if (this.getUnHookETickets()!=null)
+              m_props.put("unHookETickets", this.getUnHookETickets());
+            
+			m_log.debug(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  ECreditSearch DCOM SPEC STARTED: " + date.toString() + "  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ ");
+			if (m_log.isDebugEnabled())
+				m_log.debug("Logger initialization successful...");
+
+			// initialize the tpfRegion
+			if (tpfRegion == null || tpfRegion.trim().length() == 0) {
+				m_log.warn("BookingDcomSpecJava - Substitution var tpfRegion not set. So using " + DEFAULT_TPF_REGION);
+				tpfRegion = DEFAULT_TPF_REGION;
+			}
+			
+			if (this.getUnHookETickets() == null)
+				this.setUnHookETickets("true");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see com.delta.soa.reshopprocess.ReshopProcess#checkHealth(com.delta.schemas.common.checkhealth.v3.CheckHealthRequestDocument)
+	 */
+	public CheckHealthResponseDocument checkHealth(CheckHealthRequestDocument params) {
+		CheckHealthResponseDocument respDocument = null;
+		try {
+
+			if (m_log.isInfoEnabled())
+				m_log.info("checkHealth request: " + params);
+
+			respDocument = CheckHealthResponseDocument.Factory.newInstance();
+			CheckHealthResponseType objResponse = respDocument.addNewCheckHealthResponse();
+			objResponse.setServiceHealthStatus(HealthStatusType.OK);
+			String req = null;
+
+			if (params != null) {
+				CheckHealthGenericRequestType chrt = params.getCheckHealthRequest();
+
+				if (chrt != null)
+					req = chrt.getAnyString();
+			}
+
+			HealthMessageType hmt = objResponse.addNewHealthMessage();
+			hmt.setSystemName("ECreditSearchDcomSpecImpl");
+			String tmpreq = req.toLowerCase();
+			String sResult=null;
+			if (tmpreq.indexOf("unhooketickets") >= 0)
+			{
+				String sValue = null;
+				int iIdx = tmpreq.indexOf("=");
+				if (iIdx > 0)
+				{
+					sValue = tmpreq.substring(iIdx+1);
+					if (!sValue.equalsIgnoreCase("true") && !sValue.equalsIgnoreCase("false"))
+					{
+						sResult = "True and False are the only Valid Options for unhooketickets: EX: unHookETickets=true";
+						hmt.setMessage(sResult);
+					}
+					else
+					{
+						this.setUnHookETickets(sValue);
+					}
+				}
+			}
+			String substVars = CheckHealthUtil.getSubstitutionVarValues(this,
+					"ECreditSearchDcomSpec", m_log, req, null);
+			if (hmt.getMessage()==null)
+				hmt.setMessage(substVars);
+			if (m_log.isInfoEnabled())
+				m_log.info("checkHealth response:" + respDocument);
+		} catch (RuntimeException e) {
+			m_log.error("RunTimeException in CheckHealth - ", e);
+		} catch (Exception ex) {
+			m_log.error("Exception in checkHealth - ", ex);
+		}
+
+		return respDocument;
+	}
+
+	
+	/* (non-Javadoc)
+	 * @see com.delta.soa.ecreditsearchdcomspec.ECreditSearchDcomSpec#retrieveECredits(com.delta.schemas.ecreditsearch.ecreditsearchrequest.ECreditSearchRequestDocument)
+	 */
+	public ECreditSearchResponseDocument retrieveECredits(ECreditSearchRequestDocument params) throws SystemFaultException, BusinessFaultException {
+
+	      RetrieveECredits retrieveECs = new RetrieveECredits(m_log);
+		  // There will always be 2 responses at this time.
+	     // 1 for Ticket.Retrieve2 and 1 for ECertificateRequest.retrieve
+	     ECreditSearchResponseDocument responseDoc = ECreditSearchResponseDocument.Factory.newInstance();
+		  ECreditSearchResponseType response = responseDoc.addNewECreditSearchResponse();
+		  if (m_log.isDebugEnabled() )
+			  m_log.info("BEGIN: retrieveECredits: with request: "	+ params.toString());
+
+	     Timer timer1 = new Timer("RetrieveECredits Timer");
+
+		if (showTimings.equalsIgnoreCase("TRUE"))
+	      timer1.start();
+		  try
+		  {
+			  //-- Validate the Request Parameters
+			  validate(params, responseDoc);
+			  if (responseDoc.getECreditSearchResponse() != null && 
+			  responseDoc.getECreditSearchResponse().getError()!=null)
+			  {
+				  return responseDoc;
+			  }
+			  if (m_log.isDebugEnabled() )
+				  m_log.info("AFTER VALIDATE: retrieveECredits: with request: "	+ params.toString());
+
+            responseDoc = (ECreditSearchResponseDocument) retrieveECs.retrieveECredits(params,m_props,this);
+		  }
+	      catch (Exception ex)
+		  {
+	    	  m_log.error("Exception caught in retrieveECredits " + ex.toString());
+		  }
+		  finally
+		  {
+	         if (showTimings.equalsIgnoreCase("TRUE")) {
+	            timer1.stop();
+	            m_log.info("Composite retrieveECredits(): Id: " + params.getECreditSearchRequest().getRequestInfo().getTransactionId() + ": Elapsed Time (ms): " + timer1.toString());
+	         }
+			  m_log.debug("#### END or retrieveECredits.  REturning to client ########");
+	 	  }
+		  m_log.debug("##### RESPONSE = #####" + '\n' + responseDoc.toString());
+		  return responseDoc;
+	}
+	
+	private void validate(ECreditSearchRequestDocument ecreditSrchRQDoc, ECreditSearchResponseDocument ecreditSrchRSDoc)
+	{
+		
+	    m_log.info( "Entering validate()" );
+	    ErrorType error = null;
+	    if ( null == ecreditSrchRQDoc )
+	    {
+	       m_log.error( "validate: ECreditSearchRequestDocument cannot be null." );
+	       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+	       error.setErrorCode("9999");
+	       error.setErrorText("validate: ECreditSearchRequestDocument cannot be null.");
+	    }
+
+		if (ecreditSrchRQDoc.getECreditSearchRequest()==null)
+		{
+	       m_log.error( "validate: ECreditSearchRequest cannot be null." );
+	       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+	       error.setErrorCode("9999");
+	       error.setErrorText("validate: ECreditSearchRequest cannot be null.");
+		}
+		ECreditSearchRequestType ecRQ = ecreditSrchRQDoc.getECreditSearchRequest();
+		if (ecRQ.getRequestInfo()==null)
+		{
+	       m_log.error( "validate: RequestInfo cannot be null." );
+	       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+	       error.setErrorCode("9999");
+	       error.setErrorText("validate: RequestInfo cannot be null.");
+		}
+		if (ecRQ.getRequestInfo().getHostContextParams()==null)
+		{
+			//-- For DL, to make this backwards compatible
+			//-- Add the HostContest if it does not exist.
+			if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+			{
+				HostContextParamsType hostContext = ecRQ.getRequestInfo().addNewHostContextParams();
+				hostContext.setAirline(this.getPrimaryCarrierCode());
+				hostContext.setCity("LAX");
+				hostContext.setLogonId("D006217");
+				hostContext.setPassword("E0BACH");
+				hostContext.setPoolType("DOTCOM/BOOKING");
+			}
+			else
+			{
+				m_log.error( "validate: HostContextParams cannot be null." );
+			       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			       error.setErrorCode("9999");
+			       error.setErrorText("validate: HostContextParams cannot be null.");
+			}
+		}
+		else
+		{
+			if (ecRQ.getRequestInfo().getHostContextParams().getLogonId()==null)
+			{
+				if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+				{
+					ecRQ.getRequestInfo().getHostContextParams().setLogonId("D006217");
+				}
+				else
+				{
+					m_log.error( "validate: HostContextParams.LoginID cannot be null." );
+			       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			       error.setErrorCode("9999");
+			       error.setErrorText("validate: HostContextParams.LoginID cannot be null.");
+				}
+			}
+			if (ecRQ.getRequestInfo().getHostContextParams().getPassword()==null)
+			{
+				//-- Come Back!
+				//-- Can't figure out how to tie this Password in without Hard Coding it.
+				if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+				{
+					ecRQ.getRequestInfo().getHostContextParams().setPassword("E0BACH");
+				}
+				else
+				{
+				  m_log.error( "validate: HostContextParams.Password cannot be null." );
+			      error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			      error.setErrorCode("9999");
+			      error.setErrorText("validate: HostContextParams.Password cannot be null.");
+				}
+			}
+			if (ecRQ.getRequestInfo().getHostContextParams().getPoolType()==null)
+			{
+				if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+				{
+					ecRQ.getRequestInfo().getHostContextParams().setPoolType("DOTCOM/BOOKING");
+				}
+				else
+				{
+				   m_log.error( "validate: HostContextParams.PoolType cannot be null." );
+			       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			       error.setErrorCode("9999");
+			       error.setErrorText("validate: HostContextParams.PoolType cannot be null.");
+				}
+			}
+			if (ecRQ.getRequestInfo().getHostContextParams().getAirline()==null)
+			{
+				if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+				{
+					ecRQ.getRequestInfo().getHostContextParams().setAirline(this.getPrimaryCarrierCode());
+				}
+				else
+				{
+				   m_log.error( "validate: HostContextParams.Airline cannot be null." );
+			       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			       error.setErrorCode("9999");
+			       error.setErrorText("validate: HostContextParams.Airline cannot be null.");
+				}
+			}
+			if (ecRQ.getRequestInfo().getHostContextParams().getCity()==null)
+			{
+				if ("DL".equalsIgnoreCase(this.primaryCarrierCode))
+				{
+					ecRQ.getRequestInfo().getHostContextParams().setCity("LAX");
+				}
+				else
+				{
+				   m_log.error( "validate: HostContextParams.City cannot be null." );
+			       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+			       error.setErrorCode("9999");
+			       error.setErrorText("validate: HostContextParams.City cannot be null.");
+				}
+			}
+		}
+		if (ecRQ.getECreditSearchCriteria()==null)
+		{
+	       m_log.error( "validate: ECreditSearchCriteria cannot be null." );
+	       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+	       error.setErrorCode("9999");
+	       error.setErrorText("validate: ECreditSearchCriteria cannot be null.");
+		}
+		
+		if (ecRQ.getECertificateSearchArray().length<=0 &&
+		!ecRQ.getECreditSearchCriteria().isSetECertificateNumber() &&
+		!ecRQ.getECreditSearchCriteria().isSetECreditIDNumberSearch() &&
+		!ecRQ.getECreditSearchCriteria().isSetECreditSkyMilesSearch() &&
+		ecRQ.getECreditSearchCriteria().getECreditNumberSearchArray().length <=0)
+		{
+		       m_log.error( "validate: IDNumber, ECreditNumber, ECertNumber, or SkyMIles# is required." );
+		       error= ecreditSrchRSDoc.getECreditSearchResponse().addNewError();
+		       error.setErrorCode("9999");
+		       error.setErrorText("validate: IDNumber, ECreditNumber, ECertNumber, or SkyMIles# is required.");
+		}
+		m_log.info( "Exiting validate()" );
+	}
+	public void setRunAsMain(boolean p_param) {
+		m_runAsMain = p_param;
+	}
+
+	@Reference
+	PnrCommon PnrCommon;
+
+	public PnrCommon getPnrCommon() {
+		return PnrCommon;
+	}
+
+	public void setPnrCommon(PnrCommon PnrCommon) {
+		this.PnrCommon = PnrCommon;
+	}
+
+	@Reference
+	Ticket Ticket;
+
+	public Ticket getTicket() {
+		return Ticket;
+	}
+
+	public void setTicket(Ticket Ticket) {
+		this.Ticket = Ticket;
+	}
+
+	public boolean m_runAsMain;
+
+
+
+	public MiscellaneousDocument getMiscDocument() {
+		return miscDocument;
+	}
+
+	public void setMiscDocument(MiscellaneousDocument miscDocument) {
+		this.miscDocument = miscDocument;
+	}
+	public TicketingProcess getTicketingProcess() {
+		return TicketingProcess;
+	}
+
+	public void setTicketingProcess(TicketingProcess TicketingProcess) {
+		this.TicketingProcess = TicketingProcess;
+	}
+
+	@Property
+	String showTimings;
+
+	public String getShowTimings() {
+		return showTimings;
+	}
+
+	public void setShowTimings(String showTimings) {
+		this.showTimings = showTimings;
+	}
+
+	@Property
+	String tpfRegion;
+
+	public String getTpfRegion() {
+		return tpfRegion;
+	}
+
+	public void setTpfRegion(String tpfRegion) {
+		this.tpfRegion = tpfRegion;
+	}
+
+	@Property
+	String initialLogLevel;
+
+	public String getInitialLogLevel() {
+		return initialLogLevel;
+	}
+
+
+	public void setInitialLogLevel(String initialLogLevel) {
+		this.initialLogLevel = initialLogLevel;
+	}
+
+	@Property
+	String unHookETickets;
+
+	public String getUnHookETickets() {
+		return unHookETickets;
+	}
+
+
+	public void setUnHookETickets(String unHookETickets) {
+		this.unHookETickets = unHookETickets;
+	}
+
+	@Property
+	String ecreditTimeOut;
+
+	public String getEcreditTimeOut() {
+		return ecreditTimeOut;
+	}
+
+	public void setEcreditTimeOut(String ecreditTimeOut) {
+		this.ecreditTimeOut = ecreditTimeOut;
+	}
+
+	@Property
+	String primaryCarrierCode;
+
+	public String getPrimaryCarrierCode() {
+		return primaryCarrierCode;
+	}
+
+	public void setPrimaryCarrierCode(String primaryCarrierCode) {
+		this.primaryCarrierCode = primaryCarrierCode;
+	}
+
+	@Property
+	String primaryCarrierName;
+
+	public String getPrimaryCarrierName() {
+		return primaryCarrierName;
+	}
+
+	public void setPrimaryCarrierName(String primaryCarrierName) {
+		this.primaryCarrierName = primaryCarrierName;
+	}
+
+	@Property
+	String primaryCarrierFullName;
+
+	public String getPrimaryCarrierFullName() {
+		return primaryCarrierFullName;
+	}
+
+	public void setPrimaryCarrierFullName(String primaryCarrierFullName) {
+		this.primaryCarrierFullName = primaryCarrierFullName;
+	}
+
+	@Property
+	String primaryCarrierICAOCode;
+
+	public String getPrimaryCarrierICAOCode() {
+		return primaryCarrierICAOCode;
+	}
+
+	public void setPrimaryCarrierICAOCode(String primaryCarrierICAOCode) {
+		this.primaryCarrierICAOCode = primaryCarrierICAOCode;
+	}
+
+	@Property
+	String realexEnabled;
+
+	public String getRealexEnabled() {
+		return realexEnabled;
+	}
+
+	public void setRealexEnabled(String realexEnabled) {
+		this.realexEnabled = realexEnabled;
+	}
+	//get build time stamp
+	public String getBuildTimestamp() {
+		return "06/01/2015 13:00 EDT";
+	}
+
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema	
+	targetNamespace="http://schemas.delta.com/ecredit/ecreditskymilessearch" 
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://schemas.delta.com/ecredit/ecreditskymilessearch" 
+	xmlns:ecrd="http://schemas.delta.com/ecredit/ecredit"
+	xmlns:err="http://schemas.delta.com/common/error/v4">
+	<import namespace="http://schemas.delta.com/ecredit/ecredit" schemaLocation="../ecredit/ECredit.xsd"></import>
+	<import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+	<element name="ECreditSkyMilesSearch" type="tns:ECreditSkyMilesSearchType"/>
+	<complexType name="ECreditSkyMilesSearchType">
+		<sequence>
+			<element ref="ecrd:ECredit" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="SmNumber" type="string"/>
+		<attribute name="FirstName" type="string"/>
+		<attribute name="LastName" type="string"/>
+		<attribute name="Suffix" type="string"/>
+		<attribute name="MaxNumberResults" type="string"/>
+	</complexType>
+</schema>

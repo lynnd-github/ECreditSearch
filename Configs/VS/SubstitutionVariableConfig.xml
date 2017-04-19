@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ns0:SubstitutionVariableConfig xmlns:ns0="http://www.delta.com/amxadmin/schemas/autodeploy/SubVar" ServiceName="ECreditSearchDcomSpec">
+ <Environment name="PROD">
+	<Campus name="VS1">
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="AIR"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.vs.air4.com:31063/pnrcommon/v6"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.vs.air4.com:37526/ticket/v3"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.vs.air4.com:37531/ticketingprocess/v3"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.vs.air4.com:37518/miscellaneousdocument/v2"/>
+      <SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+    	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="VIRGIN"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="VIR"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="VIRGIN ATLANTIC"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="VS"/>
+	</Campus>
+	<Campus name="VS2">
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="AIR"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.vs.air4.com:31063/pnrcommon/v6"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.vs.air4.com:37526/ticket/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.vs.air4.com:37531/ticketingprocess/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.vs.air4.com:37518/miscellaneousdocument/v2"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+    	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="VIRGIN"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="VIR"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="VIRGIN ATLANTIC"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="VS"/>
+	</Campus>
+</Environment>
+<Environment name="TP">
+	<Campus name="VS1">
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TVTH"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.vs01.vs.air4.com:31063/pnrcommon/v6"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.vs01.vs.air4.com:37526/ticket/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.vs01.vs.air4.com:37531/ticketingprocess/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.vs01.vs.air4.com:37518/miscellaneousdocument/v2"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+ 		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="VIRGIN"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="VIR"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="VIRGIN ATLANTIC"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="VS"/>
+	</Campus>
+	<Campus name="VS2">
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/initialLogLevel" type="String" value="ERROR"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/tpfRegion" type="String" value="TVTH"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlPnrCommon" type="String" value="https://webservices.vs01.vs.air4.com:31063/pnrcommon/v6"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/pnrCommonTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicket" type="String" value="https://webservices.vs01.vs.air4.com:37526/ticket/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ticketTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlTicketingProcess" type="String" value="https://webservices.vs01.vs.air4.com:37531/ticketingprocess/v3"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/showTimings" type="String" value="false"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/ecreditTimeOut" type="String" value="10000"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/unHookETickets" type="String" value="true"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/urlMiscDoc" type="String" value="https://webservices.vs01.vs.air4.com:37518/miscellaneousdocument/v2"/>
+     	<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/miscDocTimeOut" type="String" value="10000"/>        
+ 		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/realexEnabled" type="String" value="N"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierName" type="String" value="VIRGIN"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierICAOCode" type="String" value="VIR"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierFullName" type="String" value="VIRGIN ATLANTIC"/>
+		<SubstitutionVariable name="/ECreditSearchDcomSpec/Shared Resources/SubstitutionVariables/primaryCarrierCode" type="String" value="VS"/>
+	</Campus>
+</Environment>
+</ns0:SubstitutionVariableConfig>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/error/v4" elementFormDefault="qualified" targetNamespace="http://schemas.delta.com/common/error/v4">
+
+	<element name="Error" type="tns:ErrorType"/>
+	
+    <complexType name="ErrorType">
+    	<attribute name="ErrorCode" type="string">
+    		<annotation>
+    			<documentation>
+    				Each service will add additional error codes as
+    				needed
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="ErrorText" type="string">
+    		<annotation>
+    			<documentation>
+    				If the error was due to an exception within the
+    				webservice code, then the contents of the exception
+    				can be put here else a string explaining the error
+    				can be put here, else it can be left blank.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="ReasonCode" type="string">
+    		<annotation>
+    			<documentation>
+    				backend error code if available or blank.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="ReasonText" type="string">
+    		<annotation>
+    			<documentation>
+    				backend error reason text or backend exception text
+    				and/or stack trace , if available or blank
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    	<attribute name="AdditionalInfo" type="string">
+    		<annotation>
+    			<documentation>
+    				information such as backend request, timings, etc -- anything
+    				that would be helpful in determining the cause of the error
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    </complexType>
+
+    
+</schema>
+

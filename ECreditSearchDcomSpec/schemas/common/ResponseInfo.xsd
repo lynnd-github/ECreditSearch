@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Delta Air Lines, Inc. (Delta Air Lines, Inc.) -->
+<schema targetNamespace="http://schemas.delta.com/common/responseinfo/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/responseinfo/v1" elementFormDefault="qualified">
+	<element name="ResponseInfo" type="tns:ResponseInfoType"/>
+	<complexType name="ResponseInfoType">
+		<attribute name="TransactionId" type="string">
+			<annotation>
+				<documentation>May be provided by client...should be same for each "transaction" on client side</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ServiceTrackingId" type="string">
+			<annotation>
+				<documentation>May be provided by service...The concatenated node name, service name, operation name, and a unique randomly generated number.  If client logs this, then we can tie the service log entries to the client log entries (especially if client did not send a TransactionId)</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="AdditionalInfo" type="string">
+			<annotation>
+				<documentation>May contain semi-colon delimited strings</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+</schema>

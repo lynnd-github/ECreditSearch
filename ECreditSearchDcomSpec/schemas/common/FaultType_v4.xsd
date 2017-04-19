@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by Delta Air Lines, Inc. (Delta Air Lines, Inc.) -->
+<schema targetNamespace="http://schemas.delta.com/common/fault/v4" xmlns:pref="http://schemas.delta.com/common/debuginfo/v4" xmlns:resp="http://schemas.delta.com/common/responseinfo/v1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.delta.com/common/fault/v4" elementFormDefault="qualified">
+	<import namespace="http://schemas.delta.com/common/debuginfo/v4" schemaLocation="DebugInfo_v4.xsd"/>
+	<import namespace="http://schemas.delta.com/common/responseinfo/v1" schemaLocation="ResponseInfo.xsd"/>
+	<element name="BusinessFault" type="tns:BusinessFaultType"/>
+	<element name="SystemFault" type="tns:SystemFaultType"/>
+	<complexType name="FaultDetailsType">
+		<sequence>
+			<element ref="pref:DebugInfo" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="resp:ResponseInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="ErrorCode" type="string">
+			<annotation>
+				<documentation>
+					If there is no error code (from backend or
+					middleware) then leave blank
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ErrorMessage" type="string">
+			<annotation>
+				<documentation>
+					Error Message - e.g: invalid arguments
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="AdditionalInfo" type="string">
+			<annotation>
+				<documentation>
+					information such as backend request, timings, etc --
+					anything that would be helpful in determining the
+					cause of the error
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="StackTraceInfo" type="string">
+			<annotation>
+				<documentation>Error StackTrace</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<element name="FaultDetailedInfo" type="tns:FaultDetailsType"/>
+	<complexType name="BusinessFaultType">
+		<sequence>
+			<element ref="tns:FaultDetailedInfo"/>
+		</sequence>
+	</complexType>
+	<complexType name="SystemFaultType">
+		<sequence>
+			<element ref="tns:FaultDetailedInfo"/>
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+elementFormDefault="qualified" 
+targetNamespace="http://schemas.delta.com/ecredit/ecredit" 
+xmlns:tns="http://schemas.delta.com/ecredit/ecredit" 
+xmlns:etkt="http://schemas.delta.com/ecredit/eticket"
+xmlns:err="http://schemas.delta.com/common/error/v4"
+xmlns:chtxt="http://schemas.delta.com/ecredit/choicetext">
+<import namespace="http://schemas.delta.com/ecredit/eticket" schemaLocation="../ecredit/ETicket.xsd"/>
+<import namespace="http://schemas.delta.com/ecredit/choicetext" schemaLocation="../ecredit/ChoiceText.xsd"/>
+<import namespace="http://schemas.delta.com/common/error/v4" schemaLocation="../common/ErrorType_v4.xsd"/>
+
+	<element name="ECredit" type="tns:ECreditType"/>
+	<complexType name="ECreditType">
+		<sequence>
+			<element ref="etkt:ETicket" maxOccurs="1" minOccurs="0" />
+			<element ref="chtxt:ChoiceText" minOccurs="0" maxOccurs="unbounded"/>
+		    <element ref="err:Error" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="FirstName" type="string"/>
+		<attribute name="LastName" type="string"/>
+		<attribute name="Suffix" type="string"/>
+		<attribute name="UIDocumentNumber" type="string"/>
+		<attribute name="ETRDocumentNumber" type="string"/>
+		<attribute name="SkyMilesNumber" type="string"/>
+		<attribute name="Refundable" type="string">
+			<annotation>
+				<documentation>"Y" or "N"</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Value" type="string"/>
+		<attribute name="AltValue" type="string"/>
+		<attribute name="CurrencyCode" type="string"/>
+		<attribute name="AltCurrencyCode" type="string"/>
+		<attribute name="DecimalCurrencyInd" type="string">
+			<annotation>
+				<documentation>"D" or "N"</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="AmountApplied" type="string"/>
+		<attribute name="AmountAppliedUSD" type="string"/>
+		<attribute name="Source" type="string"/>
+		<attribute name="ExpiryDay" type="string"/>
+		<attribute name="ExpiryMonth" type="string"/>
+		<attribute name="ExpiryYear" type="string"/>
+		<attribute name="IssueDay" type="string"/>
+		<attribute name="IssueMonth" type="string"/>
+		<attribute name="IssueYear" type="string"/>
+		<attribute name="HighLevelDocType" type="string"/>
+		<attribute name="DocType" type="string"/>
+		<attribute name="SubDocType" type="string"/>
+		<attribute name="DocDescription" type="string"/>
+		<attribute name="DataIDCode" type="string"/>
+		<attribute name="DataText" type="string"/>
+		<attribute name="TicketDesignator" type="string"/>
+		<attribute name="ReasonCode" type="string"/>
+		<attribute name="AgencyID" type="string"/>
+		<attribute name="CorpID" type="string"/>
+		<attribute name="SkyBonusID" type="string"/>
+		<attribute name="RedemptionCode" type="string"/>
+		<attribute name="Status" type="string"/>
+		<attribute name="OriginalDocNumber" type="string"/>
+		<attribute name="OriginalDocValue" type="string"/>
+		<attribute name="OriginalDocMiles" type="string"/>
+		<attribute name="ApplyToAllPax" type="string"/>
+		<attribute name="EMDText" type="string"/>
+		<attribute name="DLRecordLocator" type="string"/>
+		<attribute name="OtherRecordLocator" type="string"/>
+		<attribute name="ExchangedToDocNbr" type="string"/>
+		<attribute name="ExchangedToDocType" type="string"/>
+		<attribute name="SPID" type="string"/>
+	</complexType>
+</schema>
